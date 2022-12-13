@@ -158,6 +158,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'CIS Framework Analyser',
+        to: '/tenant/standards/cis-report',
+      },
+      {
+        component: CNavItem,
         name: 'Domains Analyser',
         to: '/tenant/standards/domains-analyser',
       },
