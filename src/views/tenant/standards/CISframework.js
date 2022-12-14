@@ -1,7 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
-import { CellBoolean, CellBadge, cellBooleanFormatter, cellBadgeFormatter } from 'src/components/tables'
+import {
+  CellBoolean,
+  CellBadge,
+  cellBooleanFormatter,
+  cellBadgeFormatter
+       } from 'src/components/tables'
 
 const columns = [
   {
@@ -40,7 +45,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <cellBadgeFormatter color="warning" />
-      } else if (cell = 0) {
+      } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
       }
     },
