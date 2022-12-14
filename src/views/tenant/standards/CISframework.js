@@ -107,10 +107,13 @@ const columns = [
     exportSelector: 'accessPackages',
   },
   {
-    name: 'SecureDefaultState',
+    name: 'Security Defaults Enabled',
     selector: (row) => row['SecureDefaultState'],
+    cell: cellBooleanFormatter({ warning: true }),
     sortable: true,
     exportSelector: 'SecureDefaultState',
+    minWidth: '150px',
+    maxWidth: '150px',
   },
   {
     name: 'AdminSessionbyCA',
@@ -130,7 +133,7 @@ const CISframework = () => {
       tenantSelector={false}
       showAllTenantSelector={false}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-licenses`,
+        reportName: `${tenant?.defaultDomainName}-CISstandards`,
         path: '/api/CISstandard',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
