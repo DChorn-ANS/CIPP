@@ -44,7 +44,7 @@ const columns = [
     cell: (row, index, column) => {
       const cell = column.selector(row)
       if (cell > 0) {
-        return <cellBadgeFormatter color="warning" />
+        return <cellBadge color="warning" label={cell}/>
       } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
       }
