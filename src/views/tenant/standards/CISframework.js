@@ -40,10 +40,9 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge cell={row} color="warning" />
-      } else if (cell = 0) {
+      } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
-      }
-      
+      }      
     },
     exportSelector: 'AdminMFAV2',
   },
@@ -55,7 +54,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge cell={row} color="warning" />
-      } else if (cell = 0) {
+      } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
       }
     },
@@ -85,7 +84,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge cell={row} color="warning" />
-      } else if (cell = 0) {
+      } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
       }
     },
@@ -106,7 +105,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge cell={row} color="warning" />
-      } else if (cell = 0) {
+      } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
       }
     },
@@ -120,7 +119,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge cell={row} color="warning" />
-      } else if (cell = 0) {
+      } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
       }
     },
