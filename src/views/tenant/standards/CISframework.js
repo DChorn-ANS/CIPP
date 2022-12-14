@@ -42,7 +42,7 @@ const columns = [
         return <CellBadge cell={row} color="warning" />
       } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
-      }      
+      }
     },
     exportSelector: 'AdminMFAV2',
   },
@@ -71,8 +71,8 @@ const columns = [
       } else if (cell <= 4 && cell >= 2) {
         return <CellBoolean cell={true} />
       } else if (cell < 2) {
-      return <CellBadge cell={row} color="warning" />
-    }
+        return <CellBadge cell={row} color="warning" />
+      }
     },
     exportSelector: 'GlobalAdminCount',
   },
