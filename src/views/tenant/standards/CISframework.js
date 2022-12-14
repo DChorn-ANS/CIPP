@@ -152,6 +152,7 @@ const columns = [
     name: 'enableBannedPassworCheckOnPremise',
     selector: (row) => row['enableBannedPassworCheckOnPremise'],
     sortable: true,
+    cell: cellBooleanFormatter(),
     exportSelector: 'enableBannedPassworCheckOnPremise',
   },
   {
