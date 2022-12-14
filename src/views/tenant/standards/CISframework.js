@@ -5,27 +5,6 @@ import { CellBoolean, CellBadge, cellBooleanFormatter } from 'src/components/tab
 
 const columns = [
   {
-    name: 'Tenant',
-    selector: (row) => row['Tenant'],
-    sortable: true,
-    wrap: true,
-    exportSelector: 'Tenant',
-  },
-  {
-    name: 'ATPEnabled',
-    selector: (row) => row['ATPEnabled'],
-    sortable: true,
-    cell: cellBooleanFormatter(),
-    exportSelector: 'ATPEnabled',
-  },
-  {
-    name: 'HasAADP1',
-    selector: (row) => row['HasAADP1'],
-    sortable: true,
-    cell: cellBooleanFormatter(),
-    exportSelector: 'HasAADP1',
-  },
-  {
     name: 'HasAADP2',
     selector: (row) => row['HasAADP2'],
     sortable: true,
