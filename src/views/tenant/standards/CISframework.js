@@ -1,11 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
-import {
-  CellBoolean,
-  CellBadge,
-  cellBooleanFormatter,
-} from 'src/components/tables'
+import { CellBoolean, CellBadge, cellBooleanFormatter } from 'src/components/tables'
 
 const columns = [
   {
