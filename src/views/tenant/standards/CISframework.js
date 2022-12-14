@@ -40,7 +40,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge label={cell} color={'warning'} />
-      } else if ((cell = 0)) {
+      } else if (cell === 0) {
         return <CellBoolean cell={true} />
       }
     },
@@ -50,11 +50,11 @@ const columns = [
     name: 'MFARegistrationV2',
     selector: (row) => row['MFARegistrationV2'],
     sortable: true,
-        cell: (row, index, column) => {
+    cell: (row, index, column) => {
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge label={cell} color={'warning'} />
-      } else if ((cell = 0)) {
+      } else if (cell === 0) {
         return <CellBoolean cell={true} />
       }
     },
@@ -82,7 +82,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge label={cell} color={'warning'} />
-      } else if ((cell = 0)) {
+      } else if (cell === 0) {
         return <CellBoolean cell={true} />
       }
     },
@@ -103,7 +103,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge label={cell} color={'warning'} />
-      } else if ((cell = 0)) {
+      } else if (cell === 0) {
         return <CellBoolean cell={true} />
       }
     },
@@ -117,7 +117,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell > 0) {
         return <CellBadge label={cell} color={'warning'} />
-      } else if ((cell = 0)) {
+      } else if (cell === 0) {
         return <CellBoolean cell={true} />
       }
     },
@@ -131,7 +131,7 @@ const columns = [
       const cell = column.selector(row)
       if (cell < 2147483647) {
         return <CellBadge label={cell} color={'warning'} />
-      } else if ((cell = 2147483647)) {
+      } else if (cell === 2147483647) {
         return <CellBoolean cell={true} />
       }
     },
@@ -167,9 +167,9 @@ const columns = [
     sortable: true,
     cell: (row, index, column) => {
       const cell = column.selector(row)
-      if (cell = 0) {
+      if (cell === 0) {
         return <CellBadge label="No Access Packages" color={'warning'} />
-      } else if ((cell > 0)) {
+      } else if (cell > 0) {
         return <CellBadge label={cell} color={'info'} />
       }
     },
@@ -188,9 +188,9 @@ const columns = [
     sortable: true,
     cell: (row, index, column) => {
       const cell = column.selector(row)
-      if (cell = 0) {
+      if (cell === 0) {
         return <CellBadge label="No Session Policy" color={'warning'} />
-      } else if ((cell > 0)) {
+      } else if (cell > 0) {
         return <CellBadge label={cell} color={'info'} />
       }
     },
