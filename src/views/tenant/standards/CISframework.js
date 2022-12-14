@@ -120,7 +120,7 @@ const columns = [
   },
 ]
 
-const LicenseList = () => {
+const CISframework = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
 
   return (
@@ -130,7 +130,7 @@ const LicenseList = () => {
       tenantSelector={false}
       showAllTenantSelector={false}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-CISstandards`,
+        reportName: `${tenant?.defaultDomainName}-licenses`,
         path: '/api/CISstandard',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
@@ -139,4 +139,4 @@ const LicenseList = () => {
   )
 }
 
-export default CISstandards
+export default CISframework
