@@ -43,7 +43,7 @@ const columns = [
     cell: (row, index, column) => {
       const cell = column.selector(row)
       if (cell > 0) {
-        return <cellBadge color="warning" cell />
+        return <CellBadge label={cell} color={'warning'} />
       } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
       }
