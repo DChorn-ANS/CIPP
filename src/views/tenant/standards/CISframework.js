@@ -58,7 +58,6 @@ const columns = [
     name: 'BlockLegacyAuthentication',
     selector: (row) => row['BlockLegacyAuthentication'],
     sortable: true,
-    cell: (row) => CellTip(row['BlockLegacyAuthentication']),
     exportSelector: 'BlockLegacyAuthentication',
   },
   {
