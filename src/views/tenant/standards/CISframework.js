@@ -5,7 +5,6 @@ import {
   CellBoolean,
   CellBadge,
   cellBooleanFormatter,
-  cellBadgeFormatter,
 } from 'src/components/tables'
 
 const columns = [
@@ -44,7 +43,7 @@ const columns = [
     cell: (row, index, column) => {
       const cell = column.selector(row)
       if (cell > 0) {
-        return <cellBadge color="warning" label={cell} />
+        return <cellBadge color="warning" cell />
       } else if ((cell = 0)) {
         return <CellBoolean cell={true} />
       }
