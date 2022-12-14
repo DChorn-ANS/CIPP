@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
-import { CellBoolean, CellBadge } from 'src/components/tables'
+import { CellBoolean, CellBadge, cellBooleanFormatter } from 'src/components/tables'
 
 const columns = [
   {
@@ -15,21 +15,21 @@ const columns = [
     name: 'ATPEnabled',
     selector: (row) => row['ATPEnabled'],
     sortable: true,
-    cell: (row) => CellBoolean(row['ATPEnabled']),
+    cell: cellBooleanFormatter(),
     exportSelector: 'ATPEnabled',
   },
   {
     name: 'HasAADP1',
     selector: (row) => row['HasAADP1'],
     sortable: true,
-    cell: (row) => CellBoolean(row['HasAADP1']),
+    cell: cellBooleanFormatter(),
     exportSelector: 'HasAADP1',
   },
   {
     name: 'HasAADP2',
     selector: (row) => row['HasAADP2'],
     sortable: true,
-    cell: (row) => CellBoolean(row['HasAADP2']),
+    cell: cellBooleanFormatter(),
     exportSelector: 'HasAADP2',
   },
   {
@@ -113,7 +113,7 @@ const columns = [
     name: 'SecureDefaultState',
     selector: (row) => row['SecureDefaultState'],
     sortable: true,
-    cell: (row) => CellBoolean(row['SecureDefaultState']),
+    cell: cellBooleanFormatter(reverse = true),
     exportSelector: 'SecureDefaultState',
   },
   {
