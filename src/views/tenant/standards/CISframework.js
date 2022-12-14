@@ -50,42 +50,91 @@ const columns = [
     name: 'MFARegistrationV2',
     selector: (row) => row['MFARegistrationV2'],
     sortable: true,
+        cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell > 0) {
+        return <CellBadge label={cell} color={'warning'} />
+      } else if ((cell = 0)) {
+        return <CellBoolean cell={true} />
+      }
+    },
     exportSelector: 'MFARegistrationV2',
   },
   {
     name: 'GlobalAdminCount',
     selector: (row) => row['GlobalAdminCount'],
     sortable: true,
+    cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell >= 2 && cell <= 4) {
+        return <CellBoolean cell={true} />
+      } else {
+        return <CellBadge label={cell} color={'warning'} />
+      }
+    },
     exportSelector: 'GlobalAdminCount',
   },
   {
     name: 'BlockLegacyAuthentication',
     selector: (row) => row['BlockLegacyAuthentication'],
     sortable: true,
+    cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell > 0) {
+        return <CellBadge label={cell} color={'warning'} />
+      } else if ((cell = 0)) {
+        return <CellBoolean cell={true} />
+      }
+    },
     exportSelector: 'BlockLegacyAuthentication',
   },
   {
     name: 'PasswordHashSync',
     selector: (row) => row['PasswordHashSync'],
     sortable: true,
+    cell: cellBooleanFormatter(),
     exportSelector: 'PasswordHashSync',
   },
   {
     name: 'SigninRiskPolicy',
     selector: (row) => row['SigninRiskPolicy'],
     sortable: true,
+    cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell > 0) {
+        return <CellBadge label={cell} color={'warning'} />
+      } else if ((cell = 0)) {
+        return <CellBoolean cell={true} />
+      }
+    },
     exportSelector: 'SigninRiskPolicy',
   },
   {
     name: 'UserRiskPolicy',
     selector: (row) => row['UserRiskPolicy'],
     sortable: true,
+    cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell > 0) {
+        return <CellBadge label={cell} color={'warning'} />
+      } else if ((cell = 0)) {
+        return <CellBoolean cell={true} />
+      }
+    },
     exportSelector: 'UserRiskPolicy',
   },
   {
     name: 'PWAgePolicyNew',
     selector: (row) => row['PWAgePolicyNew'],
     sortable: true,
+    cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell < 2147483647) {
+        return <CellBadge label={cell} color={'warning'} />
+      } else if ((cell = 2147483647)) {
+        return <CellBoolean cell={true} />
+      }
+    },
     exportSelector: 'PWAgePolicyNew',
   },
   {
@@ -116,6 +165,14 @@ const columns = [
     name: 'accessPackages',
     selector: (row) => row['accessPackages'],
     sortable: true,
+    cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell = 0) {
+        return <CellBadge label="No Access Packages" color={'warning'} />
+      } else if ((cell > 0)) {
+        return <CellBadge label={cell} color={'info'} />
+      }
+    },
     exportSelector: 'accessPackages',
   },
   {
@@ -129,6 +186,14 @@ const columns = [
     name: 'AdminSessionbyCA',
     selector: (row) => row['AdminSessionbyCA'],
     sortable: true,
+    cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell = 0) {
+        return <CellBadge label="No Session Policy" color={'warning'} />
+      } else if ((cell > 0)) {
+        return <CellBadge label={cell} color={'info'} />
+      }
+    },
     exportSelector: 'AdminSessionbyCA',
   },
 ]
