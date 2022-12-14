@@ -1,14 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
-import { CellTip } from 'src/components/tables'
+import { CellBoolean, CellTip } from 'src/components/tables'
 
 const columns = [
   {
     name: 'Tenant',
     selector: (row) => row['Tenant'],
     sortable: true,
-    cell: (row) => CellTip(row['Tenant']),
     wrap: true,
     exportSelector: 'Tenant',
   },
@@ -16,42 +15,39 @@ const columns = [
     name: 'ATPEnabled',
     selector: (row) => row['ATPEnabled'],
     sortable: true,
-    cell: (row) => CellTip(row['ATPEnabled']),
+    cell: (row) => CellBoolean(row['ATPEnabled']),
     exportSelector: 'ATPEnabled',
   },
   {
     name: 'HasAADP1',
     selector: (row) => row['HasAADP1'],
     sortable: true,
-    cell: (row) => CellTip(row['HasAADP1']),
+    cell: (row) => CellBoolean(row['HasAADP1']),
     exportSelector: 'HasAADP1',
   },
   {
     name: 'HasAADP2',
     selector: (row) => row['HasAADP2'],
     sortable: true,
-    cell: (row) => CellTip(row['HasAADP2']),
+    cell: (row) => CellBoolean(row['HasAADP2']),
     exportSelector: 'HasAADP2',
   },
   {
     name: 'AdminMFAV2',
     selector: (row) => row['AdminMFAV2'],
     sortable: true,
-    cell: (row) => CellTip(row['AdminMFAV2']),
     exportSelector: 'AdminMFAV2',
   },
   {
     name: 'MFARegistrationV2',
     selector: (row) => row['MFARegistrationV2'],
     sortable: true,
-    cell: (row) => CellTip(row['MFARegistrationV2']),
     exportSelector: 'MFARegistrationV2',
   },
   {
     name: 'GlobalAdminCount',
     selector: (row) => row['GlobalAdminCount'],
     sortable: true,
-    cell: (row) => CellTip(row['GlobalAdminCount']),
     exportSelector: 'GlobalAdminCount',
   },
   {
@@ -64,7 +60,6 @@ const columns = [
     name: 'PasswordHashSync',
     selector: (row) => row['PasswordHashSync'],
     sortable: true,
-    cell: (row) => CellTip(row['PasswordHashSync']),
     exportSelector: 'PasswordHashSync',
   },
   {
@@ -83,42 +78,48 @@ const columns = [
     name: 'PWAgePolicyNew',
     selector: (row) => row['PWAgePolicyNew'],
     sortable: true,
-    cell: (row) => CellTip(row['PWAgePolicyNew']),
     exportSelector: 'PWAgePolicyNew',
   },
   {
     name: 'SelfServicePasswordReset',
     selector: (row) => row['SelfServicePasswordReset'],
     sortable: true,
-    cell: (row) => CellTip(row['SelfServicePasswordReset']),
+    cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell === 'Off') {
+        return <CellBadge label="Off All Users" color="warning" />
+      } else if (cell === 'On') {
+        return <CellBadge label="On All Users" color="success" />
+      } else if (cell === 'Specific Users') {
+        return <CellBadge label="Specific Users" color="info" />
+      }
+      return <CellBadge label="No Data" color="info" />
+    },
     exportSelector: 'SelfServicePasswordReset',
   },
   {
     name: 'enableBannedPassworCheckOnPremise',
     selector: (row) => row['enableBannedPassworCheckOnPremise'],
     sortable: true,
-    cell: (row) => CellTip(row['enableBannedPassworCheckOnPremise']),
     exportSelector: 'enableBannedPassworCheckOnPremise',
   },
   {
     name: 'accessPackages',
     selector: (row) => row['accessPackages'],
     sortable: true,
-    cell: (row) => CellTip(row['accessPackages']),
     exportSelector: 'accessPackages',
   },
   {
     name: 'SecureDefaultState',
     selector: (row) => row['SecureDefaultState'],
     sortable: true,
-    cell: (row) => CellTip(row['SecureDefaultState']),
+    cell: (row) => CellBoolean(row['SecureDefaultState']),
     exportSelector: 'SecureDefaultState',
   },
   {
     name: 'AdminSessionbyCA',
     selector: (row) => row['AdminSessionbyCA'],
     sortable: true,
-    cell: (row) => CellTip(row['AdminSessionbyCA']),
     exportSelector: 'AdminSessionbyCA',
   },
 ]
