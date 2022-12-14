@@ -107,13 +107,10 @@ const columns = [
     exportSelector: 'accessPackages',
   },
   {
-    name: 'Security Defaults Enabled',
+    name: 'SecureDefaultState',
     selector: (row) => row['SecureDefaultState'],
-    cell: cellBooleanFormatter({ warning: true }),
     sortable: true,
     exportSelector: 'SecureDefaultState',
-    minWidth: '150px',
-    maxWidth: '150px',
   },
   {
     name: 'AdminSessionbyCA',
