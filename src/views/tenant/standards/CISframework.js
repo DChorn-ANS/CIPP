@@ -42,9 +42,9 @@ const columns = [
   },
   {
     name: 'MFARegistrationV2',
-    selector: (row) => row['MFARegistrationV2MFARegistrationV2'],
+    selector: (row) => row['MFARegistrationV2'],
     sortable: true,
-    cell: (row) => CellTip(row['MFARegistrationV2MFARegistrationV2']),
+    cell: (row) => CellTip(row['MFARegistrationV2']),
     exportSelector: 'MFARegistrationV2',
   },
   {
