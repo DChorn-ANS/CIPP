@@ -367,6 +367,11 @@ const routes = [
     component: BestPracticeAnalyzer,
   },
   {
+    path: '/tenant/standards/cis-report',
+    name: 'CIS Framework Report',
+    component: CISframework,
+  },
+  {
     path: '/tenant/standards/domains-analyser',
     name: 'Domains Analyser',
     component: DomainsAnalyser,
