@@ -36,6 +36,14 @@ const columns = [
     name: 'AdminMFAV2',
     selector: (row) => row['AdminMFAV2'],
     sortable: true,
+    cell: (row, index, column) => {
+      const cell = column.selector(row)
+      if (cell > 0) {
+        return <CellBadge label={row} color="warning" />
+      } else if ((cell = 0)) {
+        return <CellBoolean cell={true} />
+      }
+    },
     exportSelector: 'AdminMFAV2',
   },
   {
