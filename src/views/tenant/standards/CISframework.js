@@ -36,93 +36,42 @@ const columns = [
     name: 'AdminMFAV2',
     selector: (row) => row['AdminMFAV2'],
     sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 0) {
-        return <CellBadge cell={row} color="warning" />
-      } else if ((cell = 0)) {
-        return <CellBoolean cell={true} />
-      }
-    },
     exportSelector: 'AdminMFAV2',
   },
   {
     name: 'MFARegistrationV2',
     selector: (row) => row['MFARegistrationV2'],
     sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 0) {
-        return <CellBadge cell={row} color="warning" />
-      } else if ((cell = 0)) {
-        return <CellBoolean cell={true} />
-      }
-    },
     exportSelector: 'MFARegistrationV2',
   },
   {
     name: 'GlobalAdminCount',
     selector: (row) => row['GlobalAdminCount'],
     sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 4) {
-        return <CellBadge cell={row} color="warning" />
-      } else if (cell <= 4 && cell >= 2) {
-        return <CellBoolean cell={true} />
-      } else if (cell < 2) {
-        return <CellBadge cell={row} color="warning" />
-      }
-    },
     exportSelector: 'GlobalAdminCount',
   },
   {
     name: 'BlockLegacyAuthentication',
     selector: (row) => row['BlockLegacyAuthentication'],
     sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 0) {
-        return <CellBadge cell={row} color="warning" />
-      } else if ((cell = 0)) {
-        return <CellBoolean cell={true} />
-      }
-    },
     exportSelector: 'BlockLegacyAuthentication',
   },
   {
     name: 'PasswordHashSync',
     selector: (row) => row['PasswordHashSync'],
     sortable: true,
-    cell: cellBooleanFormatter(),
     exportSelector: 'PasswordHashSync',
   },
   {
     name: 'SigninRiskPolicy',
     selector: (row) => row['SigninRiskPolicy'],
     sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 0) {
-        return <CellBadge cell={row} color="warning" />
-      } else if ((cell = 0)) {
-        return <CellBoolean cell={true} />
-      }
-    },
     exportSelector: 'SigninRiskPolicy',
   },
   {
     name: 'UserRiskPolicy',
     selector: (row) => row['UserRiskPolicy'],
     sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 0) {
-        return <CellBadge cell={row} color="warning" />
-      } else if ((cell = 0)) {
-        return <CellBoolean cell={true} />
-      }
-    },
     exportSelector: 'UserRiskPolicy',
   },
   {
