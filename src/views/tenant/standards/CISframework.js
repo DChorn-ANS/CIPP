@@ -113,7 +113,7 @@ const columns = [
     name: 'SecureDefaultState',
     selector: (row) => row['SecureDefaultState'],
     sortable: true,
-    cell: cellBooleanFormatter(reverse = true),
+    cell: cellBooleanFormatter({reverse: true}),
     exportSelector: 'SecureDefaultState',
   },
   {
