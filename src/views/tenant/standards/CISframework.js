@@ -5,8 +5,8 @@ import {
   CellBoolean,
   CellBadge,
   cellBooleanFormatter,
-  cellBadgeFormatter
-       } from 'src/components/tables'
+  cellBadgeFormatter,
+} from 'src/components/tables'
 
 const columns = [
   {
