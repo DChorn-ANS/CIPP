@@ -65,6 +65,7 @@ const DeviceComplianceReport = React.lazy(() =>
 const BestPracticeAnalyzer = React.lazy(() =>
   import('src/views/tenant/standards/BestPracticeAnalyser'),
 )
+const CISframework = React.lazy(() => import('src/views/tenant/standards/CISframework'))
 const DomainsAnalyser = React.lazy(() => import('src/views/tenant/standards/DomainsAnalyser'))
 const OffboardingWizard = React.lazy(() =>
   import('src/views/identity/administration/OffboardingWizard'),
