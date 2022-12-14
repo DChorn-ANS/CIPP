@@ -84,7 +84,7 @@ const columns = [
     name: 'SelfServicePasswordReset',
     selector: (row) => row['SelfServicePasswordReset'],
     sortable: true,
-    cell: (row, column) => {
+    cell: (row, index, column) => {
       const cell = column.selector(row)
       if (cell === 'Off') {
         return <CellBadge label="Off All Users" color="warning" />
