@@ -13,36 +13,110 @@ const columns = [
     exportSelector: 'Tenant',
   },
   {
-    name: 'license',
-    selector: (row) => row['License'],
+    name: 'ATPEnabled',
+    selector: (row) => row['ATPEnabled'],
     sortable: true,
-    cell: (row) => CellTip(row['License']),
-    exportSelector: 'License',
+    cell: (row) => CellTip(row['ATPEnabled']),
+    exportSelector: 'ATPEnabled',
     minWidth: '300px',
   },
   {
-    name: 'Used',
-    selector: (row) => row['CountUsed'],
+    name: 'HasAADP1',
+    selector: (row) => row['HasAADP1'],
     sortable: true,
-    exportSelector: 'CountUsed',
+    exportSelector: 'HasAADP1',
   },
   {
-    name: 'Available',
-    selector: (row) => row['CountAvailable'],
+    name: 'HasAADP2',
+    selector: (row) => row['HasAADP2'],
     sortable: true,
-    exportSelector: 'CountAvailable',
+    exportSelector: 'HasAADP2',
   },
   {
-    name: 'Total',
-    selector: (row) => row['TotalLicenses'],
+    name: 'AdminMFAV2',
+    selector: (row) => row['AdminMFAV2'],
     sortable: true,
-    exportSelector: 'TotalLicenses',
+    exportSelector: 'AdminMFAV2',
   },
   {
-    name: 'GUID',
-    selector: (row) => row['skuId'],
+    name: 'MFARegistrationV2',
+    selector: (row) => row['MFARegistrationV2MFARegistrationV2'],
     sortable: true,
-    exportSelector: 'skuId',
+    exportSelector: 'MFARegistrationV2',
+  },
+  {
+    name: 'GlobalAdminCount',
+    selector: (row) => row['GlobalAdminCount'],
+    sortable: true,
+    cell: (row) => CellTip(row['GlobalAdminCount']),
+    wrap: true,
+    exportSelector: 'GlobalAdminCount',
+  },
+  {
+    name: 'BlockLegacyAuthentication',
+    selector: (row) => row['BlockLegacyAuthentication'],
+    sortable: true,
+    cell: (row) => CellTip(row['BlockLegacyAuthentication']),
+    exportSelector: 'BlockLegacyAuthentication',
+    minWidth: '300px',
+  },
+  {
+    name: 'PasswordHashSync',
+    selector: (row) => row['PasswordHashSync'],
+    sortable: true,
+    exportSelector: 'PasswordHashSync',
+  },
+  {
+    name: 'SigninRiskPolicy',
+    selector: (row) => row['SigninRiskPolicy'],
+    sortable: true,
+    exportSelector: 'SigninRiskPolicy',
+  },
+  {
+    name: 'UserRiskPolicy',
+    selector: (row) => row['UserRiskPolicy'],
+    sortable: true,
+    exportSelector: 'UserRiskPolicy',
+  },
+  {
+    name: 'PWAgePolicyNew',
+    selector: (row) => row['PWAgePolicyNew'],
+    sortable: true,
+    exportSelector: 'PWAgePolicyNew',
+  },
+  {
+    name: 'SelfServicePasswordReset',
+    selector: (row) => row['SelfServicePasswordReset'],
+    sortable: true,
+    cell: (row) => CellTip(row['SelfServicePasswordReset']),
+    wrap: true,
+    exportSelector: 'SelfServicePasswordReset',
+  },
+  {
+    name: 'enableBannedPassworCheckOnPremise',
+    selector: (row) => row['enableBannedPassworCheckOnPremise'],
+    sortable: true,
+    cell: (row) => CellTip(row['enableBannedPassworCheckOnPremise']),
+    exportSelector: 'enableBannedPassworCheckOnPremise',
+    minWidth: '300px',
+  },
+  {
+    name: 'accessPackages',
+    selector: (row) => row['accessPackages'],
+    sortable: true,
+    exportSelector: 'accessPackages',
+  },
+  {
+    name: 'SecureDefaultState',
+    selector: (row) => row['SecureDefaultState'],
+    sortable: true,
+    exportSelector: 'SecureDefaultState',
+  },
+  {
+    name: 'AdminSessionbyCA',
+    selector: (row) => row['AdminSessionbyCA'],
+    sortable: true,
+    exportSelector: 'AdminSessionbyCA',
   },
 ]
 
@@ -52,12 +126,12 @@ const LicenseList = () => {
   return (
     <CippPageList
       capabilities={{ allTenants: true, helpContext: 'https://google.com' }}
-      title="Licenses Report"
+      title="CIS Standards Report"
       tenantSelector={false}
       showAllTenantSelector={false}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-licenses`,
-        path: '/api/ListLicenses',
+        reportName: `${tenant?.defaultDomainName}-CISstandards`,
+        path: '/api/CISstandard',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
       }}
@@ -65,4 +139,4 @@ const LicenseList = () => {
   )
 }
 
-export default LicenseList
+export default CISstandards
