@@ -71,14 +71,12 @@ const columns = [
     name: 'SigninRiskPolicy',
     selector: (row) => row['SigninRiskPolicy'],
     sortable: true,
-    cell: (row) => CellTip(row['SigninRiskPolicy']),
     exportSelector: 'SigninRiskPolicy',
   },
   {
     name: 'UserRiskPolicy',
     selector: (row) => row['UserRiskPolicy'],
     sortable: true,
-    cell: (row) => CellTip(row['UserRiskPolicy']),
     exportSelector: 'UserRiskPolicy',
   },
   {
