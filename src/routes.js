@@ -62,7 +62,7 @@ const AzureADConnectReport = React.lazy(() =>
 const DeviceComplianceReport = React.lazy(() =>
   import('src/views/security/reports/ListDeviceComplianceReport'),
 )
-const CISframework = React.lazy(() => import('src/views/tenant/standards/ANSSecurityAudit'))
+const ANSSecurityAudit = React.lazy(() => import('src/views/tenant/standards/ANSSecurityAudit'))
 const BestPracticeAnalyzer = React.lazy(() =>
   import('src/views/tenant/standards/BestPracticeAnalyser'),
 )
