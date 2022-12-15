@@ -26,7 +26,7 @@ const CISframework = () => {
   }
   const columns = [
     {
-      name: 'AdminMFAV2',
+      name: 'Admin MFA Enabled',
       selector: (row) => row['AdminMFAV2'],
       sortable: true,
       cell: (row, index, column) => {
