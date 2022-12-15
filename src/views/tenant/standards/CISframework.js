@@ -29,7 +29,7 @@ const CISframework = () => {
       name: 'HasAADP1',
       selector: (row) => row['HasAADP1'],
       sortable: true,
-      visible: false,
+      hidden: true,
       cell: cellBooleanFormatter(),
       exportSelector: 'HasAADP1',
     },
