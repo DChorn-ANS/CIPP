@@ -2,6 +2,7 @@ import React from 'react'
 import { CButton, CSpinner } from '@coreui/react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
+import { ModalService } from 'src/components/utilities'
 import { CellBoolean, CellBadge, cellBooleanFormatter } from 'src/components/tables'
 
 const CISframework = () => {
