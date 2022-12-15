@@ -54,13 +54,13 @@ const CISframework = () => {
           return <CellBoolean cell={true} />
         } else {
           return (
-          <CButton
-             className="btn-danger"
-             size="sm"
-             onClick={() => handleGlobalAdminsList({ row })}
-             >
-             {cell} Admin{cell > 1 ? 's' : ''}
-          </CButton>
+            <CButton
+              className="btn-danger"
+              size="sm"
+              onClick={() => handleGlobalAdminsList({ row })}
+            >
+              {cell} Admin{cell > 1 ? 's' : ''}
+            </CButton>
           )
         }
       },
@@ -102,18 +102,18 @@ const CISframework = () => {
       exportSelector: 'SigninRiskPolicy',
     },
     {
-        name: 'UserRiskPolicy',
-        selector: (row) => row['UserRiskPolicy'],
-        sortable: true,
-       cell: (row, index, column) => {
-          const cell = column.selector(row)
-          if (cell > 0) {
-            return <CellBadge label={cell} color={'warning'} />
-          } else if (cell === 0) {
-            return <CellBoolean cell={true} />
-          }
-        },
-        exportSelector: 'UserRiskPolicy',
+      name: 'UserRiskPolicy',
+      selector: (row) => row['UserRiskPolicy'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell > 0) {
+          return <CellBadge label={cell} color={'warning'} />
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
+      },
+      exportSelector: 'UserRiskPolicy',
     },
     {
       name: 'PWAgePolicyNew',
@@ -189,8 +189,6 @@ const CISframework = () => {
       exportSelector: 'AdminSessionbyCA',
   },
 ]
-
-
 
   return (
     <CippPageList
