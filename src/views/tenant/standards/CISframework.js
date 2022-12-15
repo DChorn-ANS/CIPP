@@ -17,172 +17,176 @@ const CISframework = () => {
   }
   const columns = [
     {
-    name: 'AdminMFAV2',
-    selector: (row) => row['AdminMFAV2'],
+      name: 'AdminMFAV2',
+      selector: (row) => row['AdminMFAV2'],
       sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
         if (cell > 0) {
-        return <CellBadge label={cell} color={'warning'} />
-      } else if (cell === 0) {
-        return <CellBoolean cell={true} />
+          return <CellBadge label={cell} color={'warning'} />
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
         }
       },
-    exportSelector: 'AdminMFAV2',
+      exportSelector: 'AdminMFAV2',
     },
     {
-    name: 'MFARegistrationV2',
-    selector: (row) => row['MFARegistrationV2'],
-    sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 0) {
-        return <CellBadge label={cell} color={'warning'} />
-      } else if (cell === 0) {
-        return <CellBoolean cell={true} />
-      }
-    },
-    exportSelector: 'MFARegistrationV2',
+      name: 'MFARegistrationV2',
+      selector: (row) => row['MFARegistrationV2'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell > 0) {
+          return <CellBadge label={cell} color={'warning'} />
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
+      },
+      exportSelector: 'MFARegistrationV2',
     },
     {
-    name: 'GlobalAdminCount',
-    selector: (row) => row['GlobalAdminCount'],
-    sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell >= 2 && cell <= 4) {
-        return <CellBoolean cell={true} />
-      } else {
-        return (
-          <CButton className="btn-danger" size="sm" onClick={() => handleGlobalAdminsList({ row })}>
-            {cell} Admin{cell > 1 ? 's' : ''}
+      name: 'GlobalAdminCount',
+      selector: (row) => row['GlobalAdminCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell >= 2 && cell <= 4) {
+          return <CellBoolean cell={true} />
+        } else {
+          return (
+          <CButton
+             className="btn-danger"
+             size="sm"
+             onClick={() => handleGlobalAdminsList({ row })}
+             >
+             {cell} Admin{cell > 1 ? 's' : ''}
           </CButton>
-        )
-      }
-    },
-    exportSelector: 'GlobalAdminCount',
-    },
-    {
-    name: 'BlockLegacyAuthentication',
-    selector: (row) => row['BlockLegacyAuthentication'],
-    sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 0) {
-        return <CellBadge label={cell} color={'warning'} />
-      } else if (cell === 0) {
-        return <CellBoolean cell={true} />
-      }
-    },
-    exportSelector: 'BlockLegacyAuthentication',
+          )
+        }
+      },
+      exportSelector: 'GlobalAdminCount',
     },
     {
-    name: 'PasswordHashSync',
-    selector: (row) => row['PasswordHashSync'],
-    sortable: true,
-    cell: cellBooleanFormatter(),
-    exportSelector: 'PasswordHashSync',
+      name: 'BlockLegacyAuthentication',
+      selector: (row) => row['BlockLegacyAuthentication'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell > 0) {
+          return <CellBadge label={cell} color={'warning'} />
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
+      },
+      exportSelector: 'BlockLegacyAuthentication',
     },
     {
-    name: 'SigninRiskPolicy',
-    selector: (row) => row['SigninRiskPolicy'],
-    sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 0) {
-        return <CellBadge label={cell} color={'warning'} />
-      } else if (cell === 0) {
-        return <CellBoolean cell={true} />
-      }
-    },
-    exportSelector: 'SigninRiskPolicy',
+      name: 'PasswordHashSync',
+      selector: (row) => row['PasswordHashSync'],
+      sortable: true,
+      cell: cellBooleanFormatter(),
+      exportSelector: 'PasswordHashSync',
     },
     {
-    name: 'UserRiskPolicy',
-    selector: (row) => row['UserRiskPolicy'],
-    sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell > 0) {
-        return <CellBadge label={cell} color={'warning'} />
-      } else if (cell === 0) {
-        return <CellBoolean cell={true} />
-      }
-    },
-    exportSelector: 'UserRiskPolicy',
-    },
-    {
-    name: 'PWAgePolicyNew',
-    selector: (row) => row['PWAgePolicyNew'],
-    sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell < 2147483647) {
-        return <CellBadge label={cell} color={'warning'} />
-      } else if (cell === 2147483647) {
-        return <CellBoolean cell={true} />
-      }
-    },
-    exportSelector: 'PWAgePolicyNew',
+      name: 'SigninRiskPolicy',
+      selector: (row) => row['SigninRiskPolicy'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell > 0) {
+          return <CellBadge label={cell} color={'warning'} />
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
+      },
+      exportSelector: 'SigninRiskPolicy',
     },
     {
-    name: 'SelfServicePasswordReset',
-    selector: (row) => row['SelfServicePasswordReset'],
-    sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell === 'Off') {
-        return <CellBadge label="Off All Users" color="warning" />
-      } else if (cell === 'On') {
-        return <CellBadge label="On All Users" color="success" />
-      } else if (cell === 'Specific Users') {
-        return <CellBadge label="Specific Users" color="info" />
-      }
-      return <CellBadge label="No Data" color="info" />
-    },
-    exportSelector: 'SelfServicePasswordReset',
+        name: 'UserRiskPolicy',
+        selector: (row) => row['UserRiskPolicy'],
+        sortable: true,
+       cell: (row, index, column) => {
+          const cell = column.selector(row)
+          if (cell > 0) {
+            return <CellBadge label={cell} color={'warning'} />
+          } else if (cell === 0) {
+            return <CellBoolean cell={true} />
+          }
+        },
+        exportSelector: 'UserRiskPolicy',
     },
     {
-    name: 'enableBannedPassworCheckOnPremise',
-    selector: (row) => row['enableBannedPassworCheckOnPremise'],
-    sortable: true,
-    cell: cellBooleanFormatter(),
-    exportSelector: 'enableBannedPassworCheckOnPremise',
+      name: 'PWAgePolicyNew',
+      selector: (row) => row['PWAgePolicyNew'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell < 2147483647) {
+          return <CellBadge label={cell} color={'warning'} />
+        } else if (cell === 2147483647) {
+          return <CellBoolean cell={true} />
+        }
+      },
+      exportSelector: 'PWAgePolicyNew',
     },
     {
-    name: 'accessPackages',
-    selector: (row) => row['accessPackages'],
-    sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell === 0) {
-        return <CellBadge label="No Access Packages" color={'warning'} />
-      } else if (cell > 0) {
-        return <CellBadge label={cell} color={'info'} />
-      }
-    },
-    exportSelector: 'accessPackages',
-    },
-    {
-    name: 'SecureDefaultState',
-    selector: (row) => row['SecureDefaultState'],
-    sortable: true,
-    cell: cellBooleanFormatter({ reverse: true }),
-    exportSelector: 'SecureDefaultState',
+      name: 'SelfServicePasswordReset',
+      selector: (row) => row['SelfServicePasswordReset'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell === 'Off') {
+          return <CellBadge label="Off All Users" color="warning" />
+        } else if (cell === 'On') {
+          return <CellBadge label="On All Users" color="success" />
+        } else if (cell === 'Specific Users') {
+          return <CellBadge label="Specific Users" color="info" />
+        }
+        return <CellBadge label="No Data" color="info" />
+      },
+      exportSelector: 'SelfServicePasswordReset',
     },
     {
-    name: 'AdminSessionbyCA',
-    selector: (row) => row['AdminSessionbyCA'],
-    sortable: true,
-    cell: (row, index, column) => {
-      const cell = column.selector(row)
-      if (cell === 0) {
-        return <CellBadge label="No Session Policy" color={'warning'} />
-      } else if (cell > 0) {
-        return <CellBadge label={cell} color={'info'} />
-      }
+      name: 'enableBannedPassworCheckOnPremise',
+      selector: (row) => row['enableBannedPassworCheckOnPremise'],
+      sortable: true,
+      cell: cellBooleanFormatter(),
+      exportSelector: 'enableBannedPassworCheckOnPremise',
     },
-    exportSelector: 'AdminSessionbyCA',
+    {
+      name: 'accessPackages',
+      selector: (row) => row['accessPackages'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell === 0) {
+          return <CellBadge label="No Access Packages" color={'warning'} />
+        } else if (cell > 0) {
+          return <CellBadge label={cell} color={'info'} />
+        }
+      },
+      exportSelector: 'accessPackages',
+    },
+    {
+      name: 'SecureDefaultState',
+      selector: (row) => row['SecureDefaultState'],
+      sortable: true,
+      cell: cellBooleanFormatter({ reverse: true }),
+      exportSelector: 'SecureDefaultState',
+    },
+    {
+      name: 'AdminSessionbyCA',
+      selector: (row) => row['AdminSessionbyCA'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell === 0) {
+          return <CellBadge label="No Session Policy" color={'warning'} />
+        } else if (cell > 0) {
+          return <CellBadge label={cell} color={'info'} />
+        }
+      },
+      exportSelector: 'AdminSessionbyCA',
   },
 ]
 
