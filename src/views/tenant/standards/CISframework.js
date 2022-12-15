@@ -194,7 +194,8 @@ const CISframework = () => {
         } else if (cell > 0) {
           return (
             <CButton className="btn-info" size="sm" onClick={() => handleAdminSessionbyCA({ row })}>
-            {cell}{cell > 1 ? 'Policies' : 'Policy'}
+              {cell}
+              {cell > 1 ? 'Policies' : 'Policy'}
             </CButton>
           )
         }
