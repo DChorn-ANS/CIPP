@@ -193,13 +193,9 @@ const CISframework = () => {
           return <CellBadge label="No Session Policy" color={'warning'} />
         } else if (cell > 0) {
           return (
-            <CButton
-            className="btn-info"
-            size="sm"
-            onClick={() => handleAdminSessionbyCA({ row })}
-          >
+            <CButton className="btn-info" size="sm" onClick={() => handleAdminSessionbyCA({ row })}>
             {cell}{cell > 1 ? 'Policies' : 'Policy'}
-          </CButton>
+            </CButton>
           )
         }
       },
