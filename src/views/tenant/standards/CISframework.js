@@ -26,14 +26,6 @@ const CISframework = () => {
   }
   const columns = [
     {
-      name: 'HasAADP1',
-      selector: (row) => row['HasAADP1'],
-      sortable: true,
-      hidden: true,
-      cell: cellBooleanFormatter(),
-      exportSelector: 'HasAADP1',
-    },
-    {
       name: 'AdminMFAV2',
       selector: (row) => row['AdminMFAV2'],
       sortable: true,
