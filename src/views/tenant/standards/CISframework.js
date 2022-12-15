@@ -5,13 +5,6 @@ import { CellBoolean, CellBadge, cellBooleanFormatter } from 'src/components/tab
 
 const columns = [
   {
-    name: 'HasAADP2',
-    selector: (row) => row['HasAADP2'],
-    sortable: true,
-    cell: cellBooleanFormatter(),
-    exportSelector: 'HasAADP2',
-  },
-  {
     name: 'AdminMFAV2',
     selector: (row) => row['AdminMFAV2'],
     sortable: true,
@@ -48,7 +41,15 @@ const columns = [
       if (cell >= 2 && cell <= 4) {
         return <CellBoolean cell={true} />
       } else {
-        return <CellBadge label={cell} color={'warning'} />
+        return (
+          <CButton
+            className="btn-danger"
+            size="sm"
+            onClick={() => handleGlobalAdminsList({ row })}
+          >
+            {cell} Admin{cell > 1 ? 's' : ''}
+          </CButton>
+        )
       }
     },
     exportSelector: 'GlobalAdminCount',
@@ -179,6 +180,14 @@ const columns = [
 
 const CISframework = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
+  const handleGlobalAdminsList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.GlobalAdminList.split('<br />'),
+      title: `Shared Mailboxes with Enabled User Accounts`,
+    })
+  }
 
   return (
     <CippPageList
