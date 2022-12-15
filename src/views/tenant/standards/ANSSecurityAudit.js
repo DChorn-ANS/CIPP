@@ -5,7 +5,7 @@ import { CippPageList } from 'src/components/layout'
 import { ModalService } from 'src/components/utilities'
 import { CellBoolean, CellBadge, cellBooleanFormatter } from 'src/components/tables'
 
-const CISframework = () => {
+const ANSSecurityAudit = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
 
   const handleGlobalAdminsList = ({ row }) => {
@@ -216,12 +216,12 @@ const CISframework = () => {
   return (
     <CippPageList
       capabilities={{ allTenants: true, helpContext: 'https://google.com' }}
-      title="CIS Standards Report"
+      title="ANS Security Audit"
       tenantSelector={false}
       showAllTenantSelector={false}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-CISstandards`,
-        path: '/api/CISstandard',
+        reportName: `${tenant?.defaultDomainName}-ANSSecurityAudit`,
+        path: '/api/ANSSecurityAudit',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
       }}
@@ -229,4 +229,4 @@ const CISframework = () => {
   )
 }
 
-export default CISframework
+export default ANSSecurityAudit
