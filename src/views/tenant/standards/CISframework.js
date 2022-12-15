@@ -180,7 +180,7 @@ const CISframework = () => {
           return <CellBadge label="No Access Packages" color={'warning'} />
         } else if (cell > 0) {
           return <CellBadge label={cell} color={'info'} />
-        } 
+        }
       },
       exportSelector: 'accessPackages',
     },
