@@ -42,11 +42,7 @@ const columns = [
         return <CellBoolean cell={true} />
       } else {
         return (
-          <CButton
-            className="btn-danger"
-            size="sm"
-            onClick={() => handleGlobalAdminsList({ row })}
-          >
+          <CButton className="btn-danger" size="sm" onClick={() => handleGlobalAdminsList({ row })}          >
             {cell} Admin{cell > 1 ? 's' : ''}
           </CButton>
         )
