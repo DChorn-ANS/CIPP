@@ -16,6 +16,14 @@ const CISframework = () => {
       title: `Enabled Global Admins`,
     })
   }
+  const handleAdminSessionbyCA = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.AdminSessionbyCAName.split('<br />'),
+      title: `Conditional Policies Containing Session Controls with roles`,
+    })
+  }
   const columns = [
     {
       name: 'AdminMFAV2',
@@ -184,7 +192,15 @@ const CISframework = () => {
         if (cell === 0) {
           return <CellBadge label="No Session Policy" color={'warning'} />
         } else if (cell > 0) {
-          return <CellBadge label={cell} color={'info'} />
+          return (
+            <CButton
+            className="btn-info"
+            size="sm"
+            onClick={() => handleAdminSessionbyCA({ row })}
+          >
+            {cell}{cell > 1 ? 'Policies' : 'Policy'}
+          </CButton>
+          )
         }
       },
       exportSelector: 'AdminSessionbyCA',
