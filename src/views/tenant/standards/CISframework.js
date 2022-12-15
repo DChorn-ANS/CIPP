@@ -187,8 +187,8 @@ const CISframework = () => {
         }
       },
       exportSelector: 'AdminSessionbyCA',
-  },
-]
+    },
+  ]
 
   return (
     <CippPageList
