@@ -81,10 +81,12 @@ const CISframework = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        if (cell > 0) {
-          return <CellBadge label={cell} color={'warning'} />
+        if (cell === 'Not Licensed for AADp1') {
+          return <CellBadge label={cell} color={'info'} />
         } else if (cell === 0) {
           return <CellBoolean cell={true} />
+        } else if (cell > 0) {
+          return <CellBadge label={cell} color={'warning'} />
         }
       },
       exportSelector: 'BlockLegacyAuthentication',
