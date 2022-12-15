@@ -16,21 +16,21 @@ const CISframework = () => {
     })
   }
   const columns = [
-  {
+    {
     name: 'AdminMFAV2',
     selector: (row) => row['AdminMFAV2'],
-    sortable: true,
+      sortable: true,
     cell: (row, index, column) => {
       const cell = column.selector(row)
-      if (cell > 0) {
+        if (cell > 0) {
         return <CellBadge label={cell} color={'warning'} />
       } else if (cell === 0) {
         return <CellBoolean cell={true} />
-      }
-    },
+        }
+      },
     exportSelector: 'AdminMFAV2',
-  },
-  {
+    },
+    {
     name: 'MFARegistrationV2',
     selector: (row) => row['MFARegistrationV2'],
     sortable: true,
@@ -43,8 +43,8 @@ const CISframework = () => {
       }
     },
     exportSelector: 'MFARegistrationV2',
-  },
-  {
+    },
+    {
     name: 'GlobalAdminCount',
     selector: (row) => row['GlobalAdminCount'],
     sortable: true,
@@ -61,8 +61,8 @@ const CISframework = () => {
       }
     },
     exportSelector: 'GlobalAdminCount',
-  },
-  {
+    },
+    {
     name: 'BlockLegacyAuthentication',
     selector: (row) => row['BlockLegacyAuthentication'],
     sortable: true,
@@ -75,15 +75,15 @@ const CISframework = () => {
       }
     },
     exportSelector: 'BlockLegacyAuthentication',
-  },
-  {
+    },
+    {
     name: 'PasswordHashSync',
     selector: (row) => row['PasswordHashSync'],
     sortable: true,
     cell: cellBooleanFormatter(),
     exportSelector: 'PasswordHashSync',
-  },
-  {
+    },
+    {
     name: 'SigninRiskPolicy',
     selector: (row) => row['SigninRiskPolicy'],
     sortable: true,
@@ -96,8 +96,8 @@ const CISframework = () => {
       }
     },
     exportSelector: 'SigninRiskPolicy',
-  },
-  {
+    },
+    {
     name: 'UserRiskPolicy',
     selector: (row) => row['UserRiskPolicy'],
     sortable: true,
@@ -110,8 +110,8 @@ const CISframework = () => {
       }
     },
     exportSelector: 'UserRiskPolicy',
-  },
-  {
+    },
+    {
     name: 'PWAgePolicyNew',
     selector: (row) => row['PWAgePolicyNew'],
     sortable: true,
@@ -124,8 +124,8 @@ const CISframework = () => {
       }
     },
     exportSelector: 'PWAgePolicyNew',
-  },
-  {
+    },
+    {
     name: 'SelfServicePasswordReset',
     selector: (row) => row['SelfServicePasswordReset'],
     sortable: true,
@@ -141,15 +141,15 @@ const CISframework = () => {
       return <CellBadge label="No Data" color="info" />
     },
     exportSelector: 'SelfServicePasswordReset',
-  },
-  {
+    },
+    {
     name: 'enableBannedPassworCheckOnPremise',
     selector: (row) => row['enableBannedPassworCheckOnPremise'],
     sortable: true,
     cell: cellBooleanFormatter(),
     exportSelector: 'enableBannedPassworCheckOnPremise',
-  },
-  {
+    },
+    {
     name: 'accessPackages',
     selector: (row) => row['accessPackages'],
     sortable: true,
@@ -162,15 +162,15 @@ const CISframework = () => {
       }
     },
     exportSelector: 'accessPackages',
-  },
-  {
+    },
+    {
     name: 'SecureDefaultState',
     selector: (row) => row['SecureDefaultState'],
     sortable: true,
     cell: cellBooleanFormatter({ reverse: true }),
     exportSelector: 'SecureDefaultState',
-  },
-  {
+    },
+    {
     name: 'AdminSessionbyCA',
     selector: (row) => row['AdminSessionbyCA'],
     sortable: true,
