@@ -4,7 +4,18 @@ import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
 import { CellBoolean, CellBadge, cellBooleanFormatter } from 'src/components/tables'
 
-const columns = [
+const CISframework = () => {
+  const tenant = useSelector((state) => state.app.currentTenant)
+
+  const handleGlobalAdminsList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.GlobalAdminList.split('<br />'),
+      title: `Enabled Global Admins`,
+    })
+  }
+  const columns = [
   {
     name: 'AdminMFAV2',
     selector: (row) => row['AdminMFAV2'],
@@ -175,16 +186,7 @@ const columns = [
   },
 ]
 
-const CISframework = () => {
-  const tenant = useSelector((state) => state.app.currentTenant)
-  const handleGlobalAdminsList = ({ row }) => {
-    ModalService.open({
-      visible: true,
-      componentType: 'list',
-      data: row.GlobalAdminList.split('<br />'),
-      title: `Shared Mailboxes with Enabled User Accounts`,
-    })
-  }
+
 
   return (
     <CippPageList
