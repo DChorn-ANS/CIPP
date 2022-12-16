@@ -102,7 +102,11 @@ const ANSSecurityAudit = () => {
           return <CellBadge label="No All Users Policy" color={'warning'} />
         } else if (cell > 0) {
           return (
-            <CButton className="btn-success" size="sm" onClick={() => handleUserMFAbyCAname({ row })}>
+            <CButton 
+              className="btn-success"
+              size="sm"
+              onClick={() => handleUserMFAbyCAname({ row })}
+            >
               {cell} Polic{cell > 1 ? 'ies' : 'y'}
             </CButton>
           )
