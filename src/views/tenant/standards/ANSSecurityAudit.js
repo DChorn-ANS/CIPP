@@ -32,7 +32,7 @@ const ANSSecurityAudit = () => {
       cell: (row, index, column) => {
         const cell = column.selector(row)
         if (cell > 0) {
-          return <CellBadge label={cell} color={'warning'} />
+          return <CellBadge color="danger">{cell} Admin{cell > 1 ? 's' : ''} Without MFA Configured</CellBadge>
         } else if (cell === 0) {
           return <CellBoolean cell={true} />
         }
@@ -83,7 +83,7 @@ const ANSSecurityAudit = () => {
       cell: (row, index, column) => {
         const cell = column.selector(row)
         if (cell > 0) {
-          return <CellBadge label={cell} color={'warning'} />
+          return <CellBadge color="danger">{cell} User{cell > 1 ? 's' : ''} Without MFA Configured</CellBadge>
         } else if (cell === 0) {
           return <CellBoolean cell={true} />
         }
@@ -102,7 +102,7 @@ const ANSSecurityAudit = () => {
           return <CellBadge label="No All Users Policy" color={'warning'} />
         } else if (cell > 0) {
           return (
-            <CButton 
+            <CButton
               className="btn-success"
               size="sm"
               onClick={() => handleUserMFAbyCAname({ row })}
