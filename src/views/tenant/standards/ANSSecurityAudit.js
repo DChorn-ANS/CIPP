@@ -46,7 +46,15 @@ const ANSSecurityAudit = () => {
       cell: (row, index, column) => {
         const cell = column.selector(row)
         if (cell >= 2 && cell <= 4) {
-          return <CellBoolean cell={true} />
+            return (
+                <CButton
+                  className="btn-success"
+                  size="sm"
+                  onClick={() => handleGlobalAdminsList({ row })}
+                >
+                  {cell} Admin{cell > 1 ? 's' : ''}
+                </CButton>
+              )
         } else {
           return (
             <CButton
@@ -89,7 +97,7 @@ const ANSSecurityAudit = () => {
       cell: (row, index, column) => {
         const cell = column.selector(row)
         if (cell === 'Not Licensed for AADp1') {
-          return <CellBadge label={cell} color={'info'} />
+          return <CellBadge label={cell} color={'success'} />
         } else if (cell === 0) {
           return <CellBadge label="No All Users Policy" color={'warning'} />
         } else if (cell > 0) {
