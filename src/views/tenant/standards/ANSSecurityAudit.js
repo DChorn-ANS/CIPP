@@ -21,7 +21,7 @@ const ANSSecurityAudit = () => {
       visible: true,
       componentType: 'list',
       data: row.UserMFAbyCAname.split('<br />'),
-      title: `Conditional Policies Containing Session Controls with roles`,
+      title: `Conditional Policies containing mfa for all users`,
     })
   }
   const columns = [
