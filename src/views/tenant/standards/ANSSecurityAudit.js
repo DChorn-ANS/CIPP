@@ -126,42 +126,6 @@ const ANSSecurityAudit = () => {
       },
     },
     {
-      name: 'AADp1 Enabled',
-      selector: (row) => row['HasAADP1'],
-      sortable: true,
-      cell: cellBooleanFormatter(),
-      exportSelector: 'HasAADP1',
-    },
-    {
-      name: 'AADp2 Enabled',
-      selector: (row) => row['HasAADP2'],
-      sortable: true,
-      cell: cellBooleanFormatter(),
-      exportSelector: 'HasAADP2',
-    },
-    {
-      name: 'Global Admin Count',
-      selector: (row) => row['GlobalAdminCount'],
-      sortable: true,
-      cell: (row, index, column) => {
-        const cell = column.selector(row)
-        if (cell >= 2 && cell <= 4) {
-          return <CellBoolean cell={true} />
-        } else {
-          return (
-            <CButton
-              className="btn-danger"
-              size="sm"
-              onClick={() => handleGlobalAdminsList({ row })}
-            >
-              {cell} Admin{cell > 1 ? 's' : ''}
-            </CButton>
-          )
-        }
-      },
-      exportSelector: 'GlobalAdminCount',
-    },
-    {
       name: 'SPSharing',
       selector: (row) => row['SPSharing'],
       sortable: true,
@@ -184,7 +148,7 @@ const ANSSecurityAudit = () => {
         if (cell === 'Backupify not present') {
           return <CellBadge label={cell} color={'danger'} />
         } else {
-          return <CellBadge label={cell} color={'success'} />
+          return <CellBadge label={'Backupify Deployed'} color={'success'} />
         }
       },
       exportSelector: 'Backupify',
