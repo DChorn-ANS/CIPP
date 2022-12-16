@@ -73,7 +73,7 @@ const ANSSecurityAudit = () => {
       name: 'ATP Enabled',
       selector: (row) => row['ATPEnabled'],
       sortable: true,
-      cell: cellBooleanFormatter(),        
+      cell: cellBooleanFormatter(),
       exportSelector: 'ATPEnabled',
     },
     {
@@ -129,14 +129,14 @@ const ANSSecurityAudit = () => {
       name: 'AADp1 Enabled',
       selector: (row) => row['HasAADP1'],
       sortable: true,
-      cell: cellBooleanFormatter(),        
+      cell: cellBooleanFormatter(),
       exportSelector: 'HasAADP1',
     },
     {
       name: 'AADp2 Enabled',
       selector: (row) => row['HasAADP2'],
       sortable: true,
-      cell: cellBooleanFormatter(),        
+      cell: cellBooleanFormatter(),
       exportSelector: 'HasAADP2',
     },
     {
@@ -212,7 +212,7 @@ const ANSSecurityAudit = () => {
       sortable: true,
       cell: cellBooleanFormatter({ warning: true }),
       exportSelector: 'SecureDefaultState',
-    }, 
+    },
     {
       name: 'accessPackages',
       selector: (row) => row['accessPackages'],
