@@ -197,6 +197,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'ANS Security Audit',
+        to: '/tenant/standards/anssec-report',
+      },
+      {
+        component: CNavItem,
         name: 'Best Practice Analyser',
         to: '/tenant/standards/bpa-report',
       },

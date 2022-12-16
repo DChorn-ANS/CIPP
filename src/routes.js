@@ -68,6 +68,7 @@ const AzureADConnectReport = React.lazy(() =>
 const DeviceComplianceReport = React.lazy(() =>
   import('src/views/security/reports/ListDeviceComplianceReport'),
 )
+const ANSSecurityAudit = React.lazy(() => import('src/views/tenant/standards/ANSSecurityAudit'))
 const BestPracticeAnalyzer = React.lazy(() =>
   import('src/views/tenant/standards/BestPracticeAnalyser'),
 )
@@ -360,6 +361,11 @@ const routes = [
     path: '/tenant/standards/list-applied-standards',
     name: 'List Applied Standards',
     component: ListAppliedStandards,
+  },
+  {
+    path: '/tenant/standards/anssec-report',
+    name: 'ANS Security Audit',
+    component: ANSSecurityAudit,
   },
   {
     path: '/tenant/standards/bpa-report',
