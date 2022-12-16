@@ -83,8 +83,8 @@ const ANSSecurityAudit = () => {
       exportSelector: 'MFARegistrationV2',
     },
     {
-      name: 'UserMFAbyCA',
-      selector: (row) => row['UserMFAbyCA'],
+      name: 'Usermfabyca',
+      selector: (row) => row['Usermfabyca'],
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
@@ -100,7 +100,7 @@ const ANSSecurityAudit = () => {
           )
         }
       },
-      exportSelector: 'UserMFAbyCA',
+      exportSelector: 'Usermfabyca',
     },
     {
       name: 'BlockLegacyAuthentication',
