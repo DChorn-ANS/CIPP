@@ -16,15 +16,7 @@ const ANSSecurityAudit = () => {
       title: `Enabled Global Admins`,
     })
   }
-  const handleAdminSessionbyCA = ({ row }) => {
-    ModalService.open({
-      visible: true,
-      componentType: 'list',
-      data: row.AdminSessionbyCAName.split('<br />'),
-      title: `Conditional Policies Containing Session Controls with roles`,
-    })
-  }
-  const handleUserMFAbyCA = ({ row }) => {
+  const handleUserMFAbyCAname = ({ row }) => {
     ModalService.open({
       visible: true,
       componentType: 'list',
@@ -99,10 +91,10 @@ const ANSSecurityAudit = () => {
         if (cell === 'Not Licensed for AADp1') {
           return <CellBadge label={cell} color={'info'} />
         } else if (cell === 0) {
-          return <CellBadge label="No Session Policy" color={'warning'} />
+          return <CellBadge label="No All Users Policy" color={'warning'} />
         } else if (cell > 0) {
           return (
-            <CButton className="btn-info" size="sm" onClick={() => handleUserMFAbyCA({ row })}>
+            <CButton className="btn-info" size="sm" onClick={() => handleUserMFAbyCAname({ row })}>
               {cell} Polic{cell > 1 ? 'ies' : 'y'}
             </CButton>
           )
