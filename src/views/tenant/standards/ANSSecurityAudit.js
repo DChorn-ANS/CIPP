@@ -32,7 +32,11 @@ const ANSSecurityAudit = () => {
       cell: (row, index, column) => {
         const cell = column.selector(row)
         if (cell > 0) {
-          return <CellBadge color="danger">{cell} Admin{cell > 1 ? 's' : ''} Without MFA Configured</CellBadge>
+          return (
+            <CellBadge color="danger">
+              {cell} Admin{cell > 1 ? 's' : ''} Without MFA Configured
+            </CellBadge>
+          )
         } else if (cell === 0) {
           return <CellBoolean cell={true} />
         }
@@ -83,7 +87,11 @@ const ANSSecurityAudit = () => {
       cell: (row, index, column) => {
         const cell = column.selector(row)
         if (cell > 0) {
-          return <CellBadge color="danger">{cell} User{cell > 1 ? 's' : ''} Without MFA Configured</CellBadge>
+          return (
+            <CellBadge color="danger">
+              {cell} User{cell > 1 ? 's' : ''} Without MFA Configured
+            </CellBadge>
+          )
         } else if (cell === 0) {
           return <CellBoolean cell={true} />
         }
