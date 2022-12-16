@@ -71,7 +71,7 @@ const ANSSecurityAudit = () => {
           )
         }
       },
-      exportSelector: 'GlobalAdminCount',
+      exportSelector: 'Global Admin Count',
     },
     {
       name: 'ATP Enabled',
@@ -99,7 +99,7 @@ const ANSSecurityAudit = () => {
       exportSelector: 'MFARegistrationV2',
     },
     {
-      name: 'Usermfabyca',
+      name: 'User MFA by CA',
       selector: (row) => row['Usermfabyca'],
       sortable: true,
       cell: (row, index, column) => {
@@ -123,7 +123,7 @@ const ANSSecurityAudit = () => {
       exportSelector: 'Usermfabyca',
     },
     {
-      name: 'BlockLegacyAuthentication',
+      name: 'Block Legacy Auth by CA',
       selector: (row) => row['BlockLegacyAuthentication'],
       sortable: true,
       cell: (row, index, column) => {
@@ -138,7 +138,7 @@ const ANSSecurityAudit = () => {
       },
     },
     {
-      name: 'SPSharing',
+      name: 'Sharepoint Sharing',
       selector: (row) => row['SPSharing'],
       sortable: true,
       cell: (row, index, column) => {
@@ -166,7 +166,7 @@ const ANSSecurityAudit = () => {
       exportSelector: 'Backupify',
     },
     {
-      name: 'SelfServicePasswordReset',
+      name: 'Self Service Password Reset',
       selector: (row) => row['SelfServicePasswordReset'],
       sortable: true,
       cell: (row, index, column) => {
@@ -183,14 +183,14 @@ const ANSSecurityAudit = () => {
       exportSelector: 'SelfServicePasswordReset',
     },
     {
-      name: 'SecureDefaultState',
+      name: 'Security Defaults',
       selector: (row) => row['SecureDefaultState'],
       sortable: true,
       cell: cellBooleanFormatter({ warning: true }),
       exportSelector: 'SecureDefaultState',
     },
     {
-      name: 'accessPackages',
+      name: 'Just In Time PIM',
       selector: (row) => row['accessPackages'],
       sortable: true,
       cell: (row, index, column) => {
@@ -206,7 +206,7 @@ const ANSSecurityAudit = () => {
       exportSelector: 'accessPackages',
     },
     {
-      name: 'SigninRiskPolicy',
+      name: 'Sign in Risk Policy',
       selector: (row) => row['SigninRiskPolicy'],
       sortable: true,
       cell: (row, index, column) => {
@@ -222,7 +222,7 @@ const ANSSecurityAudit = () => {
       exportSelector: 'SigninRiskPolicy',
     },
     {
-      name: 'UserRiskPolicy',
+      name: 'User Risk Policy',
       selector: (row) => row['UserRiskPolicy'],
       sortable: true,
       cell: (row, index, column) => {
@@ -238,7 +238,7 @@ const ANSSecurityAudit = () => {
       exportSelector: 'UserRiskPolicy',
     },
     {
-      name: 'DLP',
+      name: 'DLP Policies',
       selector: (row) => row['DLP'],
       sortable: true,
       cell: (row, index, column) => {
@@ -254,14 +254,14 @@ const ANSSecurityAudit = () => {
       exportSelector: 'DLP',
     },
     {
-      name: 'CustomerLockbox',
+      name: 'Customer Lockbox',
       selector: (row) => row['CustomerLockbox'],
       sortable: true,
       cell: cellBooleanFormatter(),
       exportSelector: 'CustomerLockbox',
     },
     {
-      name: 'enableBannedPassworCheckOnPremise',
+      name: 'On-premises Password Protection',
       selector: (row) => row['enableBannedPassworCheckOnPremise'],
       sortable: true,
       cell: cellBooleanFormatter(),
