@@ -34,7 +34,7 @@ const ANSSecurityAudit = () => {
         if (cell > 0) {
           return (
             <CellBadge color="danger">
-              {cell} Admin{cell > 1 ? 's' : ''} Without MFA Configured
+              {cell} Admin{cell > 1 ? 's' : ''} Without MFA
             </CellBadge>
           )
         } else if (cell === 0) {
@@ -89,7 +89,7 @@ const ANSSecurityAudit = () => {
         if (cell > 0) {
           return (
             <CellBadge color="danger">
-              {cell} User{cell > 1 ? 's' : ''} Without MFA Configured
+              {cell} User{cell > 1 ? 's' : ''} Without MFA
             </CellBadge>
           )
         } else if (cell === 0) {
