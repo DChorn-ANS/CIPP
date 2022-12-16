@@ -46,15 +46,15 @@ const ANSSecurityAudit = () => {
       cell: (row, index, column) => {
         const cell = column.selector(row)
         if (cell >= 2 && cell <= 4) {
-            return (
-                <CButton
-                  className="btn-success"
-                  size="sm"
-                  onClick={() => handleGlobalAdminsList({ row })}
-                >
-                  {cell} Admin{cell > 1 ? 's' : ''}
-                </CButton>
-              )
+          return (
+            <CButton
+              className="btn-success"
+              size="sm"
+              onClick={() => handleGlobalAdminsList({ row })}
+            >
+              {cell} Admin{cell > 1 ? 's' : ''}
+            </CButton>
+          )
         } else {
           return (
             <CButton
