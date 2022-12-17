@@ -41,7 +41,7 @@ const ANSSecurityAudit = () => {
     ]
 
     ModalService.open({
-      data: row.PrivilegedUsersJSON,
+      data: row.PrivilegedUsersList,
       componentType: 'table',
       componentProps: {
         columns,
