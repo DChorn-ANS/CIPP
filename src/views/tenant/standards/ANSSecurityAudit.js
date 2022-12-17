@@ -38,6 +38,19 @@ const ANSSecurityAudit = () => {
         sortable: true,
         exportSelector: 'Role',
       },
+      {
+        name: 'Privileged',
+        selector: (row) => row['Privileged'],
+        sortable: true,
+        cell: cellBooleanFormatter({ colourless: true }),
+        exportSelector: 'Privileged',
+      },
+      {
+        name: 'Definition',
+        selector: (row) => row['Definition'],
+        sortable: true,
+        exportSelector: 'Definition',
+      },
     ]
 
     ModalService.open({
