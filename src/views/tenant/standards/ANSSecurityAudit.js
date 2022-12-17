@@ -106,11 +106,11 @@ const ANSSecurityAudit = () => {
       exportSelector: 'PriviligedUsersCount',
       cell: (row, index, column) => {
         const cell = column.selector(row)
-          return (
-            <CButton className="btn-info" size="sm" onClick={() => handlePriviligedUsers({ row })}>
-              {row.PriviligedUsersCount} Admin User{row.PriviligedUsersCount > 1 ? 's' : ''}
-            </CButton>
-          )
+        return (
+          <CButton className="btn-info" size="sm" onClick={() => handlePriviligedUsers({ row })}>
+            {row.PriviligedUsersCount} Admin User{row.PriviligedUsersCount > 1 ? 's' : ''}
+          </CButton>
+        )
       },
       sortable: true,
       minWidth: '150px',
