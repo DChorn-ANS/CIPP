@@ -24,6 +24,33 @@ const ANSSecurityAudit = () => {
       title: `Conditional Policies containing mfa for all users`,
     })
   }
+  const handlePriviligedUsers = ({ row }) => {
+    const columns = [
+      {
+        name: 'User',
+        selector: (row) => row['User'],
+        sortable: true,
+        exportSelector: 'User',
+      },
+      {
+        name: 'Role',
+        selector: (row) => row['Role'],
+        sortable: true,
+        exportSelector: 'Role',
+      },
+    ]
+
+    ModalService.open({
+      data: row.PrivilegedUsersJSON,
+      componentType: 'table',
+      componentProps: {
+        columns,
+        keyField: 'User',
+      },
+      title: `All Active Administrative Users`,
+      size: 'lg',
+    })
+  }
   const columns = [
     {
       name: 'Admin MFA Enabled',
@@ -72,6 +99,22 @@ const ANSSecurityAudit = () => {
         }
       },
       exportSelector: 'Global Admin Count',
+    },
+    {
+      name: 'All Admin Roles',
+      selector: (row) => row['PriviligedUsersCount'],
+      exportSelector: 'PriviligedUsersCount',
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+          return (
+            <CButton className="btn-info" size="sm" onClick={() => handlePriviligedUsers({ row })}>
+              {row.PriviligedUsersCount} Admin User{row.PriviligedUsersCount > 1 ? 's' : ''}
+            </CButton>
+          )
+      },
+      sortable: true,
+      minWidth: '150px',
+      maxWidth: '150px',
     },
     {
       name: 'ATP Enabled',
