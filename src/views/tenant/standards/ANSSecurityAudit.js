@@ -39,17 +39,10 @@ const ANSSecurityAudit = () => {
         exportSelector: 'Role',
       },
       {
-        name: 'Privileged',
-        selector: (row) => row['Privileged'],
+        name: 'Description',
+        selector: (row) => row['Description'],
         sortable: true,
-        cell: cellBooleanFormatter({ colourless: true }),
-        exportSelector: 'Privileged',
-      },
-      {
-        name: 'Definition',
-        selector: (row) => row['Definition'],
-        sortable: true,
-        exportSelector: 'Definition',
+        exportSelector: 'Description',
       },
     ]
 
