@@ -242,18 +242,18 @@ const ANSSecurityAudit = () => {
       selector: (row) => row['AllStaleUsersCount'],
       sortable: true,
       cell: (row, index, column) => {
-          if (cell === 0) {
-              return <CellBoolean cell={true} />
-            } else 
-              return (
-                <CButton
-                  className="btn-warning"
-                  size="sm"
-                  onClick={() => handleStaleLicensedUsers({ row })}
-                >
-                  {cell} Stale User{cell > 1 ? 's' : ''}
-                </CButton>
-              )
+        if (cell === 0) {
+          return <CellBoolean cell={true} />
+        } else 
+          return (
+            <CButton
+              className="btn-warning"
+              size="sm"
+              onClick={() => handleStaleLicensedUsers({ row })}
+            >
+              {cell} Stale User{cell > 1 ? 's' : ''}
+            </CButton>
+          )
       },
       exportSelector: 'AllStaleUsersCount',
     },
