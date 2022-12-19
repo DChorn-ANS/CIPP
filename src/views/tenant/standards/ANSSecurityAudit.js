@@ -244,7 +244,7 @@ const ANSSecurityAudit = () => {
       cell: (row, index, column) => {
         if (cell === 0) {
           return <CellBoolean cell={true} />
-        } else 
+        } else
           return (
             <CButton
               className="btn-warning"
