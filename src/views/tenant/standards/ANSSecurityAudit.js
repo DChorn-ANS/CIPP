@@ -37,6 +37,8 @@ const ANSSecurityAudit = () => {
         selector: (row) => row['DisplayName'],
         sortable: true,
         exportSelector: 'Role',
+        minWidth: '225px',
+        maxWidth: '225px',
       },
       {
         name: 'Description',
@@ -56,6 +58,45 @@ const ANSSecurityAudit = () => {
       title: `All Active Administrative Users`,
       size: 'xl',
     })
+
+    
+  }
+
+  const handleStaleLicensedUsers = ({ row }) => {
+    const columns = [
+      {
+        name: 'User',
+        selector: (row) => row['DisplayName'],
+        sortable: true,
+        exportSelector: 'User',
+      },
+      {
+        name: 'UPN',
+        selector: (row) => row['UPN'],
+        sortable: true,
+        exportSelector: 'UPN',
+      },
+      {
+        name: 'lastSignInDate',
+        selector: (row) => row['lastSignInDate'],
+        sortable: true,
+        type: date,
+        exportSelector: 'lastSignInDate',
+      },
+    ]
+
+    ModalService.open({
+      data: row.AllStaleUsersList,
+      componentType: 'table',
+      componentProps: {
+        columns,
+        keyField: 'User',
+      },
+      title: `All Stale Licensed Users`,
+      size: 'lg',
+    })
+
+    
   }
   const columns = [
     {
@@ -200,6 +241,26 @@ const ANSSecurityAudit = () => {
       },
       exportSelector: 'SPSharing',
     },
+    {
+        name: 'Stale Users',
+        selector: (row) => row['AllStaleUsersCount'],
+        sortable: true,
+        cell: (row, index, column) => {
+            if (cell === 0) {
+                return <CellBoolean cell={true} />
+              } else 
+                return (
+                  <CButton
+                    className="btn-warning"
+                    size="sm"
+                    onClick={() => handleStaleLicensedUsers({ row })}
+                  >
+                    {cell} Stale User{cell > 1 ? 's' : ''}
+                  </CButton>
+                )
+        },
+        exportSelector: 'AllStaleUsersCount',
+      },
     {
       name: 'Backupify',
       selector: (row) => row['Backupify'],
