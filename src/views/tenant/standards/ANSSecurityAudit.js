@@ -78,7 +78,6 @@ const ANSSecurityAudit = () => {
         name: 'lastSignInDate',
         selector: (row) => row['lastSignInDate'],
         sortable: true,
-        type: date,
         exportSelector: 'lastSignInDate',
       },
     ]
