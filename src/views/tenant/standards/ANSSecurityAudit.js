@@ -87,7 +87,7 @@ const ANSSecurityAudit = () => {
       componentType: 'table',
       componentProps: {
         columns,
-        keyField: 'User',
+        keyField: 'UPN',
       },
       title: `All Stale Licensed Users`,
       size: 'lg',
@@ -241,6 +241,7 @@ const ANSSecurityAudit = () => {
       selector: (row) => row['AllStaleUsersCount'],
       sortable: true,
       cell: (row, index, column) => {
+        const cell = column.selector(row)
         if (cell === 0) {
           return <CellBoolean cell={true} />
         } else
