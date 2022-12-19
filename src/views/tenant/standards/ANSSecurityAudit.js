@@ -34,7 +34,7 @@ const ANSSecurityAudit = () => {
       },
       {
         name: 'Role',
-        selector: (row) => row['Role'],
+        selector: (row) => row['DisplayName'],
         sortable: true,
         exportSelector: 'Role',
       },
@@ -54,7 +54,7 @@ const ANSSecurityAudit = () => {
         keyField: 'User',
       },
       title: `All Active Administrative Users`,
-      size: 'lg',
+      size: 'xl',
     })
   }
   const columns = [
