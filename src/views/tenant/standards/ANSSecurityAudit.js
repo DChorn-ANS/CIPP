@@ -87,7 +87,7 @@ const ANSSecurityAudit = () => {
       componentType: 'table',
       componentProps: {
         columns,
-        keyField: 'UPN',
+        keyField: 'lastSignInDate',
       },
       title: `All Stale Licensed Users`,
       size: 'lg',
