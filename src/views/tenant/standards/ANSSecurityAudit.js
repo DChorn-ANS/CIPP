@@ -247,7 +247,7 @@ const ANSSecurityAudit = () => {
         } else
           return (
             <CButton
-              className="btn-warning"
+              className="btn-danger"
               size="sm"
               onClick={() => handleStaleLicensedUsers({ row })}
             >
