@@ -7,7 +7,7 @@ import {
   CellBoolean,
   CellBadge,
   cellBooleanFormatter,
-  CellProgressBar
+  CellProgressBar,
 } from 'src/components/tables'
 
 const ANSSecurityAudit = () => {
@@ -220,15 +220,6 @@ const ANSSecurityAudit = () => {
         }
       },
       exportSelector: 'Usermfabyca',
-    },
-    {
-      name: 'Unified Audit Log Enabled',
-      selector: (row) => row['UnifiedAuditLog'],
-      cell: cellBooleanFormatter(),
-      sortable: true,
-      exportSelector: 'UnifiedAuditLog',
-      minWidth: '150px',
-      maxWidth: '150px',
     },
     {
       name: 'Sharepoint Sharing',
