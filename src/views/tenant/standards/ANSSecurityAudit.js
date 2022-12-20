@@ -24,6 +24,75 @@ const ANSSecurityAudit = () => {
       title: `Conditional Policies containing mfa for all users`,
     })
   }
+  const handlePriviligedUsers = ({ row }) => {
+    const columns = [
+      {
+        name: 'User',
+        selector: (row) => row['User'],
+        sortable: true,
+        exportSelector: 'User',
+      },
+      {
+        name: 'Role',
+        selector: (row) => row['DisplayName'],
+        sortable: true,
+        exportSelector: 'Role',
+        minWidth: '225px',
+        maxWidth: '225px',
+      },
+      {
+        name: 'Description',
+        selector: (row) => row['Description'],
+        sortable: true,
+        exportSelector: 'Description',
+      },
+    ]
+
+    ModalService.open({
+      data: row.PrivilegedUsersList,
+      componentType: 'table',
+      componentProps: {
+        columns,
+        keyField: 'User',
+      },
+      title: `All Active Administrative Users`,
+      size: 'xl',
+    })
+  }
+
+  const handleStaleLicensedUsers = ({ row }) => {
+    const columns = [
+      {
+        name: 'User',
+        selector: (row) => row['DisplayName'],
+        sortable: true,
+        exportSelector: 'User',
+      },
+      {
+        name: 'UPN',
+        selector: (row) => row['UPN'],
+        sortable: true,
+        exportSelector: 'UPN',
+      },
+      {
+        name: 'lastSignInDate',
+        selector: (row) => row['lastSignInDate'],
+        sortable: true,
+        exportSelector: 'lastSignInDate',
+      },
+    ]
+
+    ModalService.open({
+      data: row.AllStaleUsersList,
+      componentType: 'table',
+      componentProps: {
+        columns,
+        keyField: 'UPN',
+      },
+      title: `All Stale Licensed Users`,
+      size: 'lg',
+    })
+  }
   const columns = [
     {
       name: 'Admin MFA Enabled',
@@ -72,6 +141,22 @@ const ANSSecurityAudit = () => {
         }
       },
       exportSelector: 'Global Admin Count',
+    },
+    {
+      name: 'All Admin Roles',
+      selector: (row) => row['PriviligedUsersCount'],
+      exportSelector: 'PriviligedUsersCount',
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-info" size="sm" onClick={() => handlePriviligedUsers({ row })}>
+            {row.PriviligedUsersCount} Admin User{row.PriviligedUsersCount > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      sortable: true,
+      minWidth: '150px',
+      maxWidth: '150px',
     },
     {
       name: 'ATP Enabled',
@@ -150,6 +235,27 @@ const ANSSecurityAudit = () => {
         }
       },
       exportSelector: 'SPSharing',
+    },
+    {
+      name: 'Stale Users',
+      selector: (row) => row['AllStaleUsersCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell === 0) {
+          return <CellBoolean cell={true} />
+        } else
+          return (
+            <CButton
+              className="btn-danger"
+              size="sm"
+              onClick={() => handleStaleLicensedUsers({ row })}
+            >
+              {cell} Stale User{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+      },
+      exportSelector: 'AllStaleUsersCount',
     },
     {
       name: 'Backupify',
