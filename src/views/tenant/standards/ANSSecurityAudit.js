@@ -3,7 +3,7 @@ import { CButton, CSpinner } from '@coreui/react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
 import { ModalService } from 'src/components/utilities'
-import { CellBoolean, CellBadge, cellBooleanFormatter } from 'src/components/tables'
+import { CellBoolean, CellBadge, cellBooleanFormatter,CellProgressBar } from 'src/components/tables'
 
 const ANSSecurityAudit = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -57,6 +57,15 @@ const ANSSecurityAudit = () => {
       },
       title: `All Active Administrative Users`,
       size: 'xl',
+    })
+  }
+
+  const handleSharedMailboxes = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.DisabledSharedMailboxLogins.split('<br />'),
+      title: `Shared Mailboxes with Enabled User Accounts`,
     })
   }
 
@@ -206,21 +215,15 @@ const ANSSecurityAudit = () => {
         }
       },
       exportSelector: 'Usermfabyca',
-    },
+    }, 
     {
-      name: 'Block Legacy Auth by CA',
-      selector: (row) => row['BlockLegacyAuthentication'],
+      name: 'Unified Audit Log Enabled',
+      selector: (row) => row['UnifiedAuditLog'],
+      cell: cellBooleanFormatter(),
       sortable: true,
-      cell: (row, index, column) => {
-        const cell = column.selector(row)
-        if (cell === 'Not Licensed for AADp1') {
-          return <CellBadge label={cell} color={'info'} />
-        } else if (cell === 0) {
-          return <CellBoolean cell={true} />
-        } else if (cell > 0) {
-          return <CellBadge label={cell} color={'warning'} />
-        }
-      },
+      exportSelector: 'UnifiedAuditLog',
+      minWidth: '150px',
+      maxWidth: '150px',
     },
     {
       name: 'Sharepoint Sharing',
@@ -235,6 +238,15 @@ const ANSSecurityAudit = () => {
         }
       },
       exportSelector: 'SPSharing',
+    },
+    {
+      name: 'User Cannot Consent to Apps',
+      selector: (row) => row['AdminConsentForApplications'],
+      cell: cellBooleanFormatter({ reverse: true }),
+      sortable: true,
+      exportSelector: 'AdminConsentForApplications',
+      minWidth: '150px',
+      maxWidth: '150px',
     },
     {
       name: 'Stale Users',
@@ -270,6 +282,46 @@ const ANSSecurityAudit = () => {
         }
       },
       exportSelector: 'Backupify',
+    },
+    {
+      name: 'Shared Mailboxes Logins Disabled',
+      selector: (row) => row['DisabledSharedMailboxLoginsCount'],
+      exportSelector: 'DisabledSharedMailboxLoginsCount',
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell > 0) {
+          return (
+            <CButton
+              className="btn-danger"
+              size="sm"
+              onClick={() => handleSharedMailboxes({ row })}
+            >
+              {cell} User{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
+        return <CellBadge label="No Data" color="info" />
+      },
+      sortable: true,
+      minWidth: '150px',
+      maxWidth: '150px',
+    },
+    {
+      name: 'Secure Score',
+      selector: (row) => row['SecureScorePercentage'],
+      exportSelector: 'SecureScorePercentage',
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (!cell) {
+          return <CellBadge color="info" label="No Data" />
+        }
+        return <CellProgressBar value={row.SecureScorePercentage} />
+      },
+      sortable: true,
+      minWidth: '150px',
+      maxWidth: '150px',
     },
     {
       name: 'Self Service Password Reset',
