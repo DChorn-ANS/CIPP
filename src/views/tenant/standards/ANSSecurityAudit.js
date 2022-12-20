@@ -3,7 +3,12 @@ import { CButton, CSpinner } from '@coreui/react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
 import { ModalService } from 'src/components/utilities'
-import { CellBoolean, CellBadge, cellBooleanFormatter,CellProgressBar } from 'src/components/tables'
+import {
+  CellBoolean,
+  CellBadge,
+  cellBooleanFormatter,
+  CellProgressBar
+} from 'src/components/tables'
 
 const ANSSecurityAudit = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -215,7 +220,7 @@ const ANSSecurityAudit = () => {
         }
       },
       exportSelector: 'Usermfabyca',
-    }, 
+    },
     {
       name: 'Unified Audit Log Enabled',
       selector: (row) => row['UnifiedAuditLog'],
