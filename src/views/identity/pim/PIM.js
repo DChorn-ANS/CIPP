@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
 import {
   CellBoolean,
@@ -8,6 +9,21 @@ import {
   cellBooleanFormatter,
   CellProgressBar,
 } from 'src/components/tables'
+
+const Offcanvas = (row, rowIndex) => {
+  const tenant = useSelector((state) => state.app.currentTenant)
+  const editLink = `/identity/pim/edit?userId=${row.principalId}&tenantDomain=${tenant.defaultDomainName}&roleId=${row.roleDefinitionId}`
+  //console.log(row)
+  return (
+    <>
+      <Link to={editLink}>
+        <CButton size="sm" variant="ghost" color="warning">
+          <FontAwesomeIcon icon={faEdit} />
+        </CButton>
+      </Link>
+    </>
+  )
+}
 
 const ListPIM = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -74,6 +90,10 @@ const ListPIM = () => {
       sortable: true,
       minWidth: '200px',
       exportSelector: 'expiration',
+    },
+    {
+      name: 'Actions',
+      cell: Offcanvas,
     },
   ]
 
