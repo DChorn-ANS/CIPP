@@ -198,12 +198,8 @@ const AddSpamFilterTemplate = React.lazy(() =>
 const SpamFilterDeploy = React.lazy(() =>
   import('src/views/email-exchange/spamfilter/DeploySpamfilter'),
 )
-const PIMlist = React.lazy(() =>
-  import('src/views/identity/pim/PIM'),
-)
-const PIMDeploy = React.lazy(() =>
-  import('src/views/identity/pim/DeployPIM'),
-)
+const PIMlist = React.lazy(() => import('src/views/identity/pim/PIM'))
+const PIMDeploy = React.lazy(() => import('src/views/identity/pim/DeployPIM'))
 const ConnectorList = React.lazy(() => import('src/views/email-exchange/connectors/ConnectorList'))
 const ConnectorListTemplates = React.lazy(() =>
   import('src/views/email-exchange/connectors/ListConnectorTemplates'),
