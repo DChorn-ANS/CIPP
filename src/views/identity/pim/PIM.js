@@ -27,7 +27,7 @@ const ListPIM = () => {
       exportSelector: 'userPrincipalName',
     },
     {
-      name: 'accountEnabled',
+      name: 'Enabled',
       selector: (row) => row['accountEnabled'],
       sortable: true,
       cell: cellBooleanFormatter({ colourless: true }),
