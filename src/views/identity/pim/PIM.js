@@ -4,6 +4,7 @@ import { CippPageList } from 'src/components/layout'
 import {
   CellBoolean,
   CellBadge,
+  CellTip,
   cellBooleanFormatter,
   CellProgressBar,
 } from 'src/components/tables'
