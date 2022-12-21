@@ -198,6 +198,12 @@ const AddSpamFilterTemplate = React.lazy(() =>
 const SpamFilterDeploy = React.lazy(() =>
   import('src/views/email-exchange/spamfilter/DeploySpamfilter'),
 )
+const PIMlist = React.lazy(() =>
+  import('src/views/identity/pim/PIM'),
+)
+const PIMDeploy = React.lazy(() =>
+  import('src/views/identity/pim/DeployPIM'),
+)
 const ConnectorList = React.lazy(() => import('src/views/email-exchange/connectors/ConnectorList'))
 const ConnectorListTemplates = React.lazy(() =>
   import('src/views/email-exchange/connectors/ListConnectorTemplates'),
@@ -262,6 +268,9 @@ const routes = [
     name: 'Offboarding Wizard',
     component: OffboardingWizard,
   },
+  { path: '/identity/pim', name: 'PIM' },
+  { path: '/identity/pim/pim', name: 'PIM', component: PIMlist },
+  { path: '/identity/pim/deploypim', name: 'Deploy PIM', component: PIMDeploy },
   { path: '/identity/reports', name: 'Reports' },
   { path: '/endpoint/reports/devices', name: 'Devices', component: Devices },
   { path: '/identity/reports/mfa-report', name: 'MFA Report', component: MFAReport },

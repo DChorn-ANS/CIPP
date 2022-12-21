@@ -78,6 +78,25 @@ const _nav = [
   },
   {
     component: CNavGroup,
+    name: 'Privileged Identity',
+    section: 'Identity Management',
+    to: '/identity/PrivilegedIdentity',
+    icon: <FontAwesomeIcon icon={faKey} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Deploy PIM',
+        to: '/identity/PIM/DeployPIM',
+      },
+      {
+        component: CNavItem,
+        name: 'List PIM',
+        to: '/identity/PIM/PIM',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
     name: 'Reports',
     section: 'Identity Management',
     to: '/identity/reports',
