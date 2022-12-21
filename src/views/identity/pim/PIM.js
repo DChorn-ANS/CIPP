@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
 import { cellBooleanFormatter, cellDateFormatter, CellTip } from 'src/components/tables'
 
-
 const ListPIM = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const columns = [
