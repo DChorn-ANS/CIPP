@@ -1,6 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
+import {
+  CellBoolean,
+  CellBadge,
+  cellBooleanFormatter,
+  CellProgressBar,
+} from 'src/components/tables'
 
 const ListPIM = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
