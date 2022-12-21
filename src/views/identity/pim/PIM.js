@@ -83,6 +83,10 @@ const ListPIM = () => {
       tenantSelector={false}
       showAllTenantSelector={false}
       datatable={{
+        filterlist: [
+          { filterName: 'Eligible Roles', filter: '"Assignment":"Eligible"' },
+          { filterName: 'Active Roles', filter: '"Assignment":"Active"' },
+        ],
         reportName: `${tenant?.defaultDomainName}-PIM`,
         path: '/api/ListPIM',
         params: { TenantFilter: tenant?.defaultDomainName },
