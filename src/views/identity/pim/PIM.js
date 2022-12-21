@@ -6,12 +6,6 @@ const ListPIM = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const columns = [
     {
-      name: 'principalId',
-      selector: (row) => row['principalId'],
-      sortable: true,
-      exportSelector: 'principalId',
-    },
-    {
       name: 'accountEnabled',
       selector: (row) => row['accountEnabled'],
       sortable: true,
@@ -30,12 +24,6 @@ const ListPIM = () => {
       exportSelector: 'userPrincipalName',
     },
     {
-      name: 'roleDefinitionId',
-      selector: (row) => row['roleDefinitionId'],
-      sortable: true,
-      exportSelector: 'roleDefinitionId',
-    },
-    {
       name: 'roleDisplayName',
       selector: (row) => row['roleDisplayName'],
       sortable: true,
@@ -46,6 +34,12 @@ const ListPIM = () => {
       selector: (row) => row['status'],
       sortable: true,
       exportSelector: 'status',
+    },
+    {
+      name: 'assignment',
+      selector: (row) => row['assignment'],
+      sortable: true,
+      exportSelector: 'assignment',
     },
     {
       name: 'startDateTime',
