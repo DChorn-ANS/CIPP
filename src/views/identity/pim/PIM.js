@@ -12,12 +12,6 @@ const ListPIM = () => {
       exportSelector: 'principalId',
     },
     {
-      name: 'roleDefinitionId',
-      selector: (row) => row['roleDefinitionId'],
-      sortable: true,
-      exportSelector: 'roleDefinitionId',
-    },
-    {
       name: 'accountEnabled',
       selector: (row) => row['accountEnabled'],
       sortable: true,
@@ -36,10 +30,16 @@ const ListPIM = () => {
       exportSelector: 'userPrincipalName',
     },
     {
-      name: 'principalId',
-      selector: (row) => row['principalId'],
+      name: 'roleDefinitionId',
+      selector: (row) => row['roleDefinitionId'],
       sortable: true,
-      exportSelector: 'principalId',
+      exportSelector: 'roleDefinitionId',
+    },
+    {
+      name: 'roleDisplayName',
+      selector: (row) => row['roleDisplayName'],
+      sortable: true,
+      exportSelector: 'roleDisplayName',
     },
     {
       name: 'status',
