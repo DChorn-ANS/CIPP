@@ -20,24 +20,40 @@ const CISframework = () => {
       selector: (row) => row['LicenseLevel'],
       sortable: true,
       exportSelector: 'LicenseLevel',
+      minWidth: '150px',
+      maxWidth: '150px',
     },
     {
       name: 'CIS v8',
       selector: (row) => row['Controlv8'],
       sortable: true,
       exportSelector: 'Controlv8',
+      minWidth: '150px',
+      maxWidth: '150px',
     },
     {
       name: 'IGGroup',
       selector: (row) => row['IGGroup'],
       sortable: true,
       exportSelector: 'IGGroup',
+      minWidth: '150px',
+      maxWidth: '150px',
     },
     {
       name: 'Result',
       selector: (row) => row['Result'],
       sortable: true,
       exportSelector: 'Result',
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell === 'Not Licensed for AADp2') {
+          return <CellBadge label="Not Licensed for AADp2" color="info" />
+        } else if (cell === 'Not Licensed for AADp1') {
+          return <CellBadge label="Not Licensed for AADp1" color="info" />
+        } else if (cell === 'Manual Steps Required') {
+          return <CellBadge label="Manual Steps Required" color="Warning" />
+        }
+        return <CellBadge label={cell} color="info" />
     },
   ]
 
