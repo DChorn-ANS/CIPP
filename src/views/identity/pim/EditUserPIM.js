@@ -150,30 +150,12 @@ const EditUser = () => {
                       return (
                         <CForm onSubmit={handleSubmit}>
                           <CRow>
-                            <CCol lg={6} xs={12}>
-                              <RFFCFormInput
-                                type="text"
-                                name="givenName"
-                                label="Edit First Name"
-                                disabled={formDisabled}
-                              />
-                            </CCol>
-                            <CCol lg={6} xs={12}>
-                              <RFFCFormInput
-                                type="text"
-                                name="surname"
-                                label="Edit Last Name"
-                                disabled={formDisabled}
-                              />
-                            </CCol>
-                          </CRow>
-                          <CRow>
                             <CCol xs={12}>
                               <RFFCFormInput
                                 type="text"
                                 name="displayName"
                                 label="Edit Display Name"
-                                disabled={formDisabled}
+                                disabled={true}
                               />
                             </CCol>
                           </CRow>
