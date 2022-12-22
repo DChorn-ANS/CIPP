@@ -54,6 +54,7 @@ const CISframework = () => {
           return <CellBadge label="Manual Steps Required" color="Warning" />
         }
         return <CellBadge label={cell} color="info" />
+      },
     },
   ]
 
