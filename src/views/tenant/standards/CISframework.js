@@ -51,7 +51,7 @@ const CISframework = () => {
         } else if (cell === 'Not Licensed for AADp1') {
           return <CellBadge label="Not Licensed for AADp1" color="info" />
         } else if (cell === 'Manual Steps Required') {
-          return <CellBadge label="Manual Steps Required" color="Warning" />
+          return <CellBadge label="Manual Steps Required" color="warning" />
         }
         return <CellBadge label={cell} color="info" />
       },
