@@ -186,7 +186,8 @@ const EditUser = () => {
                               {domainsError && <span>Failed to load list of domains</span>}
                             </CCol>
                           </CRow>
-                          <CRow><CCol xs={12}>
+                          <CRow>
+                            <CCol xs={12}>
                               <RFFCFormSwitch
                                 name="test"
                                 label="Replace Licenses"
@@ -197,23 +198,23 @@ const EditUser = () => {
                                 <br />
                                 {licensesIsFetching && <CSpinner />}
                                 {licensesError && <span>Error loading licenses</span>}
-                                <RFFCFormTextarea
-                                type="text"
-                                name="addedAliases"
-                                label="Add Aliases"
-                                placeholder="Enter one alias per line"
-                                disabled={formDisabled}
-                              />
+                                  <RFFCFormTextarea
+                                  type="text"
+                                  name="addedAliases"
+                                  label="Add Aliases"
+                                  placeholder="Enter one alias per line"
+                                  disabled={formDisabled}
+                                />
                                 {licensesIsFetching && <CSpinner />}
                                 {licensesError && <span>Error loading licenses</span>}
                                 {!licensesIsFetching &&
                                   licenses?.map((license) => (
                                     <RFFCFormTextarea
-                                    type="text"
-                                    name="addedAliases"
-                                    label="Add Aliases"
-                                    placeholder="Enter one alias per line"
-                                    disabled={formDisabled}
+                                      type="text"
+                                      name="addedAliases"
+                                      label="Add Aliases"
+                                      placeholder="Enter one alias per line"
+                                      disabled={formDisabled}
                                   />
                                   ))}
                               </Condition>
