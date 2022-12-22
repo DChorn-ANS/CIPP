@@ -198,7 +198,7 @@ const EditUser = () => {
                                 <br />
                                 {licensesIsFetching && <CSpinner />}
                                 {licensesError && <span>Error loading licenses</span>}
-                                  <RFFCFormTextarea
+                                <RFFCFormTextarea
                                   type="text"
                                   name="addedAliases"
                                   label="Add Aliases"
@@ -215,7 +215,7 @@ const EditUser = () => {
                                       label="Add Aliases"
                                       placeholder="Enter one alias per line"
                                       disabled={formDisabled}
-                                  />
+                                    />
                                   ))}
                               </Condition>
                             </CCol>
