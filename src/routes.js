@@ -199,6 +199,7 @@ const SpamFilterDeploy = React.lazy(() =>
   import('src/views/email-exchange/spamfilter/DeploySpamfilter'),
 )
 const PIMlist = React.lazy(() => import('src/views/identity/pim/PIM'))
+const EditUserPIM = React.lazy(() => import('src/views/identity/pim/EditUserPIM'))
 const PIMDeploy = React.lazy(() => import('src/views/identity/pim/DeployPIM'))
 const ConnectorList = React.lazy(() => import('src/views/email-exchange/connectors/ConnectorList'))
 const ConnectorListTemplates = React.lazy(() =>
@@ -266,6 +267,7 @@ const routes = [
   },
   { path: '/identity/pim', name: 'PIM' },
   { path: '/identity/pim/pim', name: 'PIM', component: PIMlist },
+  { path: '/identity/pim/edit', name: 'Edit User PIM', component: EditUserPIM },
   { path: '/identity/pim/deploypim', name: 'Deploy PIM', component: PIMDeploy },
   { path: '/identity/reports', name: 'Reports' },
   { path: '/endpoint/reports/devices', name: 'Devices', component: Devices },
