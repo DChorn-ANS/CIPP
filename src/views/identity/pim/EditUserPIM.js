@@ -186,15 +186,37 @@ const EditUser = () => {
                               {domainsError && <span>Failed to load list of domains</span>}
                             </CCol>
                           </CRow>
-                          <CRow>
-                            <CCol xs={12}>
-                              <RFFCFormTextarea
+                          <CRow><CCol xs={12}>
+                              <RFFCFormSwitch
+                                name="test"
+                                label="Replace Licenses"
+                                disabled={formDisabled}
+                              />
+                              <Condition when="test" is={true}>
+                                <span>Licenses</span>
+                                <br />
+                                {licensesIsFetching && <CSpinner />}
+                                {licensesError && <span>Error loading licenses</span>}
+                                <RFFCFormTextarea
                                 type="text"
                                 name="addedAliases"
                                 label="Add Aliases"
                                 placeholder="Enter one alias per line"
                                 disabled={formDisabled}
                               />
+                                {licensesIsFetching && <CSpinner />}
+                                {licensesError && <span>Error loading licenses</span>}
+                                {!licensesIsFetching &&
+                                  licenses?.map((license) => (
+                                    <RFFCFormTextarea
+                                    type="text"
+                                    name="addedAliases"
+                                    label="Add Aliases"
+                                    placeholder="Enter one alias per line"
+                                    disabled={formDisabled}
+                                  />
+                                  ))}
+                              </Condition>
                             </CCol>
                           </CRow>
                           <CRow>
