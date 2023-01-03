@@ -55,7 +55,8 @@ const _nav = [
         to: '/ANS/reports/stale-users',
       },
     ],
-  },  {
+  },
+  {
     component: CNavGroup,
     section: 'Accurate Networks',
     name: 'Tools',
