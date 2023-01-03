@@ -28,7 +28,7 @@ const GraphExplorer = () => {
   let navigate = useNavigate()
   const tenant = useSelector((state) => state.app.currentTenant)
   let query = useQuery()
-  const endpoint = query.get('endpoint')
+  const serialnumber = query.get('serialnumber')
   const disablePagination = query.get('disablePagination')
   const SearchNow = query.get('SearchNow')
   const [visibleA, setVisibleA] = useState(true)
@@ -38,7 +38,7 @@ const GraphExplorer = () => {
     const shippedValues = {
       tenantFilter: tenant.defaultDomainName,
       SearchNow: true,
-      endpoint: encodeURIComponent(values.endpoint),
+      serialnumber: encodeURIComponent(values.serialnumber),
       random: (Math.random() + 1).toString(36).substring(7),
     }
     var queryString = Object.keys(shippedValues)
@@ -75,11 +75,11 @@ const GraphExplorer = () => {
       path: 'api/execGraphRequest',
       params: {
         tenantFilter: tenant.defaultDomainName,
-        endpoint: endpoint,
+        serialnumber: serialnumber,
         disablePagination: disablePagination,
       },
     })
-  }, [endpoint, execGraphRequest, tenant.defaultDomainName, query])
+  }, [serialnumber, execGraphRequest, tenant.defaultDomainName, query])
 
   const WhenFieldChanges = ({ field, set }) => (
     <Field name={set} subscription={{}}>
@@ -119,7 +119,7 @@ const GraphExplorer = () => {
                 <Form
                   initialValues={{
                     tenantFilter: tenant.defaultDomainName,
-                    endpoint: endpoint,
+                    serialnumber: serialnumber,
                   }}
                   onSubmit={handleSubmit}
                   render={({ handleSubmit, submitting, values }) => {
@@ -129,12 +129,12 @@ const GraphExplorer = () => {
                           <CCol>
                             <RFFCFormInput
                               type="text"
-                              name="endpoint"
+                              name="serialnumber"
                               label="Enter Serial Number for Lookup"
-                              placeholder="Enter the Graph Endpoint you'd like to run the custom report for."
+                              placeholder="Enter the serial number you'd like to run."
                             />
                           </CCol>
-                          <WhenFieldChanges field="reportTemplate" set="endpoint" />
+                          <WhenFieldChanges field="reportTemplate" set="serialnumber" />
                         </CRow>
                         <CRow className="mb-3">
                           <CCol>
