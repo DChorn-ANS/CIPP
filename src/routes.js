@@ -244,7 +244,7 @@ const routes = [
     component: ListLicences,
   },
   {
-    path: '/ANS/reports/warranty-lookup',
+    path: '/ANS/tools/warranty-lookup',
     name: 'WarrantyLookup',
     component: ListWarrantyLookup,
   },
