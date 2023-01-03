@@ -124,7 +124,7 @@ const MFAList = () => {
       capabilities={{ allTenants: true, helpContext: 'https://google.com' }}
       datatable={{
         filterlist: [
-          { filterName: 'Enabled users', filter: '"accountEnabled":true'},
+          { filterName: 'Enabled users', filter: '"accountEnabled":true' },
           { filterName: 'Licensed users', filter: '"isLicensed":"true"' },
         ],
         columns: tenant.defaultDomainName === 'AllTenants' ? Altcolumns : columns,
