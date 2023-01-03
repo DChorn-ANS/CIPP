@@ -54,6 +54,11 @@ const _nav = [
         name: 'Stale User Audit',
         to: '/ANS/reports/stale-users',
       },
+      {
+        component: CNavItem,
+        name: 'Warranty Lookup',
+        to: '/ANS/reports/warranty-lookup',
+      },
     ],
   },
   {

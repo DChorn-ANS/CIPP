@@ -52,6 +52,7 @@ const DeployConditional = React.lazy(() => import('src/views/tenant/conditional/
 
 const ListLicences = React.lazy(() => import('src/views/tenant/administration/ListLicences'))
 const ListStaleUsers = React.lazy(() => import('src/views/tenant/administration/ListStaleUsers'))
+const ListWarrantyLookup = React.lazy(() => import('src/views/tenant/administration/ListWarrantyLookup'))
 const ListAppConsent = React.lazy(() => import('src/views/tenant/administration/ListOauthApps'))
 
 const BasicAuthReport = React.lazy(() => import('src/views/identity/reports/BasicAuthReport'))
@@ -238,6 +239,11 @@ const routes = [
     path: '/ANS/reports/list-licenses',
     name: 'List Licenses',
     component: ListLicences,
+  },
+  {
+    path: '/ANS/reports/warranty-lookup',
+    name: 'WarrantyLookup',
+    component: ListWarrantyLookup,
   },
   { path: '/identity', name: 'Identity' },
   { path: '/identity/administration/users/add', name: 'Add User', component: AddUser },
