@@ -54,10 +54,18 @@ const _nav = [
         name: 'Stale User Audit',
         to: '/ANS/reports/stale-users',
       },
+    ],
+  },  {
+    component: CNavGroup,
+    section: 'Accurate Networks',
+    name: 'Tools',
+    to: '/ANS/tools',
+    icon: <FontAwesomeIcon icon={faWrench} className="nav-icon" />,
+    items: [
       {
         component: CNavItem,
         name: 'Warranty Lookup',
-        to: '/ANS/reports/warranty-lookup',
+        to: '/ANS/tools/warranty-lookup',
       },
     ],
   },
