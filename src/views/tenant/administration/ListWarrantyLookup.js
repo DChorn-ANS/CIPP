@@ -29,7 +29,6 @@ const GraphExplorer = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   let query = useQuery()
   const serialnumber = query.get('serialnumber')
-  const disablePagination = query.get('disablePagination')
   const SearchNow = query.get('SearchNow')
   const [visibleA, setVisibleA] = useState(true)
   const handleSubmit = async (values) => {
@@ -47,7 +46,7 @@ const GraphExplorer = () => {
 
     navigate(`?${queryString}`)
   }
-  const [execGraphRequest, graphrequest] = useLazyGenericGetRequestQuery()
+  const [ListWarrantyLookup, graphrequest] = useLazyGenericGetRequestQuery()
   const QueryColumns = { set: false, data: [] }
 
   if (graphrequest.isSuccess) {
@@ -71,15 +70,14 @@ const GraphExplorer = () => {
   }
 
   useEffect(() => {
-    execGraphRequest({
-      path: 'api/execGraphRequest',
+    ListWarrantyLookup({
+      path: 'api/ListWarrantyLookup',
       params: {
         tenantFilter: tenant.defaultDomainName,
         serialnumber: serialnumber,
-        disablePagination: disablePagination,
       },
     })
-  }, [serialnumber, execGraphRequest, tenant.defaultDomainName, query])
+  }, [serialnumber, ListWarrantyLookup, tenant.defaultDomainName, query])
 
   const WhenFieldChanges = ({ field, set }) => (
     <Field name={set} subscription={{}}>
