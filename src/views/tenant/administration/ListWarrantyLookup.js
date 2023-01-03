@@ -127,75 +127,14 @@ const GraphExplorer = () => {
                       <CForm onSubmit={handleSubmit}>
                         <CRow>
                           <CCol>
-                            <RFFCFormSelect
-                              name="reportTemplate"
-                              label="Select a report"
-                              placeholder="Select a report"
-                              values={[
-                                {
-                                  label: 'All users with email addresses',
-                                  value: '/users?$select=userprincipalname,mail',
-                                },
-                                {
-                                  label:
-                                    'All Devices listing ID, Displayname, and registration status',
-                                  value:
-                                    '/devices?$select=deviceId,DisplayName,profileType,registrationDateTime,trustType',
-                                },
-                                {
-                                  label: 'All contacts and their mail addresses',
-                                  value:
-                                    '/contacts?$select=CompanyName,DisplayName,Mail,ProxyAddresses',
-                                },
-                                {
-                                  label: 'Outlook Agents used in last 90 days',
-                                  value: `reports/getEmailAppUsageUserDetail(period='D90')?$format=application/json`,
-                                },
-                                {
-                                  label: 'Activated M365 Subscription installations',
-                                  value:
-                                    '/reports/getOffice365ActivationsUserDetail?$format=application/json',
-                                },
-                                {
-                                  label: 'Applications signed in in last 30 days',
-                                  value: `reports/getAzureADApplicationSignInSummary(period='D30')`,
-                                },
-                                {
-                                  label: 'User Registration Report',
-                                  value: '/reports/authenticationMethods/userRegistrationDetails',
-                                },
-                                {
-                                  label: 'All Global Admins',
-                                  value:
-                                    'directoryRoles/roleTemplateId=62e90394-69f5-4237-9190-012177145e10/members',
-                                },
-                                {
-                                  label: 'Multifactor Authentication Report for Admins',
-                                  value:
-                                    '/reports/authenticationMethods/userRegistrationDetails?$filter=IsAdmin eq true',
-                                },
-                                {
-                                  label: 'Secure Score with Current Score and Max Score',
-                                  value:
-                                    'security/secureScores?$top=90&$select=currentscore,maxscore,activeusercount,enabledservices',
-                                },
-                              ]}
-                            />
-                          </CCol>
-                        </CRow>
-                        <CRow>
-                          <CCol>
                             <RFFCFormInput
                               type="text"
                               name="endpoint"
-                              label="Or enter an endpoint"
+                              label="Enter Serial Number for Lookup"
                               placeholder="Enter the Graph Endpoint you'd like to run the custom report for."
                             />
                           </CCol>
                           <WhenFieldChanges field="reportTemplate" set="endpoint" />
-                        </CRow>
-                        <CRow>
-                          <RFFCFormCheck name="disablePagination" label="Disable Pagination" />
                         </CRow>
                         <CRow className="mb-3">
                           <CCol>
