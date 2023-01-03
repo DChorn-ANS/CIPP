@@ -30,6 +30,34 @@ const _nav = [
   },
   {
     component: CNavTitle,
+    name: 'Accurate Networks',
+  },
+  {
+    component: CNavGroup,
+    section: 'Accurate Networks',
+    name: 'Reports',
+    to: '/ANS/reports',
+    icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'MFA Report',
+        to: '/ANS/reports/mfa-report',
+      },
+      {
+        component: CNavItem,
+        name: 'License Report',
+        to: '/ANS/reports/list-licenses',
+      },
+      {
+        component: CNavItem,
+        name: 'Stale User Audit',
+        to: '/ANS/reports/stale-users',
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
     name: 'Identity Management',
   },
   {
