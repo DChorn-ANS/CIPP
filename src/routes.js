@@ -52,7 +52,9 @@ const DeployConditional = React.lazy(() => import('src/views/tenant/conditional/
 
 const ListLicences = React.lazy(() => import('src/views/tenant/administration/ListLicences'))
 const ListStaleUsers = React.lazy(() => import('src/views/tenant/administration/ListStaleUsers'))
-const ListWarrantyLookup = React.lazy(() => import('src/views/tenant/administration/ListWarrantyLookup'))
+const ListWarrantyLookup = React.lazy(() =>
+  import('src/views/tenant/administration/ListWarrantyLookup'),
+  )
 const ListAppConsent = React.lazy(() => import('src/views/tenant/administration/ListOauthApps'))
 
 const BasicAuthReport = React.lazy(() => import('src/views/identity/reports/BasicAuthReport'))
