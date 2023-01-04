@@ -1,68 +1,74 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { cellBooleanFormatter, CellTip } from 'src/components/tables'
 import { CippPageList } from 'src/components/layout'
-import { CellTip } from 'src/components/tables'
+import { TitleButton } from 'src/components/buttons'
+
 
 const columns = [
   {
-    name: 'Tenant',
-    selector: (row) => row['Tenant'],
+    name: 'Display Name',
+    selector: (row) => row['displayName'],
     sortable: true,
-    cell: (row) => CellTip(row['Tenant']),
-    wrap: true,
-    exportSelector: 'Tenant',
-  },
-  {
-    name: 'license',
-    selector: (row) => row['License'],
-    sortable: true,
-    cell: (row) => CellTip(row['License']),
-    exportSelector: 'License',
+    cell: (row) => CellTip(row['displayName']),
+    exportSelector: 'displayName',
     minWidth: '300px',
   },
   {
-    name: 'Used',
-    selector: (row) => row['CountUsed'],
+    name: 'Email',
+    selector: (row) => row['mail'],
     sortable: true,
-    exportSelector: 'CountUsed',
+    cell: (row) => CellTip(row['mail']),
+    exportSelector: 'mail',
+    minWidth: '250px',
   },
   {
-    name: 'Available',
-    selector: (row) => row['CountAvailable'],
+    name: 'User Type',
+    selector: (row) => row['userType'],
     sortable: true,
-    exportSelector: 'CountAvailable',
+    exportSelector: 'userType',
+    minWidth: '140px',
   },
   {
-    name: 'Total',
-    selector: (row) => row['TotalLicenses'],
+    name: 'Enabled',
+    selector: (row) => row['accountEnabled'],
+    cell: cellBooleanFormatter({ colourless: true }),
     sortable: true,
-    exportSelector: 'TotalLicenses',
+    exportSelector: 'accountEnabled',
+    minWidth: '100px',
   },
   {
-    name: 'GUID',
-    selector: (row) => row['skuId'],
+    name: 'Licenses',
+    selector: (row) => row['LicJoined'],
+    exportSelector: 'LicJoined',
     sortable: true,
-    exportSelector: 'skuId',
+    grow: 5,
+    wrap: true,
+    minWidth: '200px',
   },
 ]
 
-const LicenseList = () => {
+const Users = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-
   return (
     <CippPageList
-      capabilities={{ allTenants: true, helpContext: 'https://google.com' }}
-      title="Licenses Report"
-      tenantSelector={false}
-      showAllTenantSelector={false}
+      capabilities={{ allTenants: false, helpContext: 'https://google.com' }}
+      title="Users"
+      titleButton={titleButton}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-licenses`,
-        path: '/api/ListLicenses',
-        params: { TenantFilter: tenant?.defaultDomainName },
+        filterlist: [
+          { filterName: 'Enabled users', filter: '"accountEnabled":true' },
+          { filterName: 'AAD users', filter: '"onPremisesSyncEnabled":false' },
+          { filterName: 'Synced users', filter: '"onPremisesSyncEnabled":true' },
+          { filterName: 'Guest users', filter: '"usertype":"guest"' },
+        ],
         columns,
+        path: '/api/ListAssignedLicenses',
+        reportName: `${tenant?.defaultDomainName}-AssignedLicenses`,
+        params: { TenantFilter: tenant?.defaultDomainName },
       }}
     />
   )
 }
 
-export default LicenseList
+export default Users
