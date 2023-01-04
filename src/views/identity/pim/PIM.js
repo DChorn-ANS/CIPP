@@ -6,16 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
 import {
-  CellBoolean,
-  CellBadge,
   CellTip,
   cellBooleanFormatter,
-  CellProgressBar,
 } from 'src/components/tables'
 
 const Offcanvas = (row, rowIndex) => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const editLink = `/identity/pim/edit?userId=${row.principalId}&tenantDomain=${tenant.defaultDomainName}&roleId=${row.roleDefinitionId}`
+  const editLink = `/identity/pim/edit?tenantDomain=${tenant.defaultDomainName}&scheduleId=${row.ID}&assignment=${row.assignment}`
   //console.log(row)
   return (
     <>
@@ -93,6 +90,11 @@ const ListPIM = () => {
       sortable: true,
       minWidth: '200px',
       exportSelector: 'expiration',
+    },
+    {
+      name: 'ID',
+      selector: (row) => row['ID'],
+      omit: true,
     },
     {
       name: 'Actions',

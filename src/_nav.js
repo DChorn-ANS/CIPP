@@ -46,8 +46,13 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'License Report',
+        name: 'Purchased License Report',
         to: '/ANS/reports/list-licenses',
+      },
+      {
+        component: CNavItem,
+        name: 'Assigned License Report',
+        to: '/ANS/reports/list-assignedlicenses',
       },
       {
         component: CNavItem,
