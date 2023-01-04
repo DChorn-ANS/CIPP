@@ -5,10 +5,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
-import {
-  CellTip,
-  cellBooleanFormatter,
-} from 'src/components/tables'
+import { CellTip, cellBooleanFormatter } from 'src/components/tables'
 
 const Offcanvas = (row, rowIndex) => {
   const tenant = useSelector((state) => state.app.currentTenant)
