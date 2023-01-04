@@ -52,7 +52,6 @@ const Users = () => {
     <CippPageList
       capabilities={{ allTenants: false, helpContext: 'https://google.com' }}
       title="Users"
-      titleButton={titleButton}
       datatable={{
         filterlist: [
           { filterName: 'Enabled users', filter: '"accountEnabled":true' },
