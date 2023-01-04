@@ -52,6 +52,7 @@ const AddConditionalTemplate = React.lazy(() =>
 const DeployConditional = React.lazy(() => import('src/views/tenant/conditional/DeployCA'))
 
 const ListLicences = React.lazy(() => import('src/views/tenant/administration/ListLicences'))
+const ListAssignedLicences = React.lazy(() => import('src/views/tenant/administration/ListAssignedLicences'))
 const ListStaleUsers = React.lazy(() => import('src/views/tenant/administration/ListStaleUsers'))
 const ListWarrantyLookup = React.lazy(() =>
   import('src/views/tenant/administration/ListWarrantyLookup'),
@@ -240,8 +241,13 @@ const routes = [
   { path: '/ANS/reports/mfa-report', name: 'MFA Report', component: MFAReportANS },
   {
     path: '/ANS/reports/list-licenses',
-    name: 'List Licenses',
+    name: 'List Purchased Licenses',
     component: ListLicences,
+  },
+  {
+    path: '/ANS/reports/list-assignedlicenses',
+    name: 'List Assigned Licenses',
+    component: ListAssignedLicences,
   },
   {
     path: '/ANS/tools/warranty-lookup',
