@@ -37,6 +37,7 @@ const columns = [
     exportSelector: 'EmailsSent',
     minWidth: '100px',
     maxWidth: '100px',
+    omit: true,
   },
   {
     name: 'Onedrive Activity',
@@ -51,6 +52,7 @@ const columns = [
     exportSelector: 'ODViewedFileCount',
     minWidth: '100px',
     maxWidth: '100px',
+    omit: true,
   },
   {
     name: 'Sharepoint Activity',
@@ -65,6 +67,7 @@ const columns = [
     exportSelector: 'SPViewedFileCount',
     minWidth: '100px',
     maxWidth: '100px',
+    omit: true,
   },
   {
     name: 'Teams Activity',
@@ -79,6 +82,7 @@ const columns = [
     exportSelector: 'MessageCount',
     minWidth: '100px',
     maxWidth: '100px',
+    omit: true,
   },
 ]
 
