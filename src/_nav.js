@@ -31,6 +31,39 @@ const _nav = [
   },
   {
     component: CNavTitle,
+    name: 'Accurate Networks',
+  },
+  {
+    component: CNavGroup,
+    section: 'Accurate Networks',
+    name: 'Reports',
+    to: '/ANS/reports',
+    icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'MFA Report',
+        to: '/ANS/reports/mfa-report',
+      },
+      {
+        component: CNavItem,
+        name: 'Purchased License Report',
+        to: '/ANS/reports/list-licenses',
+      },
+      {
+        component: CNavItem,
+        name: 'Assigned License Report',
+        to: '/ANS/reports/list-assignedlicenses',
+      },
+      {
+        component: CNavItem,
+        name: 'Stale User Audit',
+        to: '/ANS/reports/stale-users',
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
     name: 'Identity Management',
   },
   {
@@ -74,6 +107,25 @@ const _nav = [
         component: CNavItem,
         name: 'Deleted Items',
         to: '/identity/administration/deleted-items',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Privileged Identity',
+    section: 'Identity Management',
+    to: '/identity/PrivilegedIdentity',
+    icon: <FontAwesomeIcon icon={faKey} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Deploy PIM',
+        to: '/identity/PIM/DeployPIM',
+      },
+      {
+        component: CNavItem,
+        name: 'List PIM',
+        to: '/identity/PIM/PIM',
       },
     ],
   },
@@ -486,14 +538,14 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'SharePoint',
+    name: 'Sharepoint',
     section: 'Teams & Sharepoint',
     to: '/teams-share/sharepoint',
     icon: <FontAwesomeIcon icon={faLink} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'SharePoint',
+        name: 'Sharepoint',
         to: '/teams-share/sharepoint/list-sharepoint',
       },
     ],
