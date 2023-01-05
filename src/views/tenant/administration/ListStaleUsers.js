@@ -31,28 +31,10 @@ const columns = [
     exportSelector: 'OutlookActivity',
   },
   {
-    name: 'Emails Sent',
-    selector: (row) => row['EmailsSent'],
-    sortable: true,
-    exportSelector: 'EmailsSent',
-    minWidth: '100px',
-    maxWidth: '100px',
-    omit: true,
-  },
-  {
     name: 'Onedrive Activity',
     selector: (row) => row['OnedriveActivity'],
     sortable: true,
     exportSelector: 'OnedriveActivity',
-  },
-  {
-    name: 'ODViewedFileCount',
-    selector: (row) => row['ODViewedFileCount'],
-    sortable: true,
-    exportSelector: 'ODViewedFileCount',
-    minWidth: '100px',
-    maxWidth: '100px',
-    omit: true,
   },
   {
     name: 'Sharepoint Activity',
@@ -61,28 +43,10 @@ const columns = [
     exportSelector: 'SharepointActivity',
   },
   {
-    name: 'SPViewedFileCount',
-    selector: (row) => row['SPViewedFileCount'],
-    sortable: true,
-    exportSelector: 'SPViewedFileCount',
-    minWidth: '100px',
-    maxWidth: '100px',
-    omit: true,
-  },
-  {
     name: 'Teams Activity',
     selector: (row) => row['TeamsActivity'],
     sortable: true,
     exportSelector: 'TeamsActivity',
-  },
-  {
-    name: 'Message Count',
-    selector: (row) => row['MessageCount'],
-    sortable: true,
-    exportSelector: 'MessageCount',
-    minWidth: '100px',
-    maxWidth: '100px',
-    omit: true,
   },
 ]
 
