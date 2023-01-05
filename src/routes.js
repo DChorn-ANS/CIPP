@@ -62,9 +62,6 @@ const ListAssignedLicences = React.lazy(() =>
   import('src/views/tenant/administration/ListAssignedLicences'),
 )
 const ListStaleUsers = React.lazy(() => import('src/views/tenant/administration/ListStaleUsers'))
-const ListWarrantyLookup = React.lazy(() =>
-  import('src/views/tenant/administration/ListWarrantyLookup'),
-)
 const ListAppConsent = React.lazy(() => import('src/views/tenant/administration/ListOauthApps'))
 
 const InActiveUserReport = React.lazy(() => import('src/views/identity/reports/InactiveUsers'))
@@ -256,11 +253,6 @@ const routes = [
     path: '/ANS/reports/list-assignedlicenses',
     name: 'List Assigned Licenses',
     component: ListAssignedLicences,
-  },
-  {
-    path: '/ANS/tools/warranty-lookup',
-    name: 'WarrantyLookup',
-    component: ListWarrantyLookup,
   },
   { path: '/identity', name: 'Identity' },
   { path: '/identity/administration/users/add', name: 'Add User', component: AddUser },
