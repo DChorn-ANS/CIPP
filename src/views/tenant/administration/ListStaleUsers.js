@@ -29,24 +29,32 @@ const columns = [
     selector: (row) => row['OutlookActivity'],
     sortable: true,
     exportSelector: 'OutlookActivity',
+    minWidth: '150px',
+    maxWidth: '150px',
   },
   {
     name: 'Onedrive Activity',
     selector: (row) => row['OnedriveActivity'],
     sortable: true,
     exportSelector: 'OnedriveActivity',
+    minWidth: '150px',
+    maxWidth: '150px',
   },
   {
     name: 'Sharepoint Activity',
     selector: (row) => row['SharepointActivity'],
     sortable: true,
     exportSelector: 'SharepointActivity',
+    minWidth: '150px',
+    maxWidth: '150px',
   },
   {
     name: 'Teams Activity',
     selector: (row) => row['TeamsActivity'],
     sortable: true,
     exportSelector: 'TeamsActivity',
+    minWidth: '150px',
+    maxWidth: '150px',
   },
 ]
 
