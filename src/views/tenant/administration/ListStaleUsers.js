@@ -53,8 +53,6 @@ const columns = [
     selector: (row) => row['TeamsActivity'],
     sortable: true,
     exportSelector: 'TeamsActivity',
-    minWidth: '150px',
-    maxWidth: '150px',
   },
 ]
 
