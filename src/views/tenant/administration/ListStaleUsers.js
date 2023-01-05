@@ -23,8 +23,8 @@ const columns = [
     selector: (row) => row['lastSignInDate'],
     sortable: true,
     exportSelector: 'lastSignInDate',
-    minWidth: '150px',
-    maxWidth: '150px',
+    minWidth: '200px',
+    maxWidth: '200px',
   },
   {
     name: 'Outlook Activity',
