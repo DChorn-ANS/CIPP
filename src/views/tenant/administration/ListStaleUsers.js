@@ -24,6 +24,54 @@ const columns = [
     sortable: true,
     exportSelector: 'lastSignInDate',
   },
+  {
+    name: 'Outlook Activity',
+    selector: (row) => row['OutlookActivity'],
+    sortable: true,
+    exportSelector: 'OutlookActivity',
+  },
+  {
+    name: 'Emails Sent',
+    selector: (row) => row['EmailsSent'],
+    sortable: true,
+    exportSelector: 'EmailsSent',
+  },
+  {
+    name: 'Onedrive Activity',
+    selector: (row) => row['OnedriveActivity'],
+    sortable: true,
+    exportSelector: 'OnedriveActivity',
+  },
+  {
+    name: 'ODViewedFileCount',
+    selector: (row) => row['ODViewedFileCount'],
+    sortable: true,
+    exportSelector: 'ODViewedFileCount',
+  },
+  {
+    name: 'Sharepoint Activity',
+    selector: (row) => row['SharepointActivity'],
+    sortable: true,
+    exportSelector: 'SharepointActivity',
+  },
+  {
+    name: 'SPViewedFileCount',
+    selector: (row) => row['SPViewedFileCount'],
+    sortable: true,
+    exportSelector: 'SPViewedFileCount',
+  },
+  {
+    name: 'Teams Activity',
+    selector: (row) => row['TeamsActivity'],
+    sortable: true,
+    exportSelector: 'TeamsActivity',
+  },
+  {
+    name: 'Message Count',
+    selector: (row) => row['MessageCount'],
+    sortable: true,
+    exportSelector: 'MessageCount',
+  },
 ]
 
 const StaleUsersList = () => {
