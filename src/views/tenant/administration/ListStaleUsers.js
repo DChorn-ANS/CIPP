@@ -35,6 +35,8 @@ const columns = [
     selector: (row) => row['EmailsSent'],
     sortable: true,
     exportSelector: 'EmailsSent',
+    minWidth: '100px',
+    maxWidth: '100px',
   },
   {
     name: 'Onedrive Activity',
@@ -47,6 +49,8 @@ const columns = [
     selector: (row) => row['ODViewedFileCount'],
     sortable: true,
     exportSelector: 'ODViewedFileCount',
+    minWidth: '100px',
+    maxWidth: '100px',
   },
   {
     name: 'Sharepoint Activity',
@@ -59,6 +63,8 @@ const columns = [
     selector: (row) => row['SPViewedFileCount'],
     sortable: true,
     exportSelector: 'SPViewedFileCount',
+    minWidth: '100px',
+    maxWidth: '100px',
   },
   {
     name: 'Teams Activity',
@@ -71,6 +77,8 @@ const columns = [
     selector: (row) => row['MessageCount'],
     sortable: true,
     exportSelector: 'MessageCount',
+    minWidth: '100px',
+    maxWidth: '100px',
   },
 ]
 
