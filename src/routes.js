@@ -59,6 +59,9 @@ const ListStaleUsers = React.lazy(() => import('src/views/tenant/administration/
 const ListWarrantyLookup = React.lazy(() =>
   import('src/views/tenant/administration/ListWarrantyLookup'),
 )
+const NCListDeviceAppSearch = React.lazy(() =>
+  import('src/views/tenant/administration/NCListClients'),
+)
 const ListAppConsent = React.lazy(() => import('src/views/tenant/administration/ListOauthApps'))
 
 const BasicAuthReport = React.lazy(() => import('src/views/identity/reports/BasicAuthReport'))
@@ -255,6 +258,11 @@ const routes = [
     path: '/ANS/tools/warranty-lookup',
     name: 'WarrantyLookup',
     component: ListWarrantyLookup,
+  },
+  {
+    path: '/ANS/tools/app-search',
+    name: 'NCListDeviceAppSearch',
+    component: NCListDeviceAppSearch,
   },
   { path: '/identity', name: 'Identity' },
   { path: '/identity/administration/users/add', name: 'Add User', component: AddUser },

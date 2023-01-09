@@ -73,6 +73,11 @@ const _nav = [
         name: 'Warranty Lookup',
         to: '/ANS/tools/warranty-lookup',
       },
+      {
+        component: CNavItem,
+        name: 'Application Search',
+        to: '/ANS/tools/app-search',
+      },
     ],
   },
   {
