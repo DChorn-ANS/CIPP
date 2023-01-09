@@ -26,6 +26,7 @@ const LicenseList = () => {
       datatable={{
         reportName: `${tenant?.defaultDomainName}-licenses`,
         path: '/api/NCListClients',
+        params: { TenantFilter: tenant?.defaultDomainName },
         columns,
       }}
     />
