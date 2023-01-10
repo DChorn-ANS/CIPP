@@ -13,7 +13,5 @@ export const NCClientApi = baseApi.injectEndpoints({
   }),
 })
 
-export const {
-  useNCListClientsQuery,
-} = NCClientApi
+export const { useNCListClientsQuery } = NCClientApi
 export default NCClientApi
