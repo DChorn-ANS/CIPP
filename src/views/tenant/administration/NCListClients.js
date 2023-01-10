@@ -5,12 +5,20 @@ import { CellTip } from 'src/components/tables'
 
 const columns = [
   {
-    name: 'Tenant',
-    selector: (row) => row['Tenant'],
+    name: 'Customer Name',
+    selector: (row) => row['customername'],
     sortable: true,
-    cell: (row) => CellTip(row['Tenant']),
+    cell: (row) => CellTip(row['customername']),
     wrap: true,
-    exportSelector: 'Tenant',
+    exportSelector: 'customername',
+  },
+  {
+    name: 'ID',
+    selector: (row) => row['customerid'],
+    sortable: true,
+    cell: (row) => CellTip(row['customerid']),
+    wrap: true,
+    exportSelector: 'customerid',
   },
 ]
 
