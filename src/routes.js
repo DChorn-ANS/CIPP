@@ -60,7 +60,7 @@ const ListWarrantyLookup = React.lazy(() =>
   import('src/views/tenant/administration/ListWarrantyLookup'),
 )
 const NCListDeviceAppSearch = React.lazy(() =>
-  import('src/views/tenant/administration/NCListClients'),
+  import('src/views/tenant/administration/NCAppSearch'),
 )
 const ListAppConsent = React.lazy(() => import('src/views/tenant/administration/ListOauthApps'))
 

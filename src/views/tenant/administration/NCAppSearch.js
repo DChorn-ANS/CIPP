@@ -32,7 +32,6 @@ const NCAppSearch = () => {
   const AppName = query.get('AppName')
   const Client = query.get('Client')
   const SearchNow = query.get('SearchNow')
-  const tenantDomain = query.get('tenantDomain')
   const [visibleA, setVisibleA] = useState(true)
   const handleSubmit = async (values) => {
     setVisibleA(false)
@@ -54,7 +53,7 @@ const NCAppSearch = () => {
     data: NCClients = [],
     isFetching: NCClientsIsFetching,
     error: NCClientsError,
-  } = useNCListClientsQuery({ tenantDomain })
+  } = useNCListClientsQuery()
   const QueryColumns = { set: false, data: [] }
 
   if (AppSearch.isSuccess) {
