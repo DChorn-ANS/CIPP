@@ -53,7 +53,7 @@ const NCAppSearch = () => {
     data: NCClients = [],
     isFetching: NCClientsIsFetching,
     error: NCClientsError,
-  } = useNCListClientsQuery({ tenantDomain })
+  } = useNCListClientsQuery({})
   const QueryColumns = { set: false, data: [] }
 
   if (AppSearch.isSuccess) {
