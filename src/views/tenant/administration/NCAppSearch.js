@@ -133,17 +133,17 @@ const NCAppSearch = () => {
                       <CForm onSubmit={handleSubmit}>
                         <CRow>
                           <CCol>
-                          <RFFSelectSearch
-                                label="Client"
-                                disabled={formDisabled}
-                                values={NCClients?.map((NCClients) => ({
-                                  value: NCClients.customerid,
-                                  name: NCClients.customername,
-                                }))}
-                                placeholder={!NCClientsIsFetching ? 'Select Client' : 'Loading...'}
-                                name="Client"
-                              />
-                              {NCClientsError && <span>Failed to load list of Clients</span>}
+                            <RFFSelectSearch
+                              label="Client"
+                              disabled={formDisabled}
+                              values={NCClients?.map((NCClients) => ({
+                                value: NCClients.customerid,
+                                name: NCClients.customername,
+                              }))}
+                              placeholder={!NCClientsIsFetching ? 'Select Client' : 'Loading...'}
+                              name="Client"
+                            />
+                            {NCClientsError && <span>Failed to load list of Clients</span>}
                           </CCol>
                         </CRow>
                         <CRow>
