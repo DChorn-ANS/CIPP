@@ -40,6 +40,7 @@ const NCAppSearch = () => {
       tenantFilter: tenant.defaultDomainName,
       SearchNow: true,
       AppName: encodeURIComponent(values.AppName),
+      ClientID: encodeURIComponent(values.ClientID),
       random: (Math.random() + 1).toString(36).substring(7),
     }
     var queryString = Object.keys(shippedValues)
@@ -86,26 +87,6 @@ const NCAppSearch = () => {
       },
     })
   }, [AppName, NCAppSearch, tenant.defaultDomainName, query])
-
-  const WhenFieldChanges = ({ field, set }) => (
-    <Field name={set} subscription={{}}>
-      {(
-        // No subscription. We only use Field to get to the change function
-        { input: { onChange } },
-      ) => (
-        <FormSpy subscription={{}}>
-          {({ form }) => (
-            <OnChange name={field}>
-              {(value) => {
-                let template = value
-                onChange(template)
-              }}
-            </OnChange>
-          )}
-        </FormSpy>
-      )}
-    </Field>
-  )
 
   return (
     <>
@@ -154,7 +135,6 @@ const NCAppSearch = () => {
                               placeholder="Enter the Application Name you'd like to search for."
                             />
                           </CCol>
-                          <WhenFieldChanges field="reportTemplate" set="AppName" />
                         </CRow>
                         <CRow className="mb-3">
                           <CCol>
