@@ -135,7 +135,6 @@ const NCAppSearch = () => {
                           <CCol>
                             <RFFSelectSearch
                               label="Client"
-                              disabled={formDisabled}
                               values={NCClients?.map((NCClients) => ({
                                 value: NCClients.customerid,
                                 name: NCClients.customername,
