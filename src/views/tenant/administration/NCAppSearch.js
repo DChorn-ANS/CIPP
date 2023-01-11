@@ -30,7 +30,7 @@ const NCAppSearch = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   let query = useQuery()
   const AppName = query.get('AppName')
-  const Client = query.get('Client')
+  const ClientID = query.get('Client')
   const SearchNow = query.get('SearchNow')
   const [visibleA, setVisibleA] = useState(true)
   const handleSubmit = async (values) => {
@@ -83,7 +83,7 @@ const NCAppSearch = () => {
       params: {
         tenantFilter: tenant.defaultDomainName,
         AppName: AppName,
-        Client: Client,
+        ClientID: ClientID,
       },
     })
   }, [AppName, NCAppSearch, tenant.defaultDomainName, query])
