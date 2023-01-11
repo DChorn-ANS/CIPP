@@ -40,7 +40,7 @@ const NCAppSearch = () => {
       tenantFilter: tenant.defaultDomainName,
       SearchNow: true,
       AppName: encodeURIComponent(values.AppName),
-      ClientID: encodeURIComponent(values.ClientID),
+      ClientID: encodeURIComponent(values.Client.value),
       random: (Math.random() + 1).toString(36).substring(7),
     }
     var queryString = Object.keys(shippedValues)
