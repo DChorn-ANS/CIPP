@@ -86,7 +86,7 @@ const NCAppSearch = () => {
         ClientID: ClientID,
       },
     })
-  }, [AppName, NCAppSearch, tenant.defaultDomainName, query])
+  }, [AppName, ClientID, NCAppSearch, tenant.defaultDomainName, query])
 
   return (
     <>
