@@ -106,7 +106,7 @@ const NCAppSearch = () => {
                 <Form
                   initialValues={{
                     tenantFilter: tenant.defaultDomainName,
-                    AppName: AppName,
+                    Fart: AppName,
                   }}
                   onSubmit={handleSubmit}
                   render={({ handleSubmit, submitting, values }) => {
