@@ -81,12 +81,11 @@ const NCAppSearch = () => {
     NCAppSearch({
       path: 'api/NCListDeviceAppSearch',
       params: {
-        tenantFilter: tenant.defaultDomainName,
         AppName: AppName,
         ClientID: ClientID,
       },
     })
-  }, [AppName, ClientID, NCAppSearch, tenant.defaultDomainName, query])
+  }, [AppName, NCAppSearch, ClientID, query])
 
   return (
     <>
@@ -104,10 +103,6 @@ const NCAppSearch = () => {
             <CCollapse visible={visibleA}>
               <CCardBody>
                 <Form
-                  initialValues={{
-                    tenantFilter: tenant.defaultDomainName,
-                    Fart: AppName,
-                  }}
                   onSubmit={handleSubmit}
                   render={({ handleSubmit, submitting, values }) => {
                     return (
