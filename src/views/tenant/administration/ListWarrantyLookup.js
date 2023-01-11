@@ -38,7 +38,6 @@ const GraphExplorer = () => {
       tenantFilter: tenant.defaultDomainName,
       SearchNow: true,
       serialnumber: encodeURIComponent(values.serialnumber),
-      random: (Math.random() + 1).toString(36).substring(7),
     }
     var queryString = Object.keys(shippedValues)
       .map((key) => key + '=' + shippedValues[key])
