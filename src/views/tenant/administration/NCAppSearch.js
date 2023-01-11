@@ -30,7 +30,7 @@ const NCAppSearch = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   let query = useQuery()
   const AppName = query.get('AppName')
-  const ClientID = query.get('Client').value
+  const ClientID = query.get('ClientID')
   const SearchNow = query.get('SearchNow')
   const [visibleA, setVisibleA] = useState(true)
   const handleSubmit = async (values) => {
