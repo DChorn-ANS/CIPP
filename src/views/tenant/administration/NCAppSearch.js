@@ -30,7 +30,7 @@ const NCAppSearch = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   let query = useQuery()
   const AppName = query.get('AppName')
-  const ClientID = query.get('Client')
+  const ClientID = query.get('Client').value
   const SearchNow = query.get('SearchNow')
   const [visibleA, setVisibleA] = useState(true)
   const handleSubmit = async (values) => {
@@ -41,7 +41,6 @@ const NCAppSearch = () => {
       SearchNow: true,
       AppName: encodeURIComponent(values.AppName),
       ClientID: encodeURIComponent(values.Client.value),
-      random: (Math.random() + 1).toString(36).substring(7),
     }
     var queryString = Object.keys(shippedValues)
       .map((key) => key + '=' + shippedValues[key])
