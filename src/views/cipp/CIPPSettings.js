@@ -407,6 +407,12 @@ const GeneralSettings = () => {
                 Run access check
               </CButton>
               <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
               {accessCheckResult.isSuccess && (
                 <CippTable
                   reportName="none"
