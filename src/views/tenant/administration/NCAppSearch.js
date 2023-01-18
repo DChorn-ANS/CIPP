@@ -78,11 +78,8 @@ const NCAppSearch = () => {
 
   useEffect(() => {
     NCAppSearch({
-      path: 'api/NCListDeviceAppSearch',
-      params: {
-        AppName: AppName,
-        ClientID: ClientID,
-      },
+      path: 'api/NCapp_OrchestrationStarter',
+      params: {},
     })
   }, [AppName, NCAppSearch, ClientID, query])
 
