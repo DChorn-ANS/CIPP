@@ -479,6 +479,63 @@ const GeneralSettings = () => {
             </CCardBody>
           </CCard>
         </CCol>
+        <CCol>
+          <CCard className="h-100">
+            <CCardHeader>
+              <CCardTitle>Run Backup 2: ElectricBoogaloo</CCardTitle>
+            </CCardHeader>
+            <CCardBody>
+              Click the button below to start a backup of all settings <br />
+              <CButton
+                onClick={() => runBackup({ path: '/api/ExecRunBackup' })}
+                disabled={RunBackupResult.isFetching}
+                className="me-3 mt-3"
+              >
+                {RunBackupResult.isFetching && (
+                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                )}
+                Run backup
+              </CButton>
+              <input
+                ref={inputRef}
+                type="file"
+                accept="json/*"
+                style={{ display: 'none' }}
+                id="contained-button-file"
+                onChange={(e) => handleChange(e)}
+              />
+              <CButton
+                type="file"
+                name="file"
+                onClick={() => inputRef.current.click()}
+                disabled={restoreBackupResult.isFetching}
+                className="me-3 mt-3"
+              >
+                {restoreBackupResult.isFetching && (
+                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                )}
+                Restore backup
+              </CButton>
+              {restoreBackupResult.isSuccess && (
+                <>
+                  <CCallout color="success">{restoreBackupResult.data.Results}</CCallout>
+                </>
+              )}
+              {RunBackupResult.isSuccess && (
+                <>
+                  <CCallout color="success">
+                    <CButton
+                      onClick={() => downloadTxtFile(RunBackupResult.data.backup)}
+                      className="m-1"
+                    >
+                      Download Backup
+                    </CButton>
+                  </CCallout>
+                </>
+              )}
+            </CCardBody>
+          </CCard>
+        </CCol>
       </CRow>
     </div>
   )
