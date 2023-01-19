@@ -118,7 +118,7 @@ const AlertWizard = () => {
           />
           <RFFCFormSwitch name="QuotaUsed" label="Alert on 90% mailbox quota used" />
           <RFFCFormSwitch name="UnusedLicenses" label="Alert on unused licenses" />
-          <RFFCFormSwitch name="OverusedLicenses" label="Alert on Overused licenses" />
+          <RFFCFormSwitch name="OverusedLicenses" label="Alert on overused licenses" />
           <RFFCFormSwitch name="AppSecretExpiry" label="Alert on expiring application secrets" />
           <RFFCFormSwitch name="ApnCertExpiry" label="Alert on expiring APN certificates" />
           <RFFCFormSwitch name="VppTokenExpiry" label="Alert on expiring VPP tokens" />
