@@ -78,7 +78,7 @@ const NCAppSearch = () => {
 
   useEffect(() => {
     NCAppSearch({
-      path: 'api/NCapp_OrchestrationStarter',
+      path: 'api/NCApp_OrchestrationStarter',
       params: {},
     })
   }, [AppName, NCAppSearch, ClientID, query])
