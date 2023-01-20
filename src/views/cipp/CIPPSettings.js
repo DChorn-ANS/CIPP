@@ -406,7 +406,7 @@ const GeneralSettings = () => {
               <CButton
                 onClick={() => handleCheckAccess()}
                 disabled={accessCheckResult.isFetching || selectedTenants.length < 1}
-                className="my-3"
+                className="mt-3"
               >
                 {accessCheckResult.isFetching && (
                   <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
@@ -415,10 +415,11 @@ const GeneralSettings = () => {
               </CButton>
               {accessCheckResult.isSuccess && (
                 <CippTable
-                   reportName="none"
-                   columns={checkAccessColumns}
-                   tableProps={tableProps}
-                   data={accessCheckResult.data.Results}
+                  reportName="none"
+                  columns={checkAccessColumns}
+                  tableProps={tableProps}
+                  data={accessCheckResult.data.Results}
+                  className="mt-3"
                 />
               )}
             </CCardBody>
