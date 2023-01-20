@@ -511,23 +511,23 @@ const GeneralSettings = () => {
               </CButton>
               {accessCheckResult.isSuccess && (
                 <>
-                <CCallout
-                  color={permissionsResult.data.Results?.Success === true ? 'success' : 'danger'}
-                >
-                  {permissionsResult.data.Results?.Messages && (
-                    <>
-                      {permissionsResult.data.Results?.Messages?.map((m, idx) => (
-                        <div key={idx}>{m}</div>
-                      ))}
-                    </>
-                  )}
-                  {permissionsResult.data.Results?.MissingPermissions.length > 0 && (
-                    <>
-                      Your Secure Application Model is missing the following permissions. See the
-                      documentation on how to add permissions{' '}
-                    </>
-                  )}
-                </CCallout>
+                  <CCallout
+                    color={permissionsResult.data.Results?.Success === true ? 'success' : 'danger'}
+                  >
+                    {permissionsResult.data.Results?.Messages && (
+                      <>
+                        {permissionsResult.data.Results?.Messages?.map((m, idx) => (
+                          <div key={idx}>{m}</div>
+                        ))}
+                      </>
+                    )}
+                    {permissionsResult.data.Results?.MissingPermissions.length > 0 && (
+                      <>
+                        Your Secure Application Model is missing the following permissions. See the
+                        documentation on how to add permissions{' '}
+                      </>
+                    )}
+                  </CCallout>
                 </>
               )}
             </CCardBody>
