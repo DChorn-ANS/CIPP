@@ -397,26 +397,25 @@ const GeneralSettings = () => {
                 </CCallout>
               )}
               <CRow>
-              <CButton
-                onClick={() => handleCheckAccess()}
-                disabled={accessCheckResult.isFetching || selectedTenants.length < 1}
-              >
-                {accessCheckResult.isFetching && (
-                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-                )}
-                Run access check
-              </CButton>
+                <CButton
+                  onClick={() => handleCheckAccess()}
+                  disabled={accessCheckResult.isFetching || selectedTenants.length < 1}
+                >
+                  {accessCheckResult.isFetching && (
+                    <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                  )}
+                  Run access check
+                </CButton>
               </CRow>
               <CRow>
-              {accessCheckResult.isSuccess && (
-                
-                <CippTable
-                  reportName="none"
-                  columns={checkAccessColumns}
-                  tableProps={tableProps}
-                  data={accessCheckResult.data.Results}
-                />
-              )}
+                {accessCheckResult.isSuccess && (
+                  <CippTable
+                    reportName="none"
+                    columns={checkAccessColumns}
+                    tableProps={tableProps}
+                    data={accessCheckResult.data.Results}
+                  />
+                )}
               </CRow>
             </CCardBody>
           </CCard>
@@ -489,9 +488,7 @@ const GeneralSettings = () => {
               <CCardTitle>Set Global Timezone</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <div className="mb-3">
-                Select a Global timezone to be used for scheduling.
-              </div>
+              <div className="mb-3">Select a Global timezone to be used for scheduling.</div>
               <RFFSelectSearch
                 label="Client"
                 values={NCClients?.map((NCClients) => ({
@@ -507,9 +504,9 @@ const GeneralSettings = () => {
                 onClick={() => handleApplyTimezone()}
                 disabled={TimezoneResult.isFetching || selectedTimezone.length < 1}
               >
-              {TimezoneResult.isFetching && (
-                <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-              )}
+                {TimezoneResult.isFetching && (
+                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                )}
                 Apply Timezone
               </CButton>
               {accessCheckResult.isSuccess && (
@@ -531,7 +528,7 @@ const GeneralSettings = () => {
                     </>
                   )}
                 </CCallout>
-			          </>
+                </>
               )}
             </CCardBody>
           </CCard>
