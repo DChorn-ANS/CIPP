@@ -855,8 +855,8 @@ const SecuritySettings = () => {
               </CCardHeader>
               <CCardBody className="equalheight">
                 <CRow className="mb-3">
-                  At the Function App Configuration you can check the status of the API access
-                  to your keyvault
+                  At the Function App Configuration you can check the status of the API access to
+                  your keyvault
                 </CRow>
                 <a
                   target={'_blank'}
