@@ -50,13 +50,7 @@ import { useLazyEditDnsConfigQuery, useLazyGetDnsConfigQuery } from 'src/store/a
 import { useDispatch, useSelector } from 'react-redux'
 import { cellBooleanFormatter, CellTip, CellTipIcon, CippTable } from 'src/components/tables'
 import { CippPage, CippPageList } from 'src/components/layout'
-import {
-  RFFCFormSwitch,
-  RFFCFormInput,
-  RFFCFormSelect,
-  Condition,
-  RFFSelectSearch,
-} from 'src/components/forms'
+import { RFFCFormSwitch, RFFCFormInput, RFFCFormSelect,} from 'src/components/forms'
 import { Form } from 'react-final-form'
 import useConfirmModal from 'src/hooks/useConfirmModal'
 import { setCurrentTenant } from 'src/store/features/app'
@@ -933,24 +927,9 @@ const NotificationsSettings = () => {
                       />
                       <RFFCFormSwitch
                         name="onePerTenant"
-                        label="Receive one email per tenant (Enable to unlock One email per alert setting)"
+                        label="Receive one email per tenant"
                         value={false}
                       />
-                      <Condition when="onePerTenant" is={true}>
-                        <RFFCFormSwitch
-                          name="onePerAlert"
-                          label="Receive one email per alert"
-                          value={false}
-                        />
-                      </Condition>
-                      <Condition when="onePerTenant" is={false}>
-                        <RFFCFormSwitch
-                          name="onePerAlert"
-                          label="Receive one email per alert"
-                          value={false}
-                          disabled={true}
-                        />
-                      </Condition>
                       <CRow className="mb-3">
                         <CButton disabled={notificationConfigResult.isFetching} type="submit">
                           Set Notification Settings
