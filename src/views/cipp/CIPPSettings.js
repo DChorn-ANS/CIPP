@@ -349,29 +349,29 @@ const GeneralSettings = () => {
                 Click the button below to clear the application cache. You can clear only the tenant
                 cache, or all caches.
               </CRow>
-                <CButton
-                  onClick={() => handleClearCache()}
-                  disabled={clearCacheResult.isFetching}
-                  className="my-3"
-                >
-                  {clearCacheResult.isFetching && (
-                    <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-                  )}
-                  Clear All Caches
-                </CButton>
-                <CButton
-                  onClick={() => handleClearCacheTenant()}
-                  disabled={clearCacheResult.isFetching}
-                  className="mb-3"
-                >
-                  {clearCacheResult.isFetching && (
-                    <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-                  )}
-                  Clear Tenant Cache
-                </CButton>
-                {clearCacheResult.isSuccess && (
-                  <div className="mt-3">{clearCacheResult.data?.Results}</div>
+              <CButton
+                onClick={() => handleClearCache()}
+                disabled={clearCacheResult.isFetching}
+                className="my-3"
+              >
+                {clearCacheResult.isFetching && (
+                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
                 )}
+                Clear All Caches
+              </CButton>
+              <CButton
+                onClick={() => handleClearCacheTenant()}
+                disabled={clearCacheResult.isFetching}
+                className="mb-3"
+              >
+                {clearCacheResult.isFetching && (
+                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                )}
+                Clear Tenant Cache
+              </CButton>
+              {clearCacheResult.isSuccess && (
+                <div className="mt-3">{clearCacheResult.data?.Results}</div>
+              )}
             </CCardBody>
           </CCard>
         </CCol>
