@@ -345,8 +345,8 @@ const GeneralSettings = () => {
               <CCardTitle>Clear Cache</CCardTitle>
             </CCardHeader>
             <CCardBody>
-                Click the button below to clear the application cache. You can clear only the tenant
-                cache, or all caches.
+              Click the button below to clear the application cache. You can clear only the tenant
+              cache, or all caches.
               <CRow>
                 <CButton
                   onClick={() => handleClearCache()}
@@ -408,21 +408,20 @@ const GeneralSettings = () => {
                 disabled={accessCheckResult.isFetching || selectedTenants.length < 1}
                 className="my-3"
               >
-                  {accessCheckResult.isFetching && (
-                    <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-                  )}
-                  Run access check
-                </CButton>
-              <CRow>
+                {accessCheckResult.isFetching && (
+                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                )}
+                Run access check
+              </CButton>
                 {accessCheckResult.isSuccess && (
                   <CippTable
                     reportName="none"
                     columns={checkAccessColumns}
                     tableProps={tableProps}
                     data={accessCheckResult.data.Results}
+                    
                   />
                 )}
-              </CRow>
             </CCardBody>
           </CCard>
         </CCol>
@@ -437,7 +436,7 @@ const GeneralSettings = () => {
               <CCardTitle>Run Backup</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <CRow className="mb-3">Click the button below to start a backup of all Settings</CRow>
+              Click the button below to start a backup of all Settings
               <CButton
                 onClick={() => runBackup({ path: '/api/ExecRunBackup' })}
                 disabled={RunBackupResult.isFetching}
