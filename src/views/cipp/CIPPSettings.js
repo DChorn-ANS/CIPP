@@ -369,7 +369,7 @@ const GeneralSettings = () => {
                 )}
                 Clear Tenant Cache
               </CButton>
-              {clearCacheResult.isSuccess && (<div>{clearCacheResult.data?.Results}</div>)}
+              {clearCacheResult.isSuccess && <div>{clearCacheResult.data?.Results}</div>}
             </CCardBody>
           </CCard>
         </CCol>
