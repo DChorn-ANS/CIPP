@@ -413,15 +413,14 @@ const GeneralSettings = () => {
                 )}
                 Run access check
               </CButton>
-                {accessCheckResult.isSuccess && (
-                  <CippTable
-                    reportName="none"
-                    columns={checkAccessColumns}
-                    tableProps={tableProps}
-                    data={accessCheckResult.data.Results}
-                    
-                  />
-                )}
+              {accessCheckResult.isSuccess && (
+                <CippTable
+                   reportName="none"
+                   columns={checkAccessColumns}
+                   tableProps={tableProps}
+                   data={accessCheckResult.data.Results}
+                />
+              )}
             </CCardBody>
           </CCard>
         </CCol>
