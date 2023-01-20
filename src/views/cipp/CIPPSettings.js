@@ -856,6 +856,7 @@ const SecuritySettings = () => {
               <CCardBody className="equalheight">
                 <CRow className="mb-3">
                   At the Function App Configuration you can check the status of the API access to your keyvault
+
                 </CRow>
                 <a
                   target={'_blank'}
@@ -948,8 +949,8 @@ const NotificationsSettings = () => {
                       </CCol>
                       <CRow className="mb-3">
                         <CFormLabel>
-                          Choose which types of updates you want to receive. This notification will be
-                          sent every 15 minutes.
+                          Choose which types of updates you want to receive. This notification will
+                          be sent every 15 minutes.
                         </CFormLabel>
                       </CRow>
                       <RFFCFormSwitch
@@ -1158,9 +1159,7 @@ const DNSSettings = () => {
             <CCardTitle>DNS Resolver</CCardTitle>
           </CCardHeader>
           <CCardBody>
-            <CRow className="mb-3">
-              Select a DNS resolver to use for Domain Analysis.
-            </CRow>
+            <CRow className="mb-3">Select a DNS resolver to use for Domain Analysis.</CRow>
             <CButtonGroup role="group" aria-label="Resolver" className="my-3">
               {resolvers.map((r, index) => (
                 <CButton
