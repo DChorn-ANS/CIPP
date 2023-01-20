@@ -396,7 +396,7 @@ const GeneralSettings = () => {
                   A maximum of {maxSelected + 1} tenants is recommended.
                 </CCallout>
               )}
-              <br />
+              <CRow>
               <CButton
                 onClick={() => handleCheckAccess()}
                 disabled={accessCheckResult.isFetching || selectedTenants.length < 1}
@@ -406,8 +406,10 @@ const GeneralSettings = () => {
                 )}
                 Run access check
               </CButton>
-              <br />
+              </CRow>
+              <CRow>
               {accessCheckResult.isSuccess && (
+                
                 <CippTable
                   reportName="none"
                   columns={checkAccessColumns}
@@ -415,6 +417,7 @@ const GeneralSettings = () => {
                   data={accessCheckResult.data.Results}
                 />
               )}
+              </CRow>
             </CCardBody>
           </CCard>
         </CCol>
@@ -480,59 +483,55 @@ const GeneralSettings = () => {
             </CCardBody>
           </CCard>
         </CCol>
-        <CCol>
+        <CCol md={6}>
           <CCard className="h-100">
             <CCardHeader>
-              <CCardTitle>Run Backup 2: ElectricBoogaloo</CCardTitle>
+              <CCardTitle>Set Global Timezone</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              Click the button below to start a backup of all settings <br />
-              <CButton
-                onClick={() => runBackup({ path: '/api/ExecRunBackup' })}
-                disabled={RunBackupResult.isFetching}
-                className="me-3 mt-3"
-              >
-                {RunBackupResult.isFetching && (
-                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-                )}
-                Run backup
-              </CButton>
-              <input
-                ref={inputRef}
-                type="file"
-                accept="json/*"
-                style={{ display: 'none' }}
-                id="contained-button-file"
-                onChange={(e) => handleChange(e)}
+              <div className="mb-3">
+                Select a Global timezone to be used for scheduling.
+              </div>
+              <RFFSelectSearch
+                label="Client"
+                values={NCClients?.map((NCClients) => ({
+                  value: NCClients.customerid,
+                  name: NCClients.customername,
+                }))}
+                placeholder={!NCClientsIsFetching ? 'Select Client' : 'Loading...'}
+                name="Client"
               />
+              {NCClientsError && <span>Failed to load list of Clients</span>}
+              <br />
               <CButton
-                type="file"
-                name="file"
-                onClick={() => inputRef.current.click()}
-                disabled={restoreBackupResult.isFetching}
-                className="me-3 mt-3"
+                onClick={() => handleApplyTimezone()}
+                disabled={TimezoneResult.isFetching || selectedTimezone.length < 1}
               >
-                {restoreBackupResult.isFetching && (
-                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-                )}
-                Restore backup
-              </CButton>
-              {restoreBackupResult.isSuccess && (
-                <>
-                  <CCallout color="success">{restoreBackupResult.data.Results}</CCallout>
-                </>
+              {TimezoneResult.isFetching && (
+                <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
               )}
-              {RunBackupResult.isSuccess && (
+                Apply Timezone
+              </CButton>
+              {accessCheckResult.isSuccess && (
                 <>
-                  <CCallout color="success">
-                    <CButton
-                      onClick={() => downloadTxtFile(RunBackupResult.data.backup)}
-                      className="m-1"
-                    >
-                      Download Backup
-                    </CButton>
-                  </CCallout>
-                </>
+                <CCallout
+                  color={permissionsResult.data.Results?.Success === true ? 'success' : 'danger'}
+                >
+                  {permissionsResult.data.Results?.Messages && (
+                    <>
+                      {permissionsResult.data.Results?.Messages?.map((m, idx) => (
+                        <div key={idx}>{m}</div>
+                      ))}
+                    </>
+                  )}
+                  {permissionsResult.data.Results?.MissingPermissions.length > 0 && (
+                    <>
+                      Your Secure Application Model is missing the following permissions. See the
+                      documentation on how to add permissions{' '}
+                    </>
+                  )}
+                </CCallout>
+			          </>
               )}
             </CCardBody>
           </CCard>
