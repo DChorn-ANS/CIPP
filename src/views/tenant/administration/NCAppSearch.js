@@ -78,16 +78,11 @@ const NCAppSearch = () => {
 
   useEffect(() => {
     NCAppSearch({
-<<<<<<< Updated upstream
-      path: 'api/NCApp_OrchestrationStarter',
-      params: {},
-=======
       path: 'api/NCListDeviceAppSearch',
       params: {
         AppName: AppName,
         ClientID: ClientID,
       },
->>>>>>> Stashed changes
     })
   }, [AppName, NCAppSearch, ClientID, query])
 
