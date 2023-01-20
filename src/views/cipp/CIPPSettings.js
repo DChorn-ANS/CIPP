@@ -278,7 +278,7 @@ const GeneralSettings = () => {
               <CCardTitle>Permissions Check</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              Click the button below to start a permissions check.
+              <CRow>Click the button below to start a permissions check.</CRow>
               <CButton
                 onClick={() => checkPermissions()}
                 disabled={permissionsResult.isFetching}
@@ -345,9 +345,10 @@ const GeneralSettings = () => {
               <CCardTitle>Clear Cache</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              Click the button below to clear the application cache. You can clear only the tenant
-              cache, or all caches.
               <CRow>
+                Click the button below to clear the application cache. You can clear only the tenant
+                cache, or all caches.
+              </CRow>
                 <CButton
                   onClick={() => handleClearCache()}
                   disabled={clearCacheResult.isFetching}
@@ -371,7 +372,6 @@ const GeneralSettings = () => {
                 {clearCacheResult.isSuccess && (
                   <div className="mt-3">{clearCacheResult.data?.Results}</div>
                 )}
-              </CRow>
             </CCardBody>
           </CCard>
         </CCol>
@@ -1105,7 +1105,7 @@ const DNSSettings = () => {
             <CCardTitle>DNS Resolver</CCardTitle>
           </CCardHeader>
           <CCardBody>
-            <CRow className="mb-3">Select a DNS resolver to use for Domain Analysis.</CRow>
+            <CRow>Select a DNS resolver to use for Domain Analysis.</CRow>
             <CButtonGroup role="group" aria-label="Resolver" className="my-3">
               {resolvers.map((r, index) => (
                 <CButton
