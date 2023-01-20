@@ -55,7 +55,7 @@ import {
   RFFCFormInput,
   RFFCFormSelect,
   Condition,
-  RFFSelectSearch
+  RFFSelectSearch,
 } from 'src/components/forms'
 import { Form } from 'react-final-form'
 import useConfirmModal from 'src/hooks/useConfirmModal'
@@ -438,9 +438,7 @@ const GeneralSettings = () => {
               <CCardTitle>Run Backup</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <CRow className="mb-3">
-                Click the button below to start a backup of all Settings
-              </CRow>
+              <CRow className="mb-3">Click the button below to start a backup of all Settings</CRow>
               <CButton
                 onClick={() => runBackup({ path: '/api/ExecRunBackup' })}
                 disabled={RunBackupResult.isFetching}
@@ -816,8 +814,8 @@ const SecuritySettings = () => {
               </CCardHeader>
               <CCardBody className="equalheight">
                 <CRow className="mb-3">
-                The Static Web App role management allows you to invite other users to the
-                application.
+                  The Static Web App role management allows you to invite other users to the
+                  application.
                 </CRow>
                 <a
                   target={'_blank'}
@@ -838,7 +836,7 @@ const SecuritySettings = () => {
               </CCardHeader>
               <CCardBody className="equalheight">
                 <CRow className="mb-3">
-                The Function App Deployment Center allows you to run updates on the API
+                  The Function App Deployment Center allows you to run updates on the API
                 </CRow>
                 <a
                   target={'_blank'}
@@ -857,8 +855,7 @@ const SecuritySettings = () => {
               </CCardHeader>
               <CCardBody className="equalheight">
                 <CRow className="mb-3">
-                  At the Function App Configuration you can check the status of the API access to your
-                  keyvault
+                  At the Function App Configuration you can check the status of the API access to your keyvault
                 </CRow>
                 <a
                   target={'_blank'}
