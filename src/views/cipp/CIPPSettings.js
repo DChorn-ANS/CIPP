@@ -379,7 +379,6 @@ const GeneralSettings = () => {
                 Click the button below to start a tenant access check. You can select multiple a
                 maximum of {maxSelected + 1} tenants is recommended.
               </div>
-
               <TenantSelectorMultiple
                 ref={tenantSelectorRef}
                 values={selectedTenants}
@@ -396,7 +395,7 @@ const GeneralSettings = () => {
                   A maximum of {maxSelected + 1} tenants is recommended.
                 </CCallout>
               )}
-              <CRow>
+              <CRow className="mb-3">
                 <CButton
                   onClick={() => handleCheckAccess()}
                   disabled={accessCheckResult.isFetching || selectedTenants.length < 1}
