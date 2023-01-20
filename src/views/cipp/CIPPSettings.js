@@ -50,7 +50,13 @@ import { useLazyEditDnsConfigQuery, useLazyGetDnsConfigQuery } from 'src/store/a
 import { useDispatch, useSelector } from 'react-redux'
 import { cellBooleanFormatter, CellTip, CellTipIcon, CippTable } from 'src/components/tables'
 import { CippPage, CippPageList } from 'src/components/layout'
-import { RFFCFormSwitch, RFFCFormInput, RFFCFormSelect, Condition, RFFSelectSearch } from 'src/components/forms'
+import {
+  RFFCFormSwitch,
+  RFFCFormInput,
+  RFFCFormSelect,
+  Condition,
+  RFFSelectSearch
+} from 'src/components/forms'
 import { Form } from 'react-final-form'
 import useConfirmModal from 'src/hooks/useConfirmModal'
 import { setCurrentTenant } from 'src/store/features/app'
@@ -272,9 +278,7 @@ const GeneralSettings = () => {
               <CCardTitle>Permissions Check</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <CRow className="mb-3">
-                Click the button below to start a permissions check.
-              </CRow>
+              <CRow className="mb-3">Click the button below to start a permissions check.</CRow>
               <CButton
                 onClick={() => checkPermissions()}
                 disabled={permissionsResult.isFetching}
@@ -434,7 +438,9 @@ const GeneralSettings = () => {
               <CCardTitle>Run Backup</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              Click the button below to start a backup of all settings <br />
+              <CRow className="mb-3">
+                Click the button below to start a backup of all Settings
+              </CRow>
               <CButton
                 onClick={() => runBackup({ path: '/api/ExecRunBackup' })}
                 disabled={RunBackupResult.isFetching}
@@ -501,8 +507,9 @@ const GeneralSettings = () => {
                 placeholder={!NCClientsIsFetching ? 'Select Client' : 'Loading...'}
                 name="Client"
               />
-              {NCClientsError && <span>Failed to load list of Clients</span>}
-              <br />
+              <CRow className="mb-3">
+                {NCClientsError && <span>Failed to load list of Clients</span>}
+              </CRow>
               <CButton
                 onClick={() => handleApplyTimezone()}
                 disabled={TimezoneResult.isFetching || selectedTimezone.length < 1}
@@ -768,8 +775,10 @@ const SecuritySettings = () => {
                 <CCardTitle>Resource Group</CCardTitle>
               </CCardHeader>
               <CCardBody className="equalheight">
-                The Resource group contains all the CIPP resources in your tenant, except the SAM
-                Application <br /> <br />
+                <CRow className="mb-3">
+                  The Resource group contains all the CIPP resources in your tenant, except the SAM
+                  Application
+                </CRow>
                 <a
                   target={'_blank'}
                   href={listBackendResult.data?.Results?.ResourceGroup}
@@ -786,9 +795,10 @@ const SecuritySettings = () => {
                 <CCardTitle>Key Vault</CCardTitle>
               </CCardHeader>
               <CCardBody className="equalheight">
-                The keyvault allows you to check token information. By default you do not have
-                access.
-                <br /> <br />
+                <CRow className="mb-3">
+                  The keyvault allows you to check token information. By default you do not have
+                  access.
+                </CRow>
                 <a
                   target={'_blank'}
                   href={listBackendResult.data?.Results?.KeyVault}
@@ -805,9 +815,10 @@ const SecuritySettings = () => {
                 <CCardTitle>Static Web App (Role Management)</CCardTitle>
               </CCardHeader>
               <CCardBody className="equalheight">
+                <CRow className="mb-3">
                 The Static Web App role management allows you to invite other users to the
                 application.
-                <br /> <br />
+                </CRow>
                 <a
                   target={'_blank'}
                   href={listBackendResult.data?.Results?.SWARoles}
@@ -826,8 +837,9 @@ const SecuritySettings = () => {
                 <CCardTitle>Function App (Deployment Center)</CCardTitle>
               </CCardHeader>
               <CCardBody className="equalheight">
+                <CRow className="mb-3">
                 The Function App Deployment Center allows you to run updates on the API
-                <br /> <br />
+                </CRow>
                 <a
                   target={'_blank'}
                   href={listBackendResult.data?.Results?.FunctionDeployment}
@@ -844,8 +856,10 @@ const SecuritySettings = () => {
                 <CCardTitle>Function App (Configuration)</CCardTitle>
               </CCardHeader>
               <CCardBody className="equalheight">
-                At the Function App Configuration you can check the status of the API access to your
-                keyvault <br /> <br />
+                <CRow className="mb-3">
+                  At the Function App Configuration you can check the status of the API access to your
+                  keyvault
+                </CRow>
                 <a
                   target={'_blank'}
                   href={listBackendResult.data?.Results?.FunctionConfig}
@@ -862,7 +876,9 @@ const SecuritySettings = () => {
                 <CCardTitle>Function App (Overview)</CCardTitle>
               </CCardHeader>
               <CCardBody className="equalheight">
-                At the function App Overview, you can stop and start the backend API <br /> <br />
+                <CRow className="mb-3">
+                  At the function App Overview, you can stop and start the backend API
+                </CRow>
                 <a
                   target={'_blank'}
                   href={listBackendResult.data?.Results?.FunctionApp}
@@ -933,11 +949,12 @@ const NotificationsSettings = () => {
                       <CCol>
                         <RFFCFormInput type="text" name="webhook" label="Webhook" />
                       </CCol>
-                      <CFormLabel>
-                        Choose which types of updates you want to receive. This notification will be
-                        sent every 15 minutes.
-                      </CFormLabel>
-                      <br />
+                      <CRow className="mb-3">
+                        <CFormLabel>
+                          Choose which types of updates you want to receive. This notification will be
+                          sent every 15 minutes.
+                        </CFormLabel>
+                      </CRow>
                       <RFFCFormSwitch
                         name="addUser"
                         label="New Accounts created via CIPP"
@@ -985,10 +1002,11 @@ const NotificationsSettings = () => {
                           value={false}
                         />
                       </Condition>
-                      <br></br>
-                      <CButton disabled={notificationConfigResult.isFetching} type="submit">
-                        Set Notification Settings
-                      </CButton>
+                      <CRow className="mb-3">
+                        <CButton disabled={notificationConfigResult.isFetching} type="submit">
+                          Set Notification Settings
+                        </CButton>
+                      </CRow>
                     </CCol>
                   </CForm>
                 )
@@ -1143,7 +1161,9 @@ const DNSSettings = () => {
             <CCardTitle>DNS Resolver</CCardTitle>
           </CCardHeader>
           <CCardBody>
-            Select a DNS resolver to use for Domain Analysis. <br />
+            <CRow className="mb-3">
+              Select a DNS resolver to use for Domain Analysis.
+            </CRow>
             <CButtonGroup role="group" aria-label="Resolver" className="my-3">
               {resolvers.map((r, index) => (
                 <CButton
