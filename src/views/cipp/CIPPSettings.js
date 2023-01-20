@@ -278,7 +278,7 @@ const GeneralSettings = () => {
               <CCardTitle>Permissions Check</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <CRow className="mb-3">Click the button below to start a permissions check.</CRow>
+              Click the button below to start a permissions check.
               <CButton
                 onClick={() => checkPermissions()}
                 disabled={permissionsResult.isFetching}
@@ -345,13 +345,13 @@ const GeneralSettings = () => {
               <CCardTitle>Clear Cache</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <CRow className="mb-3">
                 Click the button below to clear the application cache. You can clear only the tenant
                 cache, or all caches.
+              <CRow>
                 <CButton
                   onClick={() => handleClearCache()}
                   disabled={clearCacheResult.isFetching}
-                  className="me-3"
+                  className="my-3"
                 >
                   {clearCacheResult.isFetching && (
                     <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
@@ -361,7 +361,7 @@ const GeneralSettings = () => {
                 <CButton
                   onClick={() => handleClearCacheTenant()}
                   disabled={clearCacheResult.isFetching}
-                  className="me-3"
+                  className="mb-3"
                 >
                   {clearCacheResult.isFetching && (
                     <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
@@ -403,17 +403,16 @@ const GeneralSettings = () => {
                   A maximum of {maxSelected + 1} tenants is recommended.
                 </CCallout>
               )}
-              <CRow className="mb-3">
-                <CButton
-                  onClick={() => handleCheckAccess()}
-                  disabled={accessCheckResult.isFetching || selectedTenants.length < 1}
-                >
+              <CButton
+                onClick={() => handleCheckAccess()}
+                disabled={accessCheckResult.isFetching || selectedTenants.length < 1}
+                className="my-3"
+              >
                   {accessCheckResult.isFetching && (
                     <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
                   )}
                   Run access check
                 </CButton>
-              </CRow>
               <CRow>
                 {accessCheckResult.isSuccess && (
                   <CippTable
@@ -483,6 +482,58 @@ const GeneralSettings = () => {
                     >
                       Download Backup
                     </CButton>
+                  </CCallout>
+                </>
+              )}
+            </CCardBody>
+          </CCard>
+        </CCol>
+        <CCol md={6}>
+          <CCard className="h-100">
+            <CCardHeader>
+              <CCardTitle>Set Global Timezone</CCardTitle>
+            </CCardHeader>
+            <CCardBody>
+              <div className="mb-3">Select a Global timezone to be used for scheduling.</div>
+              <RFFSelectSearch
+                label="Timezone"
+                values={Timezones?.map((Timezones) => ({
+                  value: Timezones.Id,
+                  name: Timezones.DisplayName,
+                }))}
+                placeholder={!TimezonesIsFetching ? 'Select Timezone' : 'Loading...'}
+                name="Timezone"
+              />
+              <CRow className="mb-3">
+                {TimezonesError && <span>Failed to load list of Timezones</span>}
+              </CRow>
+              <CButton
+                onClick={() => handleApplyTimezone()}
+                disabled={TimezoneResult.isFetching || selectedTimezone.length < 1}
+              >
+                {TimezoneResult.isFetching && (
+                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                )}
+                Apply Timezone
+              </CButton>
+              {accessCheckResult.isSuccess && (
+                <>
+                  <CCallout
+                    color={permissionsResult.data.Results?.Success === true ? 'success' : 'danger'}
+                  >
+                    {permissionsResult.data.Results?.Messages && (
+                      <>
+                        {permissionsResult.data.Results?.Messages?.map((m, idx) => (
+                          <div key={idx}>{m}</div>
+                        ))}
+                      </>
+                    )}
+                    {permissionsResult.data.Results?.MissingPermissions.length > 0 && (
+                      <>
+                        Your Secure Application Model is missing the following permissions. See the
+                        documentation on how to add permissions{' '}
+                      </>
+                    )}
                   </CCallout>
                 </>
               )}
