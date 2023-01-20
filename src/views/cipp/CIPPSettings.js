@@ -50,7 +50,7 @@ import { useLazyEditDnsConfigQuery, useLazyGetDnsConfigQuery } from 'src/store/a
 import { useDispatch, useSelector } from 'react-redux'
 import { cellBooleanFormatter, CellTip, CellTipIcon, CippTable } from 'src/components/tables'
 import { CippPage, CippPageList } from 'src/components/layout'
-import { RFFCFormSwitch, RFFCFormInput, RFFCFormSelect, Condition } from 'src/components/forms'
+import { RFFCFormSwitch, RFFCFormInput, RFFCFormSelect, Condition, RFFSelectSearch } from 'src/components/forms'
 import { Form } from 'react-final-form'
 import useConfirmModal from 'src/hooks/useConfirmModal'
 import { setCurrentTenant } from 'src/store/features/app'
@@ -272,7 +272,9 @@ const GeneralSettings = () => {
               <CCardTitle>Permissions Check</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              Click the button below to start a permissions check. <br />
+              <CRow className="mb-3">
+                Click the button below to start a permissions check.
+              </CRow>
               <CButton
                 onClick={() => checkPermissions()}
                 disabled={permissionsResult.isFetching}
@@ -339,31 +341,33 @@ const GeneralSettings = () => {
               <CCardTitle>Clear Cache</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              Click the button below to clear the application cache. You can clear only the tenant
-              cache, or all caches. <br /> <br />
-              <CButton
-                onClick={() => handleClearCache()}
-                disabled={clearCacheResult.isFetching}
-                className="me-3"
-              >
-                {clearCacheResult.isFetching && (
-                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+              <CRow className="mb-3">
+                Click the button below to clear the application cache. You can clear only the tenant
+                cache, or all caches.
+                <CButton
+                  onClick={() => handleClearCache()}
+                  disabled={clearCacheResult.isFetching}
+                  className="me-3"
+                >
+                  {clearCacheResult.isFetching && (
+                    <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                  )}
+                  Clear All Caches
+                </CButton>
+                <CButton
+                  onClick={() => handleClearCacheTenant()}
+                  disabled={clearCacheResult.isFetching}
+                  className="me-3"
+                >
+                  {clearCacheResult.isFetching && (
+                    <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                  )}
+                  Clear Tenant Cache
+                </CButton>
+                {clearCacheResult.isSuccess && (
+                  <div className="mt-3">{clearCacheResult.data?.Results}</div>
                 )}
-                Clear All Caches
-              </CButton>
-              <CButton
-                onClick={() => handleClearCacheTenant()}
-                disabled={clearCacheResult.isFetching}
-                className="me-3"
-              >
-                {clearCacheResult.isFetching && (
-                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-                )}
-                Clear Tenant Cache
-              </CButton>
-              {clearCacheResult.isSuccess && (
-                <div className="mt-3">{clearCacheResult.data?.Results}</div>
-              )}
+              </CRow>
             </CCardBody>
           </CCard>
         </CCol>
