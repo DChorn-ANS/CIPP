@@ -487,58 +487,6 @@ const GeneralSettings = () => {
             </CCardBody>
           </CCard>
         </CCol>
-        <CCol md={6}>
-          <CCard className="h-100">
-            <CCardHeader>
-              <CCardTitle>Set Global Timezone</CCardTitle>
-            </CCardHeader>
-            <CCardBody>
-              <div className="mb-3">Select a Global timezone to be used for scheduling.</div>
-              <RFFSelectSearch
-                label="Timezone"
-                values={Timezones?.map((Timezones) => ({
-                  value: Timezones.Id,
-                  name: Timezones.DisplayName,
-                }))}
-                placeholder={!TimezonesIsFetching ? 'Select Timezone' : 'Loading...'}
-                name="Timezone"
-              />
-              <CRow className="mb-3">
-                {TimezonesError && <span>Failed to load list of Timezones</span>}
-              </CRow>
-              <CButton
-                onClick={() => handleApplyTimezone()}
-                disabled={TimezoneResult.isFetching || selectedTimezone.length < 1}
-              >
-                {TimezoneResult.isFetching && (
-                  <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-                )}
-                Apply Timezone
-              </CButton>
-              {accessCheckResult.isSuccess && (
-                <>
-                  <CCallout
-                    color={permissionsResult.data.Results?.Success === true ? 'success' : 'danger'}
-                  >
-                    {permissionsResult.data.Results?.Messages && (
-                      <>
-                        {permissionsResult.data.Results?.Messages?.map((m, idx) => (
-                          <div key={idx}>{m}</div>
-                        ))}
-                      </>
-                    )}
-                    {permissionsResult.data.Results?.MissingPermissions.length > 0 && (
-                      <>
-                        Your Secure Application Model is missing the following permissions. See the
-                        documentation on how to add permissions{' '}
-                      </>
-                    )}
-                  </CCallout>
-                </>
-              )}
-            </CCardBody>
-          </CCard>
-        </CCol>
       </CRow>
     </div>
   )
