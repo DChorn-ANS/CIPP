@@ -980,11 +980,11 @@ const NotificationsSettings = () => {
                         value={false}
                       />
                       <Condition when="onePerTenant" is={true}>
-                      <RFFCFormSwitch
-                        name="onePerAlert"
-                        label="Receive one email per alert"
-                        value={false}
-                      />
+                          <RFFCFormSwitch
+                          name="onePerAlert"
+                          label="Receive one email per alert"
+                          value={false}
+                          />
                       </Condition>
                       <br></br>
                       <CButton disabled={notificationConfigResult.isFetching} type="submit">
