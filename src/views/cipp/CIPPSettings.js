@@ -352,7 +352,7 @@ const GeneralSettings = () => {
               <CButton
                 onClick={() => handleClearCache()}
                 disabled={clearCacheResult.isFetching}
-                className="my-3"
+                className="me-3 my-3"
               >
                 {clearCacheResult.isFetching && (
                   <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
@@ -362,7 +362,7 @@ const GeneralSettings = () => {
               <CButton
                 onClick={() => handleClearCacheTenant()}
                 disabled={clearCacheResult.isFetching}
-                className="mb-3"
+                className="me-3 my-3"
               >
                 {clearCacheResult.isFetching && (
                   <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
@@ -370,7 +370,7 @@ const GeneralSettings = () => {
                 Clear Tenant Cache
               </CButton>
               {clearCacheResult.isSuccess && (
-                <div className="mt-3">{clearCacheResult.data?.Results}</div>
+                <div>{clearCacheResult.data?.Results}</div>
               )}
             </CCardBody>
           </CCard>
@@ -406,7 +406,7 @@ const GeneralSettings = () => {
               <CButton
                 onClick={() => handleCheckAccess()}
                 disabled={accessCheckResult.isFetching || selectedTenants.length < 1}
-                className="mt-3"
+                className="my-3"
               >
                 {accessCheckResult.isFetching && (
                   <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
@@ -419,7 +419,6 @@ const GeneralSettings = () => {
                   columns={checkAccessColumns}
                   tableProps={tableProps}
                   data={accessCheckResult.data.Results}
-                  className="mt-3"
                 />
               )}
             </CCardBody>
@@ -436,7 +435,7 @@ const GeneralSettings = () => {
               <CCardTitle>Run Backup</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              Click the button below to start a backup of all Settings
+              <CRow>Click the button below to start a backup of all Settings</CRow>
               <CButton
                 onClick={() => runBackup({ path: '/api/ExecRunBackup' })}
                 disabled={RunBackupResult.isFetching}
@@ -944,6 +943,14 @@ const NotificationsSettings = () => {
                           name="onePerAlert"
                           label="Receive one email per alert"
                           value={false}
+                        />
+                      </Condition>
+                      <Condition when="onePerTenant" is={false}>
+                        <RFFCFormSwitch
+                          name="onePerAlert"
+                          label="Receive one email per alert"
+                          value={false}
+                          disabled={true}
                         />
                       </Condition>
                       <CRow className="mb-3">
