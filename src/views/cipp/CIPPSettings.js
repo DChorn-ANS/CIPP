@@ -50,7 +50,7 @@ import { useLazyEditDnsConfigQuery, useLazyGetDnsConfigQuery } from 'src/store/a
 import { useDispatch, useSelector } from 'react-redux'
 import { cellBooleanFormatter, CellTip, CellTipIcon, CippTable } from 'src/components/tables'
 import { CippPage, CippPageList } from 'src/components/layout'
-import { RFFCFormSwitch, RFFCFormInput, RFFCFormSelect,} from 'src/components/forms'
+import { RFFCFormSwitch, RFFCFormInput, RFFCFormSelect } from 'src/components/forms'
 import { Form } from 'react-final-form'
 import useConfirmModal from 'src/hooks/useConfirmModal'
 import { setCurrentTenant } from 'src/store/features/app'
