@@ -55,6 +55,7 @@ import {
   RFFCFormInput,
   RFFCFormSelect,
   RFFSelectSearch,
+  Condition,
 } from 'src/components/forms'
 import { Form } from 'react-final-form'
 import useConfirmModal from 'src/hooks/useConfirmModal'
@@ -898,7 +899,15 @@ const NotificationsSettings = () => {
                     )}
                     <CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="email" label="E-mail" />
+                        <RFFCFormInput type="text" name="email" label="Alert E-mail" />
+                        <RFFCFormSwitch
+                          name="seperateAlertTypes"
+                          label="Seperate Tenant Alerts from CIPP Admin Alerts"
+                          value={false}
+                        />
+                        <Condition when="seperateAlertTypes" is={true}>
+                          <RFFCFormInput type="text" name="adminemail" label="CIPP Admin Alert E-mail" />
+                        </Condition>
                       </CCol>
                       <CCol>
                         <RFFCFormInput type="text" name="webhook" label="Webhook" />
@@ -931,6 +940,21 @@ const NotificationsSettings = () => {
                           label="Receive one email per tenant"
                           value={false}
                         />
+                        <Condition when="onePerTenant" is={true}>
+                            <RFFCFormSwitch
+                              name="onePerAlert"
+                              label="Receive one email per tenant (Requires Per Tenant to be Enabled)"
+                              value={false}
+                            />
+                        </Condition>
+                        <Condition when="onePerTenant" is={false}>
+                            <RFFCFormSwitch
+                              name="onePerAlert"
+                              label="Receive one email per tenant (Requires Per Tenant to be Enabled)"
+                              value={false}
+                              disabled={true}
+                            />
+                        </Condition>
                       </CCol>
                       <CButton disabled={notificationConfigResult.isFetching} type="submit">
                         Set Notification Settings
