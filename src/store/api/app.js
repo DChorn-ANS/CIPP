@@ -36,6 +36,7 @@ export const appApi = baseApi.injectEndpoints({
     execNotificationConfig: builder.query({
       query: ({
         email,
+        adminEmail,
         webhook,
         tokenUpdater,
         removeUser,
@@ -50,6 +51,7 @@ export const appApi = baseApi.injectEndpoints({
         path: '/api/ExecNotificationConfig',
         data: {
           email: email,
+          adminEmail: adminEmail,
           webhook: webhook,
           tokenUpdater: tokenUpdater,
           removeUser: removeUser,
