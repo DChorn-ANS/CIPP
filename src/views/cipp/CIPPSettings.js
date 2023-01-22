@@ -916,7 +916,7 @@ const NotificationsSettings = () => {
                       <CCol>
                         <RFFCFormInput type="text" name="webhook" label="Webhook" />
                       </CCol>
-                      <CCol>
+                      <CCol className="mb-3">
                         <RFFSelectSearch
                           multi={true}
                           label="Choose which logs you'd like to receive alerts from. This notification will be sent every 15 minutes."
