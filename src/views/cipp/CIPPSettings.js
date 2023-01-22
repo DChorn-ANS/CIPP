@@ -902,14 +902,14 @@ const NotificationsSettings = () => {
                         <RFFCFormInput type="text" name="email" label="Alert E-mail" />
                         <RFFCFormSwitch
                           name="seperateAlertTypes"
-                          label="Seperate Tenant Alerts from CIPP Admin Alerts"
+                          label="Seperate Tenant Alerts from Log Alerts"
                           value={false}
                         />
                         <Condition when="seperateAlertTypes" is={true}>
                           <RFFCFormInput
                             type="text"
                             name="adminEmail"
-                            label="CIPP Admin Alert E-mail"
+                            label="Log Alert E-mail"
                           />
                         </Condition>
                       </CCol>
