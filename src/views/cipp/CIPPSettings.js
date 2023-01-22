@@ -906,7 +906,7 @@ const NotificationsSettings = () => {
                           value={false}
                         />
                         <Condition when="seperateAlertTypes" is={true}>
-                          <RFFCFormInput type="text" name="adminEmail" label="Log Alert E-mail"/>
+                          <RFFCFormInput type="text" name="adminEmail" label="Log Alert E-mail" />
                         </Condition>
                       </CCol>
                       <CCol>
@@ -955,10 +955,10 @@ const NotificationsSettings = () => {
                         />
                       </CCol>
                       <RFFCFormSwitch
-                          name="enableDebug"
-                          label="Enable Debugging (Warning: Only enable for troubleshooting)"
-                          value={false}
-                        />
+                        name="enableDebug"
+                        label="Enable Debugging (Warning: Only enable for troubleshooting)"
+                        value={false}
+                      />
                       <CButton disabled={notificationConfigResult.isFetching} type="submit">
                         Set Notification Settings
                       </CButton>
