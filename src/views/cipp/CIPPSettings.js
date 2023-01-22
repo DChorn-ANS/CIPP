@@ -939,26 +939,24 @@ const NotificationsSettings = () => {
                         />
                       </CCol>
                       <CCol>
-                        <RFFCFormSwitch
-                          name="onePerTenant"
-                          label="Receive one email per tenant"
-                          value={false}
+                        <RFFCFormSelect
+                          name="alerting"
+                          label="Select Alert Grouping Method"
+                          values={[
+                            {
+                              value: 'default',
+                              label: 'Default',
+                            },
+                            {
+                              value: 'onePerTenant',
+                              label: 'Per Tenant',
+                            },
+                            {
+                              value: 'onePerAlert',
+                              label: 'Per Alert',
+                            },
+                          ]}
                         />
-                        <Condition when="onePerTenant" is={true}>
-                          <RFFCFormSwitch
-                            name="onePerAlert"
-                            label="Receive one email per tenant (Requires Per Tenant to be Enabled)"
-                            value={false}
-                          />
-                        </Condition>
-                        <Condition when="onePerTenant" is={false}>
-                          <RFFCFormSwitch
-                            name="onePerAlert"
-                            label="Receive one email per tenant (Requires Per Tenant to be Enabled)"
-                            value={false}
-                            disabled={true}
-                          />
-                        </Condition>
                       </CCol>
                       <CButton disabled={notificationConfigResult.isFetching} type="submit">
                         Set Notification Settings
