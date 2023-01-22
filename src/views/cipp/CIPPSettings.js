@@ -938,6 +938,7 @@ const NotificationsSettings = () => {
                         <RFFCFormSelect
                           name="alerting"
                           label="Select Alert Grouping Method"
+                          placeholder="Select an Alert Grouping Method"
                           values={[
                             {
                               value: 'default',
