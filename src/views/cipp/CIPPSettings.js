@@ -906,7 +906,11 @@ const NotificationsSettings = () => {
                           value={false}
                         />
                         <Condition when="seperateAlertTypes" is={true}>
-                          <RFFCFormInput type="text" name="adminemail" label="CIPP Admin Alert E-mail" />
+                          <RFFCFormInput
+                            type="text"
+                            name="adminEmail"
+                            label="CIPP Admin Alert E-mail"
+                          />
                         </Condition>
                       </CCol>
                       <CCol>
@@ -941,19 +945,19 @@ const NotificationsSettings = () => {
                           value={false}
                         />
                         <Condition when="onePerTenant" is={true}>
-                            <RFFCFormSwitch
-                              name="onePerAlert"
-                              label="Receive one email per tenant (Requires Per Tenant to be Enabled)"
-                              value={false}
-                            />
+                          <RFFCFormSwitch
+                            name="onePerAlert"
+                            label="Receive one email per tenant (Requires Per Tenant to be Enabled)"
+                            value={false}
+                          />
                         </Condition>
                         <Condition when="onePerTenant" is={false}>
-                            <RFFCFormSwitch
-                              name="onePerAlert"
-                              label="Receive one email per tenant (Requires Per Tenant to be Enabled)"
-                              value={false}
-                              disabled={true}
-                            />
+                          <RFFCFormSwitch
+                            name="onePerAlert"
+                            label="Receive one email per tenant (Requires Per Tenant to be Enabled)"
+                            value={false}
+                            disabled={true}
+                          />
                         </Condition>
                       </CCol>
                       <CButton disabled={notificationConfigResult.isFetching} type="submit">
