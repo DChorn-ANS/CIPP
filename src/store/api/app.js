@@ -64,7 +64,6 @@ export const appApi = baseApi.injectEndpoints({
           addStandardsDeploy: addStandardsDeploy,
           addChocoApp: addChocoApp,
           alerting: alerting,
-          seperateAlertTypes: seperateAlertTypes,
           onePerTenant: onePerTenant,
           onePerAlert: onePerAlert,
           logsToInclude: logsToInclude,
