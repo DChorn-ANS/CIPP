@@ -49,6 +49,7 @@ export const appApi = baseApi.injectEndpoints({
         onePerAlert,
         alerting,
         seperateAlertTypes,
+        logsToInclude,
       }) => ({
         path: '/api/ExecNotificationConfig',
         data: {
@@ -66,6 +67,7 @@ export const appApi = baseApi.injectEndpoints({
           seperateAlertTypes: seperateAlertTypes,
           onePerTenant: onePerTenant,
           onePerAlert: onePerAlert,
+          logsToInclude: logsToInclude,
         },
         method: 'post',
       }),
