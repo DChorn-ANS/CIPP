@@ -900,17 +900,15 @@ const NotificationsSettings = () => {
                     <CCol>
                       <CCol>
                         <RFFCFormInput type="text" name="email" label="Alert E-mail" />
-                        <RFFCFormSwitch
-                          name="seperateAlertTypes"
-                          label="Seperate Tenant Alerts from Log Alerts"
-                          value={false}
-                        />
                         <Condition when="seperateAlertTypes" is={true}>
                           <RFFCFormInput type="text" name="adminEmail" label="Log Alert E-mail" />
                         </Condition>
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="webhook" label="Webhook" />
+                        <RFFCFormInput type="text" name="webhook" label="Alert Webhook" />
+                        <Condition when="seperateAlertTypes" is={true}>
+                          <RFFCFormInput type="text" name="adminWebhook" label="Log Alert Webhook" />
+                        </Condition>
                       </CCol>
                       <CCol className="mb-3">
                         <RFFSelectSearch
@@ -955,6 +953,11 @@ const NotificationsSettings = () => {
                           ]}
                         />
                       </CCol>
+                      <RFFCFormSwitch
+                          name="seperateAlertTypes"
+                          label="Seperate Tenant Alerts from Log Alerts"
+                          value={false}
+                        />
                       <RFFCFormSwitch
                         name="enableDebug"
                         label="Enable Debugging (Warning: Only enable for troubleshooting)"
