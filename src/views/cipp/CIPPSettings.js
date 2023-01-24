@@ -903,8 +903,14 @@ const NotificationsSettings = () => {
                         <RFFCFormInput type="text" name="webhook" label="Alert Webhook" />
                       </CCol>
                       <CCol>
-                        Setting either the additional optional E-mail or Webhook will seperate Tenant Alerts from the Log Alerts. Doing so will respect Tenant grouping for Tenant alerting only.
-                        <RFFCFormInput type="text" name="adminEmail" label="Optional: Log Alert E-mail" />
+                        Setting either the additional optional E-mail or Webhook will seperate
+                        Tenant Alerts from the Log Alerts. Doing so will respect Tenant grouping for
+                        Tenant alerting only.
+                        <RFFCFormInput
+                          type="text"
+                          name="adminEmail"
+                          label="Optional: Log Alert E-mail"
+                        />
                         <RFFCFormInput
                           type="text"
                           name="adminWebhook"
