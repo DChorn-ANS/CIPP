@@ -900,19 +900,16 @@ const NotificationsSettings = () => {
                     <CCol>
                       <CCol>
                         <RFFCFormInput type="text" name="email" label="Alert E-mail" />
-                        <Condition when="seperateAlertTypes" is={true}>
-                          <RFFCFormInput type="text" name="adminEmail" label="Log Alert E-mail" />
-                        </Condition>
+                        <RFFCFormInput type="text" name="webhook" label="Alert Webhook" />
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="webhook" label="Alert Webhook" />
-                        <Condition when="seperateAlertTypes" is={true}>
-                          <RFFCFormInput
-                            type="text"
-                            name="adminWebhook"
-                            label="Log Alert Webhook"
-                          />
-                        </Condition>
+                        Setting either the additional optional E-mail or Webhook will seperate Tenant Alerts from the Log Alerts. Doing so will respect Tenant grouping for Tenant alerting only.
+                        <RFFCFormInput type="text" name="adminEmail" label="Optional: Log Alert E-mail" />
+                        <RFFCFormInput
+                          type="text"
+                          name="adminWebhook"
+                          label="Optional: Log Alert Webhook"
+                        />
                       </CCol>
                       <CCol className="mb-3">
                         <RFFSelectSearch
@@ -957,40 +954,6 @@ const NotificationsSettings = () => {
                           ]}
                         />
                       </CCol>
-                      <CCol>
-                        <RFFSelectSearch
-                          multi={true}
-                          label="Choose which logs you'd like to receive alerts from. This notification will be sent every 15 minutes."
-                          name="logsToInclude"
-                          values={[
-                            { value: 'Standards', name: 'All Standards' },
-                            { value: 'TokensUpdater', name: 'Token Events' },
-                            { value: 'ExecDnsConfig', name: 'Changing DNS Settings' },
-                            { value: 'ExecExcludeLicenses', name: 'Adding excluded licenses' },
-                            { value: 'ExecExcludeTenant', name: 'Adding excluded tenants' },
-                            { value: 'EditUser', name: 'Editing a user' },
-                            { value: 'ChocoApp', name: 'Adding or deploying applications' },
-                            { value: 'AddAPDevice', name: 'Adding autopilot devices' },
-                            { value: 'EditTenant', name: 'Editing a tenant' },
-                            { value: 'AddMSPApp', name: 'Adding an MSP app' },
-                            { value: 'AddUser', name: 'Adding a user' },
-                            { value: 'AddGroup', name: 'Adding a group' },
-                            { value: 'ExecOffboardUser', name: 'Executing the offboard wizard' },
-                          ]}
-                        />
-                      </CCol>
-                      <CCol>
-                        <RFFCFormSwitch
-                          name="onePerTenant"
-                          label="Receive one email per tenant"
-                          value={false}
-                        />
-                      </CCol>
-                      <RFFCFormSwitch
-                        name="seperateAlertTypes"
-                        label="Seperate Tenant Alerts from Log Alerts"
-                        value={false}
-                      />
                       <RFFCFormSwitch
                         name="enableDebug"
                         label="Enable Debugging (Warning: Only enable for troubleshooting)"
