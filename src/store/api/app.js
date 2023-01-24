@@ -36,6 +36,7 @@ export const appApi = baseApi.injectEndpoints({
     execNotificationConfig: builder.query({
       query: ({
         email,
+        adminEmail,
         webhook,
         tokenUpdater,
         removeUser,
@@ -45,11 +46,14 @@ export const appApi = baseApi.injectEndpoints({
         addStandardsDeploy,
         addChocoApp,
         onePerTenant,
+        alerting,
+        seperateAlertTypes,
         logsToInclude,
       }) => ({
         path: '/api/ExecNotificationConfig',
         data: {
           email: email,
+          adminEmail: adminEmail,
           webhook: webhook,
           tokenUpdater: tokenUpdater,
           removeUser: removeUser,
@@ -59,6 +63,8 @@ export const appApi = baseApi.injectEndpoints({
           addStandardsDeploy: addStandardsDeploy,
           addChocoApp: addChocoApp,
           onePerTenant: onePerTenant,
+          alerting: alerting,
+          seperateAlertTypes: seperateAlertTypes,
           logsToInclude: logsToInclude,
         },
         method: 'post',

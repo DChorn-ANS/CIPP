@@ -30,6 +30,58 @@ const _nav = [
   },
   {
     component: CNavTitle,
+    name: 'Accurate Networks',
+  },
+  {
+    component: CNavGroup,
+    section: 'Accurate Networks',
+    name: 'Reports',
+    to: '/ANS/reports',
+    icon: <FontAwesomeIcon icon={faChartBar} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'MFA Report',
+        to: '/ANS/reports/mfa-report',
+      },
+      {
+        component: CNavItem,
+        name: 'Purchased License Report',
+        to: '/ANS/reports/list-licenses',
+      },
+      {
+        component: CNavItem,
+        name: 'Assigned License Report',
+        to: '/ANS/reports/list-assignedlicenses',
+      },
+      {
+        component: CNavItem,
+        name: 'Stale User Audit',
+        to: '/ANS/reports/stale-users',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    section: 'Accurate Networks',
+    name: 'Tools',
+    to: '/ANS/tools',
+    icon: <FontAwesomeIcon icon={faWrench} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Warranty Lookup',
+        to: '/ANS/tools/warranty-lookup',
+      },
+      {
+        component: CNavItem,
+        name: 'Application Search',
+        to: '/ANS/tools/app-search',
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
     name: 'Identity Management',
   },
   {
@@ -73,6 +125,25 @@ const _nav = [
         component: CNavItem,
         name: 'Deleted Items',
         to: '/identity/administration/deleted-items',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Privileged Identity',
+    section: 'Identity Management',
+    to: '/identity/PrivilegedIdentity',
+    icon: <FontAwesomeIcon icon={faKey} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Deploy PIM',
+        to: '/identity/PIM/DeployPIM',
+      },
+      {
+        component: CNavItem,
+        name: 'List PIM',
+        to: '/identity/PIM/PIM',
       },
     ],
   },
@@ -153,8 +224,18 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'ANS Security Audit',
+        to: '/tenant/standards/anssec-report',
+      },
+      {
+        component: CNavItem,
         name: 'Best Practice Analyser',
         to: '/tenant/standards/bpa-report',
+      },
+      {
+        component: CNavItem,
+        name: 'CIS Framework Analyser',
+        to: '/tenant/standards/cis-report',
       },
       {
         component: CNavItem,

@@ -55,6 +55,7 @@ import {
   RFFCFormInput,
   RFFCFormSelect,
   RFFSelectSearch,
+  Condition,
 } from 'src/components/forms'
 import { Form } from 'react-final-form'
 import useConfirmModal from 'src/hooks/useConfirmModal'
@@ -898,10 +899,63 @@ const NotificationsSettings = () => {
                     )}
                     <CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="email" label="E-mail" />
+                        <RFFCFormInput type="text" name="email" label="Alert E-mail" />
+                        <Condition when="seperateAlertTypes" is={true}>
+                          <RFFCFormInput type="text" name="adminEmail" label="Log Alert E-mail" />
+                        </Condition>
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="webhook" label="Webhook" />
+                        <RFFCFormInput type="text" name="webhook" label="Alert Webhook" />
+                        <Condition when="seperateAlertTypes" is={true}>
+                          <RFFCFormInput
+                            type="text"
+                            name="adminWebhook"
+                            label="Log Alert Webhook"
+                          />
+                        </Condition>
+                      </CCol>
+                      <CCol className="mb-3">
+                        <RFFSelectSearch
+                          multi={true}
+                          label="Choose which logs you'd like to receive alerts from. This notification will be sent every 15 minutes."
+                          name="logsToInclude"
+                          values={[
+                            { value: 'Standards', name: 'All Standards' },
+                            { value: 'TokensUpdater', name: 'Token Events' },
+                            { value: 'ExecDnsConfig', name: 'Changing DNS Settings' },
+                            { value: 'ExecExcludeLicenses', name: 'Adding excluded licenses' },
+                            { value: 'ExecExcludeTenant', name: 'Adding excluded tenants' },
+                            { value: 'EditUser', name: 'Editing a user' },
+                            { value: 'ChocoApp', name: 'Adding or deploying applications' },
+                            { value: 'AddAPDevice', name: 'Adding autopilot devices' },
+                            { value: 'EditTenant', name: 'Editing a tenant' },
+                            { value: 'AddMSPApp', name: 'Adding an MSP app' },
+                            { value: 'AddUser', name: 'Adding a user' },
+                            { value: 'AddGroup', name: 'Adding a group' },
+                            { value: 'ExecOffboardUser', name: 'Executing the offboard wizard' },
+                          ]}
+                        />
+                      </CCol>
+                      <CCol>
+                        <RFFCFormSelect
+                          name="alerting"
+                          label="Select Alert Grouping Method"
+                          placeholder="Select an Alert Grouping Method"
+                          values={[
+                            {
+                              value: 'default',
+                              label: 'Default',
+                            },
+                            {
+                              value: 'onePerTenant',
+                              label: 'Per Tenant',
+                            },
+                            {
+                              value: 'onePerAlert',
+                              label: 'Per Alert',
+                            },
+                          ]}
+                        />
                       </CCol>
                       <CCol>
                         <RFFSelectSearch
@@ -932,6 +986,16 @@ const NotificationsSettings = () => {
                           value={false}
                         />
                       </CCol>
+                      <RFFCFormSwitch
+                        name="seperateAlertTypes"
+                        label="Seperate Tenant Alerts from Log Alerts"
+                        value={false}
+                      />
+                      <RFFCFormSwitch
+                        name="enableDebug"
+                        label="Enable Debugging (Warning: Only enable for troubleshooting)"
+                        value={false}
+                      />
                       <CButton disabled={notificationConfigResult.isFetching} type="submit">
                         Set Notification Settings
                       </CButton>

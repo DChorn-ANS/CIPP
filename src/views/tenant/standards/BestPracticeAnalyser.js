@@ -195,15 +195,6 @@ const BestPracticeAnalyser = () => {
       maxWidth: '150px',
     },
     {
-      name: 'Modern Auth Enabled',
-      selector: (row) => row['EnableModernAuth'],
-      sortable: true,
-      exportSelector: 'EnableModernAuth',
-      cell: cellBooleanFormatter(),
-      minWidth: '150px',
-      maxWidth: '150px',
-    },
-    {
       name: 'Shared Mailboxes Logins Disabled',
       selector: (row) => row['DisabledSharedMailboxLoginsCount'],
       exportSelector: 'DisabledSharedMailboxLoginsCount',

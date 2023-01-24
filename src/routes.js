@@ -29,6 +29,7 @@ const Page403 = React.lazy(() => import('src/views/pages/page403/Page403'))
 const Page500 = React.lazy(() => import('src/views/pages/page500/Page500'))
 
 const MFAReport = React.lazy(() => import('src/views/identity/reports/MFAReport'))
+const MFAReportANS = React.lazy(() => import('src/views/identity/reports/MFAReport'))
 const Tenants = React.lazy(() => import('src/views/tenant/administration/Tenants'))
 const AlertWizard = React.lazy(() => import('src/views/tenant/administration/AlertWizard'))
 const AlertsQueue = React.lazy(() => import('src/views/tenant/administration/ListAlertsQueue'))
@@ -53,6 +54,16 @@ const AddConditionalTemplate = React.lazy(() =>
 const DeployConditional = React.lazy(() => import('src/views/tenant/conditional/DeployCA'))
 
 const ListLicences = React.lazy(() => import('src/views/tenant/administration/ListLicences'))
+const ListAssignedLicences = React.lazy(() =>
+  import('src/views/tenant/administration/ListAssignedLicences'),
+)
+const ListStaleUsers = React.lazy(() => import('src/views/tenant/administration/ListStaleUsers'))
+const ListWarrantyLookup = React.lazy(() =>
+  import('src/views/tenant/administration/ListWarrantyLookup'),
+)
+const NCListDeviceAppSearch = React.lazy(() =>
+  import('src/views/tenant/administration/NCAppSearch'),
+)
 const ListAppConsent = React.lazy(() => import('src/views/tenant/administration/ListOauthApps'))
 
 const BasicAuthReport = React.lazy(() => import('src/views/identity/reports/BasicAuthReport'))
@@ -64,9 +75,11 @@ const AzureADConnectReport = React.lazy(() =>
 const DeviceComplianceReport = React.lazy(() =>
   import('src/views/security/reports/ListDeviceComplianceReport'),
 )
+const ANSSecurityAudit = React.lazy(() => import('src/views/tenant/standards/ANSSecurityAudit'))
 const BestPracticeAnalyzer = React.lazy(() =>
   import('src/views/tenant/standards/BestPracticeAnalyser'),
 )
+const CISframework = React.lazy(() => import('src/views/tenant/standards/CISframework'))
 const DomainsAnalyser = React.lazy(() => import('src/views/tenant/standards/DomainsAnalyser'))
 const OffboardingWizard = React.lazy(() =>
   import('src/views/identity/administration/OffboardingWizard'),
@@ -198,6 +211,9 @@ const AddSpamFilterTemplate = React.lazy(() =>
 const SpamFilterDeploy = React.lazy(() =>
   import('src/views/email-exchange/spamfilter/DeploySpamfilter'),
 )
+const PIMlist = React.lazy(() => import('src/views/identity/pim/PIM'))
+const EditUserPIM = React.lazy(() => import('src/views/identity/pim/EditUserPIM'))
+const PIMDeploy = React.lazy(() => import('src/views/identity/pim/DeployPIM'))
 const ConnectorList = React.lazy(() => import('src/views/email-exchange/connectors/ConnectorList'))
 const ConnectorListTemplates = React.lazy(() =>
   import('src/views/email-exchange/connectors/ListConnectorTemplates'),
@@ -224,6 +240,33 @@ const routes = [
   { path: '/cipp/404', name: 'Error', component: Page404 },
   { path: '/cipp/403', name: 'Error', component: Page403 },
   { path: '/cipp/500', name: 'Error', component: Page500 },
+  { path: '/ANS', name: 'ANS' },
+  {
+    path: '/ANS/reports/stale-users',
+    name: 'Stale Users',
+    component: ListStaleUsers,
+  },
+  { path: '/ANS/reports/mfa-report', name: 'MFA Report', component: MFAReportANS },
+  {
+    path: '/ANS/reports/list-licenses',
+    name: 'List Purchased Licenses',
+    component: ListLicences,
+  },
+  {
+    path: '/ANS/reports/list-assignedlicenses',
+    name: 'List Assigned Licenses',
+    component: ListAssignedLicences,
+  },
+  {
+    path: '/ANS/tools/warranty-lookup',
+    name: 'WarrantyLookup',
+    component: ListWarrantyLookup,
+  },
+  {
+    path: '/ANS/tools/app-search',
+    name: 'NCListDeviceAppSearch',
+    component: NCListDeviceAppSearch,
+  },
   { path: '/identity', name: 'Identity' },
   { path: '/identity/administration/users/add', name: 'Add User', component: AddUser },
   { path: '/identity/administration/users/edit', name: 'Edit User', component: EditUser },
@@ -263,6 +306,10 @@ const routes = [
     name: 'Offboarding Wizard',
     component: OffboardingWizard,
   },
+  { path: '/identity/pim', name: 'PIM' },
+  { path: '/identity/pim/pim', name: 'PIM', component: PIMlist },
+  { path: '/identity/pim/edit', name: 'Edit User PIM', component: EditUserPIM },
+  { path: '/identity/pim/deploypim', name: 'Deploy PIM', component: PIMDeploy },
   { path: '/identity/reports', name: 'Reports' },
   { path: '/endpoint/reports/devices', name: 'Devices', component: Devices },
   { path: '/identity/reports/mfa-report', name: 'MFA Report', component: MFAReport },
@@ -345,9 +392,19 @@ const routes = [
     component: ListAppliedStandards,
   },
   {
+    path: '/tenant/standards/anssec-report',
+    name: 'ANS Security Audit',
+    component: ANSSecurityAudit,
+  },
+  {
     path: '/tenant/standards/bpa-report',
     name: 'Best Practice Report',
     component: BestPracticeAnalyzer,
+  },
+  {
+    path: '/tenant/standards/cis-report',
+    name: 'CIS Framework Report',
+    component: CISframework,
   },
   {
     path: '/tenant/standards/domains-analyser',
