@@ -907,7 +907,11 @@ const NotificationsSettings = () => {
                       <CCol>
                         <RFFCFormInput type="text" name="webhook" label="Alert Webhook" />
                         <Condition when="seperateAlertTypes" is={true}>
-                          <RFFCFormInput type="text" name="adminWebhook" label="Log Alert Webhook" />
+                          <RFFCFormInput
+                            type="text"
+                            name="adminWebhook"
+                            label="Log Alert Webhook"
+                          />
                         </Condition>
                       </CCol>
                       <CCol className="mb-3">
@@ -954,10 +958,10 @@ const NotificationsSettings = () => {
                         />
                       </CCol>
                       <RFFCFormSwitch
-                          name="seperateAlertTypes"
-                          label="Seperate Tenant Alerts from Log Alerts"
-                          value={false}
-                        />
+                        name="seperateAlertTypes"
+                        label="Seperate Tenant Alerts from Log Alerts"
+                        value={false}
+                      />
                       <RFFCFormSwitch
                         name="enableDebug"
                         label="Enable Debugging (Warning: Only enable for troubleshooting)"
