@@ -91,6 +91,14 @@ export const appApi = baseApi.injectEndpoints({
         },
       }),
     }),
+    execDebugMode: builder.query({
+      query: ({ setDebugMode }) => ({
+        path: '/api/ExecDebugMode',
+        params: {
+          setDebugMode: setDebugMode,
+        },
+      }),
+    }),
     listNotificationConfig: builder.query({
       query: () => ({
         path: '/api/listNotificationConfig',
@@ -124,6 +132,8 @@ export const {
   useLazyExecTenantsAccessCheckQuery,
   useExecClearCacheQuery,
   useLazyExecClearCacheQuery,
+  useExecDebugMode,
+  useLazyExecDebugMode,
   useLazyExecNotificationConfigQuery,
   useLazyListNotificationConfigQuery,
   useLazyGenericPostRequestQuery,
