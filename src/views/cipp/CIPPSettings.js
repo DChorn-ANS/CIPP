@@ -111,7 +111,7 @@ const CIPPSettings = () => {
         <CTabPane visible={active === 6} className="mt-3">
           <Maintenance />
         </CTabPane>
-        <CTabPane visible={active === 6} className="mt-3">
+        <CTabPane visible={active === 7} className="mt-3">
           <Maintenance2 />
         </CTabPane>
       </CTabContent>
