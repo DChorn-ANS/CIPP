@@ -1269,7 +1269,7 @@ const Troubleshooting = () => {
   //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
   const onSubmit = (values) => {
     console.log(values)
-    setDebugMode(values)
+    //setDebugMode(values)
   }
   return (
     <>
@@ -1279,7 +1279,6 @@ const Troubleshooting = () => {
         </CCardHeader>
         <CCardBody>
           <Form
-            initialValues={{}}
             onSubmit={onSubmit}
             render={({ handleSubmit, submitting, values }) => {
               return (
