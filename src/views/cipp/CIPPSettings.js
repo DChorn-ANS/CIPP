@@ -29,6 +29,7 @@ import {
   useLazyGenericPostRequestQuery,
   useLazyListNotificationConfigQuery,
   useLazyExecDebugMode,
+  useLazyListDebugMode,
 } from 'src/store/api/app'
 import {
   useExecAddExcludeTenantMutation,
@@ -1263,7 +1264,7 @@ const Maintenance = () => {
 }
 
 const Troubleshooting = () => {
-  const [listDebugMode, listDebugModeResult] = useLazyExecDebugMode()
+  const [listDebugMode, listDebugModeResult] = useLazyListDebugMode()
   const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
   //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
   const onSubmit = (values) => {
