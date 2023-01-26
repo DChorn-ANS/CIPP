@@ -99,6 +99,11 @@ export const appApi = baseApi.injectEndpoints({
         },
       }),
     }),
+    execRebootFunctionApp: builder.query({
+      query: () => ({
+        path: '/api/ExecFunctionAppRestart',
+      }),
+    }),
     listNotificationConfig: builder.query({
       query: () => ({
         path: '/api/listNotificationConfig',
