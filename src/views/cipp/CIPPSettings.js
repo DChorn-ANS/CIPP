@@ -29,7 +29,7 @@ import {
   useLazyGenericPostRequestQuery,
   useLazyListNotificationConfigQuery,
   useLazyExecDebugMode,
-  useLazyListDebugMode,
+  useListDebugMode,
 } from 'src/store/api/app'
 import {
   useExecAddExcludeTenantMutation,
@@ -1264,11 +1264,12 @@ const Maintenance = () => {
 }
 
 const Troubleshooting = () => {
-  //const [listDebugMode, listDebugModeResult] = useLazyListDebugMode()
-  //const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
+  const [listDebugMode, listDebugModeResult] = useListDebugMode()
+  const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
   //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
   const onSubmit = (values) => {
     console.log(values)
+    setDebugMode(values)
   }
   return (
     <>
@@ -1278,6 +1279,7 @@ const Troubleshooting = () => {
         </CCardHeader>
         <CCardBody>
           <Form
+            initialValues={{}}
             onSubmit={onSubmit}
             render={({ handleSubmit, submitting, values }) => {
               return (
@@ -1290,6 +1292,9 @@ const Troubleshooting = () => {
                         value={false}
                       />
                     </CCol>
+                    <CButton type="submit">
+                      Set Notification Settings
+                    </CButton>
                   </CCol>
                 </CForm>
               )

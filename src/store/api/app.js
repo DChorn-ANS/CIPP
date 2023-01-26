@@ -144,6 +144,7 @@ export const {
   useLazyExecClearCacheQuery,
   useExecDebugMode,
   useLazyExecDebugMode,
+  useListDebugMode,
   useLazyListDebugMode,
   useLazyExecNotificationConfigQuery,
   useLazyListNotificationConfigQuery,
