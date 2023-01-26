@@ -1291,7 +1291,7 @@ const Troubleshooting = () => {
                 </CCardHeader>
                 <CCardBody>
                   <Form
-                    initialValues={{...listDebugModeResult.data}}
+                    initialValues={{...listDebugModeResult.data }}
                     onSubmit={onSubmit}
                     render={({ onSubmit, submitting, values }) => {
                       return (
@@ -1323,7 +1323,7 @@ const Troubleshooting = () => {
                           </CCol>
                         </CForm>
                       )
-                   }}
+                    }}
                   />
                 </CCardBody>
               </CCard>
