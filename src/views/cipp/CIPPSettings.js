@@ -1273,7 +1273,7 @@ const Troubleshooting = () => {
   }
   return (
     <>
-      {listDebugModeResult.isUninitialized && listDebugMode({ path: '/api/ExecDebugMode' })}
+      {listDebugModeResult.isUninitialized && listDebugMode()}
       {listDebugModeResult.isFetching && (
         <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
       )}
