@@ -29,7 +29,7 @@ import {
   useLazyGenericPostRequestQuery,
   useLazyListNotificationConfigQuery,
   useLazyExecDebugMode,
-  useListDebugMode,
+  useLazyListDebugMode,
 } from 'src/store/api/app'
 import {
   useExecAddExcludeTenantMutation,
@@ -1264,8 +1264,8 @@ const Maintenance = () => {
 }
 
 const Troubleshooting = () => {
-  const [listDebugMode, listDebugModeResult] = useListDebugMode()
-  const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
+  const [listDebugMode, listDebugModeResult] = useLazyListDebugMode()
+  //const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
   //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
   const onSubmit = (values) => {
     console.log(values)
@@ -1273,32 +1273,44 @@ const Troubleshooting = () => {
   }
   return (
     <>
-      <CCard className="h-100 w-50">
-        <CCardHeader>
-          <CCardTitle>Notifications</CCardTitle>
-        </CCardHeader>
-        <CCardBody>
-          <Form
-            onSubmit={onSubmit}
-            render={({ handleSubmit, submitting, values }) => {
-              return (
-                <CForm onSubmit={handleSubmit}>
-                  <CCol>
+      {listDebugModeResult.isUninitialized && listDebugMode({})}
+      {listDebugModeResult.isFetching && (
+        <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+      )}
+      {!listDebugModeResult.isFetching && listDebugModeResult.error && (
+        <span>Error loading data</span>
+      )}
+      {listDebugModeResult.isSuccess && (
+        <CCard className="h-100 w-50">
+          <CCardHeader>
+            <CCardTitle>Notifications</CCardTitle>
+          </CCardHeader>
+          <CCardBody>
+            <Form
+              initialValues={{}}
+              onSubmit={onSubmit}
+              render={({ handleSubmit, submitting, values }) => {
+                return (
+                  <CForm onSubmit={handleSubmit}>
                     <CCol>
-                      <RFFCFormSwitch
-                        name="setDebugMode"
-                        label="Receive one email per tenant"
-                        value={false}
-                      />
+                      <CCol>
+                        <RFFCFormSwitch
+                          name="setDebugMode"
+                          label="Receive one email per tenant"
+                          value={false}
+                        />
+                      </CCol>
+                      <CButton type="submit">
+                        Set Notification Settings
+                      </CButton>
                     </CCol>
-                    <CButton type="submit">Set Debug Mode</CButton>
-                  </CCol>
-                </CForm>
-              )
-            }}
-          />
-        </CCardBody>
-      </CCard>
+                  </CForm>
+                )
+              }}
+            />
+          </CCardBody>
+        </CCard>
+      )}
     </>
   )
 }
