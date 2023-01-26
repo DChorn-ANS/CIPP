@@ -1308,9 +1308,7 @@ const Troubleshooting = () => {
                             value={false}
                           />
                         </CCol>
-                        <CButton type="submit">
-                          Save Debug Setting
-                        </CButton>
+                        <CButton type="submit">Save Debug Setting</CButton>
                       </CCol>
                     </CForm>
                   )
