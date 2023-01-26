@@ -1286,24 +1286,11 @@ const Troubleshooting = () => {
           </CCardHeader>
           <CCardBody>
             <Form
-              initialValues={{ ...listDebugModeResult.data }}
+              initialValues={{}}
               onSubmit={onSubmit}
               render={({ handleSubmit, submitting, values }) => {
                 return (
                   <CForm onSubmit={handleSubmit}>
-                    {setDebugModeResult.isFetching && (
-                      <CCallout color="info">
-                        <CSpinner>Loading</CSpinner>
-                      </CCallout>
-                    )}
-                    {setDebugModeResult.isSuccess && (
-                      <CCallout color="info">{setDebugModeResult.data?.Results}</CCallout>
-                    )}
-                    {setDebugModeResult.isError && (
-                      <CCallout color="danger">
-                        Could not connect to API: {setDebugModeResult.error.message}
-                      </CCallout>
-                    )}
                     <CCol>
                       <CCol>
                         <RFFCFormSwitch
