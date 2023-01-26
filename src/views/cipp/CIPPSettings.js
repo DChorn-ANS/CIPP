@@ -1273,38 +1273,35 @@ const Troubleshooting = () => {
   }
   return (
     <>
-      {listDebugModeResult.isUninitialized && listDebugMode()}
-      {listDebugModeResult.isSuccess && (
-        <CCard className="h-100 w-50">
-          <CCardHeader>
-            <CCardTitle>Notifications</CCardTitle>
-          </CCardHeader>
-          <CCardBody>
-            <Form
-              initialValues={{}}
-              onSubmit={onSubmit}
-              render={({ handleSubmit, submitting, values }) => {
-                return (
-                  <CForm onSubmit={handleSubmit}>
+      <CCard className="h-100 w-50">
+        <CCardHeader>
+          <CCardTitle>Notifications</CCardTitle>
+        </CCardHeader>
+        <CCardBody>
+          <Form
+            initialValues={{}}
+            onSubmit={onSubmit}
+            render={({ handleSubmit, submitting, values }) => {
+              return (
+                <CForm onSubmit={handleSubmit}>
+                  <CCol>
                     <CCol>
-                      <CCol>
-                        <RFFCFormSwitch
-                          name="setDebugMode"
-                          label="Receive one email per tenant"
-                          value={false}
-                        />
-                      </CCol>
-                      <CButton disabled={setDebugModeResult.isFetching} type="submit">
-                        Set Notification Settings
-                      </CButton>
+                      <RFFCFormSwitch
+                        name="setDebugMode"
+                        label="Receive one email per tenant"
+                        value={false}
+                      />
                     </CCol>
-                  </CForm>
-                )
-              }}
-            />
-          </CCardBody>
-        </CCard>
-      )}
+                    <CButton disabled={setDebugModeResult.isFetching} type="submit">
+                      Set Notification Settings
+                    </CButton>
+                  </CCol>
+                </CForm>
+              )
+            }}
+          />
+        </CCardBody>
+      </CCard>
     </>
   )
 }
