@@ -1292,9 +1292,7 @@ const Troubleshooting = () => {
                         value={false}
                       />
                     </CCol>
-                    <CButton type="submit">
-                      Set Notification Settings
-                    </CButton>
+                    <CButton type="submit">Set Debug Mode</CButton>
                   </CCol>
                 </CForm>
               )
