@@ -99,6 +99,11 @@ export const appApi = baseApi.injectEndpoints({
         },
       }),
     }),
+    listDebugMode: builder.query({
+      query: () => ({
+        path: '/api/ListDebugMode',
+      }),
+    }),
     execRebootFunctionApp: builder.query({
       query: () => ({
         path: '/api/ExecFunctionAppRestart',
@@ -139,6 +144,7 @@ export const {
   useLazyExecClearCacheQuery,
   useExecDebugMode,
   useLazyExecDebugMode,
+  useLazyListDebugMode,
   useLazyExecNotificationConfigQuery,
   useLazyListNotificationConfigQuery,
   useLazyGenericPostRequestQuery,
