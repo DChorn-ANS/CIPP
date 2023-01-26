@@ -28,6 +28,7 @@ import {
   useLazyGenericGetRequestQuery,
   useLazyGenericPostRequestQuery,
   useLazyListNotificationConfigQuery,
+  useLazyExecDebugMode,
 } from 'src/store/api/app'
 import {
   useExecAddExcludeTenantMutation,
@@ -89,7 +90,7 @@ const CIPPSettings = () => {
           Maintenance
         </CNavItem>
         <CNavItem active={active === 7} onClick={() => setActive(7)} href="#">
-          Maintenance2
+          Troubleshooting
         </CNavItem>
       </CNav>
       <CTabContent>
@@ -112,7 +113,7 @@ const CIPPSettings = () => {
           <Maintenance />
         </CTabPane>
         <CTabPane visible={active === 7} className="mt-3">
-          <Maintenance2 />
+          <Troubleshooting />
         </CTabPane>
       </CTabContent>
     </CippPage>
@@ -1261,28 +1262,67 @@ const Maintenance = () => {
   )
 }
 
-const Maintenance2 = () => {
+const Troubleshooting = () => {
+  const [listDebugMode, listDebugModeResult] = useLazyGenericGetRequestQuery()
+  const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
+  //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
+  const onSubmit = (values) => {
+    console.log(values)
+    setDebugMode(values)
+  }
   return (
     <>
-      <CRow>
-        <CCol>
-          <CCard className="options-card">
-            <CCardHeader>
-              <CCardTitle className="d-flex justify-content-between">Debug Mode</CCardTitle>
-            </CCardHeader>
-            <CCardBody>
-              <CCol>
-                <RFFCFormSwitch
-                  name="setDebugMode"
-                  label="Enable Debug Logging Mode"
-                  value={false}
-                />
-              </CCol>
-              <CButton type="submit">Save Debug Setting</CButton>
-            </CCardBody>
-          </CCard>
-        </CCol>
-      </CRow>
+      {listDebugModeResult.isUninitialized && listDebugMode({ path: '/api/ExecDebugMode'})}
+      {listDebugModeResult.isFetching && (
+        <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+      )}
+      {!listDebugModeResult.isFetching && listDebugModeResult.error && (
+        <span>Error loading data</span>
+      )}
+      {listDebugModeResult.isSuccess && (
+        <CCard className="h-100 w-50">
+          <CCardHeader>
+            <CCardTitle>Notifications</CCardTitle>
+          </CCardHeader>
+          <CCardBody>
+            <Form
+              initialValues={{...listDebugModeResult.data}}
+              onSubmit={onSubmit}
+              render={({ handleSubmit, submitting, values }) => {
+                return (
+                  <CForm onSubmit={handleSubmit}>
+                    {setDebugModeResult.isFetching && (
+                      <CCallout color="info">
+                        <CSpinner>Loading</CSpinner>
+                      </CCallout>
+                    )}
+                    {setDebugModeResult.isSuccess && (
+                      <CCallout color="info">{setDebugModeResult.data?.Results}</CCallout>
+                    )}
+                    {setDebugModeResult.isError && (
+                      <CCallout color="danger">
+                        Could not connect to API: {setDebugModeResult.error.message}
+                      </CCallout>
+                    )}
+                    <CCol>
+                      <CCol>
+                        <RFFCFormSwitch
+                          name="setDebugMode"
+                          label="Receive one email per tenant"
+                          value={false}
+                        />
+                      </CCol>
+                      <CButton disabled={setDebugModeResult.isFetching} type="submit">
+                        Set Notification Settings
+                      </CButton>
+                    </CCol>
+                  </CForm>
+                )
+              }}
+            />
+          </CCardBody>
+        </CCard>
+      )}
     </>
   )
 }
