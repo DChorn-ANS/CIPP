@@ -1275,61 +1275,61 @@ const Troubleshooting = () => {
   return (
     <>
       {listDebugModeResult.isUninitialized && listDebugMode({ path: 'api/ExecDebugMode' })}
-      {listDebugModeResult.isFetching  && (
+      {listDebugModeResult.isFetching && (
         <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
       )}
       {!listDebugModeResult.isFetching && listDebugModeResult.error && (
         <span>Error loading data</span>
       )}
       {listDebugModeResult.isSuccess && (
-      <>
-        <CRow>
-          <CCol>
-            <CCard className="options-card">
-              <CCardHeader>
-                <CCardTitle className="d-flex justify-content-between">Debug Mode</CCardTitle>
-              </CCardHeader>
-              <CCardBody>
-                <Form
-                  initialValues={{...listDebugModeResult.data}}
-                  onSubmit={onSubmit}
-                  render={({ onSubmit, submitting, values }) => {
-                    return (
-                      <CForm onSubmit={onSubmit}>
-                        {setDebugModeResult.isFetching && (
-                          <CCallout color="info">
-                            <CSpinner>Loading</CSpinner>
-                          </CCallout>
-                        )}
-                        {setDebugModeResult.isSuccess && (
-                          <CCallout color="info">{setDebugModeResult.data?.Results}</CCallout>
-                        )}
-                        {setDebugModeResult.isError && (
-                          <CCallout color="danger">
-                            Could not connect to API: {setDebugModeResult.error.message}
-                          </CCallout>
-                        )}
-                        <CCol>
+        <>
+          <CRow>
+            <CCol>
+              <CCard className="options-card">
+                <CCardHeader>
+                  <CCardTitle className="d-flex justify-content-between">Debug Mode</CCardTitle>
+                </CCardHeader>
+                <CCardBody>
+                  <Form
+                    initialValues={{...listDebugModeResult.data}}
+                    onSubmit={onSubmit}
+                    render={({ onSubmit, submitting, values }) => {
+                      return (
+                        <CForm onSubmit={onSubmit}>
+                          {setDebugModeResult.isFetching && (
+                            <CCallout color="info">
+                              <CSpinner>Loading</CSpinner>
+                            </CCallout>
+                          )}
+                          {setDebugModeResult.isSuccess && (
+                            <CCallout color="info">{setDebugModeResult.data?.Results}</CCallout>
+                          )}
+                          {setDebugModeResult.isError && (
+                            <CCallout color="danger">
+                              Could not connect to API: {setDebugModeResult.error.message}
+                            </CCallout>
+                          )}
                           <CCol>
-                            <RFFCFormSwitch
-                              name="setDebugMode"
-                              label="Enable Debug Logging Mode"
-                              value={false}
-                            />
+                            <CCol>
+                              <RFFCFormSwitch
+                                name="setDebugMode"
+                                label="Enable Debug Logging Mode"
+                                value={false}
+                              />
+                            </CCol>
+                            <CButton disabled={listDebugModeResult.isFetching} type="submit">
+                              Save Debug Setting
+                            </CButton>
                           </CCol>
-                          <CButton disabled={listDebugModeResult.isFetching} type="submit">
-                            Save Debug Setting
-                          </CButton>
-                        </CCol>
-                      </CForm>
-                    )
-                  }}
-                />
-              </CCardBody>
-            </CCard>
-          </CCol>
-        </CRow>
-      </>
+                        </CForm>
+                      )
+                   }}
+                  />
+                </CCardBody>
+              </CCard>
+            </CCol>
+          </CRow>
+        </>
       )}
     </>
   )
