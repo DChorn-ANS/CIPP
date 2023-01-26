@@ -1265,15 +1265,15 @@ const Maintenance = () => {
 
 const Troubleshooting = () => {
   const [listDebugMode, listDebugModeResult] = useLazyListDebugMode()
-  //const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
-  //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
+  const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
+  const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
   const onSubmit = (values) => {
     console.log(values)
-    //setDebugMode(values)
+    setDebugMode(values)
   }
   return (
     <>
-      {listDebugModeResult.isUninitialized && listDebugMode({})}
+      {listDebugModeResult.isUninitialized && listDebugMode()}
       {listDebugModeResult.isFetching && (
         <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
       )}
