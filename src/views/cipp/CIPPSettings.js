@@ -55,7 +55,6 @@ import {
   RFFCFormInput,
   RFFCFormSelect,
   RFFSelectSearch,
-  Condition,
 } from 'src/components/forms'
 import { Form } from 'react-final-form'
 import useConfirmModal from 'src/hooks/useConfirmModal'
@@ -899,25 +898,12 @@ const NotificationsSettings = () => {
                     )}
                     <CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="email" label="Alert E-mail" />
-                        <RFFCFormInput type="text" name="webhook" label="Alert Webhook" />
+                        <RFFCFormInput type="text" name="email" label="E-mail" />
                       </CCol>
                       <CCol>
-                        Setting either the additional optional E-mail or Webhook will seperate
-                        Tenant Alerts from the Log Alerts. Doing so will respect Tenant grouping for
-                        Tenant alerting only.
-                        <RFFCFormInput
-                          type="text"
-                          name="adminEmail"
-                          label="Optional: Log Alert E-mail"
-                        />
-                        <RFFCFormInput
-                          type="text"
-                          name="adminWebhook"
-                          label="Optional: Log Alert Webhook"
-                        />
+                        <RFFCFormInput type="text" name="webhook" label="Webhook" />
                       </CCol>
-                      <CCol className="mb-3">
+                      <CCol>
                         <RFFSelectSearch
                           multi={true}
                           label="Choose which logs you'd like to receive alerts from. This notification will be sent every 15 minutes."
@@ -940,31 +926,12 @@ const NotificationsSettings = () => {
                         />
                       </CCol>
                       <CCol>
-                        <RFFCFormSelect
-                          name="alerting"
-                          label="Select Alert Grouping Method"
-                          placeholder="Select an Alert Grouping Method"
-                          values={[
-                            {
-                              value: 'default',
-                              label: 'Default',
-                            },
-                            {
-                              value: 'onePerTenant',
-                              label: 'Per Tenant',
-                            },
-                            {
-                              value: 'onePerAlert',
-                              label: 'Per Alert',
-                            },
-                          ]}
+                        <RFFCFormSwitch
+                          name="onePerTenant"
+                          label="Receive one email per tenant"
+                          value={false}
                         />
                       </CCol>
-                      <RFFCFormSwitch
-                        name="enableDebug"
-                        label="Enable Debugging (Warning: Only enable for troubleshooting)"
-                        value={false}
-                      />
                       <CButton disabled={notificationConfigResult.isFetching} type="submit">
                         Set Notification Settings
                       </CButton>
