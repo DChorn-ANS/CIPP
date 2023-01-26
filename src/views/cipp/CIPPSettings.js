@@ -1272,7 +1272,7 @@ const Troubleshooting = () => {
   }
   return (
     <>
-      {listDebugModeResult.isUninitialized && listDebugMode({ path: '/api/ExecDebugMode'})}
+      {listDebugModeResult.isUninitialized && listDebugMode({ path: '/api/ExecDebugMode' })}
       {listDebugModeResult.isFetching && (
         <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
       )}
@@ -1286,7 +1286,7 @@ const Troubleshooting = () => {
           </CCardHeader>
           <CCardBody>
             <Form
-              initialValues={{...listDebugModeResult.data}}
+              initialValues={{ ...listDebugModeResult.data }}
               onSubmit={onSubmit}
               render={({ handleSubmit, submitting, values }) => {
                 return (
