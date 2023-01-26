@@ -1273,43 +1273,34 @@ const Troubleshooting = () => {
   }
   return (
     <>
-      {listDebugModeResult.isUninitialized && listDebugMode()}
-      {listDebugModeResult.isFetching && (
-        <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-      )}
-      {!listDebugModeResult.isFetching && listDebugModeResult.error && (
-        <span>Error loading data</span>
-      )}
-      {listDebugModeResult.isSuccess && (
-        <CCard className="h-100 w-50">
-          <CCardHeader>
-            <CCardTitle>Notifications</CCardTitle>
-          </CCardHeader>
-          <CCardBody>
-            <Form
-              onSubmit={onSubmit}
-              render={({ handleSubmit, submitting, values }) => {
-                return (
-                  <CForm onSubmit={handleSubmit}>
+      <CCard className="h-100 w-50">
+        <CCardHeader>
+          <CCardTitle>Notifications</CCardTitle>
+        </CCardHeader>
+        <CCardBody>
+          <Form
+            onSubmit={onSubmit}
+            render={({ handleSubmit, submitting, values }) => {
+             return (
+                <CForm onSubmit={handleSubmit}>
+                  <CCol>
                     <CCol>
-                      <CCol>
-                        <RFFCFormSwitch
-                          name="setDebugMode"
-                          label="Receive one email per tenant"
-                          value={false}
-                        />
-                      </CCol>
-                      <CButton disabled={setDebugModeResult.isFetching} type="submit">
-                        Set Notification Settings
-                      </CButton>
+                      <RFFCFormSwitch
+                        name="setDebugMode"
+                        label="Receive one email per tenant"
+                        value={false}
+                      />
                     </CCol>
-                  </CForm>
-                )
-              }}
-            />
-          </CCardBody>
-        </CCard>
-      )}
+                    <CButton type="submit">
+                      Set Notification Settings
+                    </CButton>
+                  </CCol>
+                </CForm>
+              )
+            }}
+          />
+        </CCardBody>
+      </CCard>
     </>
   )
 }
