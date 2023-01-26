@@ -1274,12 +1274,6 @@ const Troubleshooting = () => {
   return (
     <>
       {listDebugModeResult.isUninitialized && listDebugMode()}
-      {listDebugModeResult.isFetching && (
-        <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
-      )}
-      {!listDebugModeResult.isFetching && listDebugModeResult.error && (
-        <span>Error loading data</span>
-      )}
       {listDebugModeResult.isSuccess && (
         <CCard className="h-100 w-50">
           <CCardHeader>
