@@ -28,6 +28,7 @@ import {
   useLazyGenericGetRequestQuery,
   useLazyGenericPostRequestQuery,
   useLazyListNotificationConfigQuery,
+  useLazyExecDebugMode,
 } from 'src/store/api/app'
 import {
   useExecAddExcludeTenantMutation,
@@ -88,6 +89,9 @@ const CIPPSettings = () => {
         <CNavItem active={active === 6} onClick={() => setActive(6)} href="#">
           Maintenance
         </CNavItem>
+        <CNavItem active={active === 7} onClick={() => setActive(7)} href="#">
+          Troubleshooting
+        </CNavItem>
       </CNav>
       <CTabContent>
         <CTabPane visible={active === 1} className="mt-3">
@@ -107,6 +111,9 @@ const CIPPSettings = () => {
         </CTabPane>
         <CTabPane visible={active === 6} className="mt-3">
           <Maintenance />
+        </CTabPane>
+        <CTabPane visible={active === 7} className="mt-3">
+          <Troubleshooting />
         </CTabPane>
       </CTabContent>
     </CippPage>
@@ -1251,6 +1258,79 @@ const Maintenance = () => {
           )}
         </CCol>
       </CRow>
+    </>
+  )
+}
+
+const Troubleshooting = () => {
+  const [listDebugMode, listDebugModeResult] = useLazyGenericGetRequestQuery()
+  const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
+  //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
+
+  const onSubmit = (values) => {
+    console.log(values)
+    setDebugMode(values)
+  }
+
+  return (
+    <>
+      {listDebugModeResult.isUninitialized && listDebugMode({ path: 'api/ExecDebugMode' })}
+      {listDebugModeResult.isFetching  && (
+        <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+      )}
+      {!listDebugModeResult.isFetching && listDebugModeResult.error && (
+        <span>Error loading data</span>
+      )}
+      {listDebugModeResult.isSuccess && (
+      <>
+        <CRow>
+          <CCol>
+            <CCard className="options-card">
+              <CCardHeader>
+                <CCardTitle className="d-flex justify-content-between">Debug Mode</CCardTitle>
+              </CCardHeader>
+              <CCardBody>
+                <Form
+                  initialValues={{...listDebugModeResult.data}}
+                  onSubmit={onSubmit}
+                  render={({ onSubmit, submitting, values }) => {
+                    return (
+                      <CForm onSubmit={onSubmit}>
+                        {setDebugModeResult.isFetching && (
+                          <CCallout color="info">
+                            <CSpinner>Loading</CSpinner>
+                          </CCallout>
+                        )}
+                        {setDebugModeResult.isSuccess && (
+                          <CCallout color="info">{setDebugModeResult.data?.Results}</CCallout>
+                        )}
+                        {setDebugModeResult.isError && (
+                          <CCallout color="danger">
+                            Could not connect to API: {setDebugModeResult.error.message}
+                          </CCallout>
+                        )}
+                        <CCol>
+                          <CCol>
+                            <RFFCFormSwitch
+                              name="setDebugMode"
+                              label="Enable Debug Logging Mode"
+                              value={false}
+                            />
+                          </CCol>
+                          <CButton disabled={listDebugModeResult.isFetching} type="submit">
+                            Save Debug Setting
+                          </CButton>
+                        </CCol>
+                      </CForm>
+                    )
+                  }}
+                />
+              </CCardBody>
+            </CCard>
+          </CCol>
+        </CRow>
+      </>
+      )}
     </>
   )
 }
