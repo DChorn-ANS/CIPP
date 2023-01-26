@@ -1263,7 +1263,7 @@ const Maintenance = () => {
 }
 
 const Troubleshooting = () => {
-  const [listDebugMode, listDebugModeResult] = useLazyGenericGetRequestQuery()
+  const [listDebugMode, listDebugModeResult] = useLazyExecDebugMode()
   const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
   //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
   const onSubmit = (values) => {
