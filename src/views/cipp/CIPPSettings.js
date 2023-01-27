@@ -1267,6 +1267,7 @@ const Troubleshooting = () => {
   const [listDebugMode, listDebugModeResult] = useLazyGenericGetRequestQuery()
   const [setDebugMode, setDebugModeResult] = useLazyGenericPostRequestQuery()
   const onSubmit = (values) => {
+    console.log(values)
     setDebugMode({ path: 'api/ExecDebugMode', values: values })
   }
   return (
