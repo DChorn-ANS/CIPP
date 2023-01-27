@@ -1267,8 +1267,10 @@ const Troubleshooting = () => {
   const [listDebugMode, listDebugModeResult] = useLazyGenericGetRequestQuery()
   const [setDebugMode, setDebugModeResult] = useLazyGenericPostRequestQuery()
   const onSubmit = (values) => {
-    console.log(values)
-    setDebugMode({ path: 'api/ExecDebugMode', values: values })
+    const shippedValues = {
+      setDebugMode: values.setDebugMode,
+    }
+    setDebugMode({ path: 'api/ExecDebugMode', values: shippedValues })
   }
   return (
     <>
@@ -1287,7 +1289,7 @@ const Troubleshooting = () => {
           <CCardBody>
             <CRow>Enabling Debug mode produces additional logs for troubleshooting.</CRow>
             <Form
-              initialValues={{}}
+              initialValues={{ ...listDebugModeResult.data }}
               onSubmit={onSubmit}
               render={({ handleSubmit, submitting, values }) => {
                 return (
