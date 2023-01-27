@@ -1282,11 +1282,14 @@ const Troubleshooting = () => {
       {listDebugModeResult.isSuccess && (
         <CCard className="h-100 w-50">
           <CCardHeader>
-            <CCardTitle>Notifications</CCardTitle>
+            <CCardTitle>Debug Mode</CCardTitle>
           </CCardHeader>
           <CCardBody>
+            <CRow>
+              Enabling Debug mode produces additional logs for troubleshooting.
+            </CRow>
             <Form
-              initialValues={{ ...listDebugModeResult.data }}
+              initialValues={{}}
               onSubmit={onSubmit}
               render={({ handleSubmit, submitting, values }) => {
                 return (
