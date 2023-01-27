@@ -1267,11 +1267,11 @@ const Troubleshooting = () => {
   const [listDebugMode, listDebugModeResult] = useLazyGenericGetRequestQuery()
   const [setDebugMode, setDebugModeResult] = useLazyGenericPostRequestQuery()
   const onSubmit = async (values) => {
-    setDebugMode({ path: 'api/ExecDebugMode', values: values})
+    setDebugMode({ path: 'api/ExecDebugMode', values: values })
   }
   return (
     <>
-      {listDebugModeResult.isUninitialized && listDebugMode({ path: 'api/ListDebugMode'})}
+      {listDebugModeResult.isUninitialized && listDebugMode({ path: 'api/ListDebugMode' })}
       {listDebugModeResult.isFetching && (
         <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
       )}
@@ -1285,7 +1285,7 @@ const Troubleshooting = () => {
           </CCardHeader>
           <CCardBody>
             <Form
-              initialValues={{ ...listDebugModeResult.data}}
+              initialValues={{ ...listDebugModeResult.data }}
               onSubmit={onSubmit}
               render={({ handleSubmit, submitting, values }) => {
                 return (
@@ -1305,11 +1305,7 @@ const Troubleshooting = () => {
                     )}
                     <CCol>
                       <CCol>
-                        <RFFCFormSwitch
-                          name="setDebugMode"
-                          label="Set Debug Mode"
-                          value={false}
-                        />
+                        <RFFCFormSwitch name="setDebugMode" label="Set Debug Mode" value={false}/>
                       </CCol>
                       <CButton disabled={submitting} type="submit">
                         Save Debug Setting
