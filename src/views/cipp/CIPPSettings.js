@@ -1266,7 +1266,6 @@ const Maintenance = () => {
 const Troubleshooting = () => {
   const [listDebugMode, listDebugModeResult] = useLazyGenericGetRequestQuery()
   const [setDebugMode, setDebugModeResult] = useLazyGenericPostRequestQuery()
-  //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
   const onSubmit = async (values) => {
     setDebugMode({ path: 'api/ExecDebugMode', values: values})
   }
