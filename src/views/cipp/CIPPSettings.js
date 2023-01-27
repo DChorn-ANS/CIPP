@@ -1348,9 +1348,7 @@ const Troubleshooting = () => {
                 <CCardTitle>Restart Function App</CCardTitle>
               </CCardHeader>
               <CCardBody>
-                <CRow>
-                  Click the button below to restart the function app.
-                </CRow>
+                <CRow>Click the button below to restart the function app.</CRow>
                 <CButton
                   onClick={() => handleReboot()}
                   disabled={execFunctionAppRestartResult.isFetching}
