@@ -1327,115 +1327,43 @@ const DebugMode = () => {
 }
 
 const Troubleshooting = () => {
-  const [listBackend, listBackendResult] = useLazyGenericGetRequestQuery()
-
+  const [execFunctionAppRestart, execFunctionAppRestartResult] = useLazyGenericPostRequestQuery()
+  const handleReboot = useConfirmModal({
+    body: <div>Are you sure you want to reboot the function app?</div>,
+    onConfirm: () => {
+      execFunctionAppRestart({ path: 'api/execFunctionAppRestart' })
+      localStorage.clear()
+    },
+  })
   return (
     <div>
-      {listBackendResult.isUninitialized && listBackend({ path: 'api/ExecBackendURLs' })}
       <>
         <CRow className="mb-3">
           <CCol md={4}>
-            <CCard>
-              <DebugMode />
-            </CCard>
+            <DebugMode />
           </CCol>
-          <CCol md={4}>
-            <CCard>
+          <CCol md={6}>
+            <CCard className="h-100">
               <CCardHeader>
-                <CCardTitle>Key Vault</CCardTitle>
+                <CCardTitle>Restart Function App</CCardTitle>
               </CCardHeader>
-              <CCardBody className="equalheight">
-                <CRow className="mb-3">
-                  The keyvault allows you to check token information. By default you do not have
-                  access.
+              <CCardBody>
+                <CRow>
+                  Click the button below to restart the function app.
                 </CRow>
-                <a
-                  target={'_blank'}
-                  href={listBackendResult.data?.Results?.KeyVault}
-                  rel="noreferrer"
+                <CButton
+                  onClick={() => handleReboot()}
+                  disabled={execFunctionAppRestartResult.isFetching}
+                  className="me-3 mt-3"
                 >
-                  <CButton>Go to Keyvault</CButton>
-                </a>
-              </CCardBody>
-            </CCard>
-          </CCol>
-          <CCol md={4}>
-            <CCard>
-              <CCardHeader>
-                <CCardTitle>Static Web App (Role Management)</CCardTitle>
-              </CCardHeader>
-              <CCardBody className="equalheight">
-                <CRow className="mb-3">
-                  The Static Web App role management allows you to invite other users to the
-                  application.
-                </CRow>
-                <a
-                  target={'_blank'}
-                  href={listBackendResult.data?.Results?.SWARoles}
-                  rel="noreferrer"
-                >
-                  <CButton>Go to Role Management</CButton>
-                </a>
-              </CCardBody>
-            </CCard>
-          </CCol>
-        </CRow>
-        <CRow className="mb-3">
-          <CCol md={4}>
-            <CCard>
-              <CCardHeader>
-                <CCardTitle>Function App (Deployment Center)</CCardTitle>
-              </CCardHeader>
-              <CCardBody className="equalheight">
-                <CRow className="mb-3">
-                  The Function App Deployment Center allows you to run updates on the API
-                </CRow>
-                <a
-                  target={'_blank'}
-                  href={listBackendResult.data?.Results?.FunctionDeployment}
-                  rel="noreferrer"
-                >
-                  <CButton>Go to Function App Deployment Center</CButton>
-                </a>
-              </CCardBody>
-            </CCard>
-          </CCol>
-          <CCol md={4}>
-            <CCard>
-              <CCardHeader>
-                <CCardTitle>Function App (Configuration)</CCardTitle>
-              </CCardHeader>
-              <CCardBody className="equalheight">
-                <CRow className="mb-3">
-                  At the Function App Configuration you can check the status of the API access to
-                  your keyvault
-                </CRow>
-                <a
-                  target={'_blank'}
-                  href={listBackendResult.data?.Results?.FunctionConfig}
-                  rel="noreferrer"
-                >
-                  <CButton>Go to Function App Configuration</CButton>
-                </a>
-              </CCardBody>
-            </CCard>
-          </CCol>
-          <CCol md={4}>
-            <CCard>
-              <CCardHeader>
-                <CCardTitle>Function App (Overview)</CCardTitle>
-              </CCardHeader>
-              <CCardBody className="equalheight">
-                <CRow className="mb-3">
-                  At the function App Overview, you can stop and start the backend API
-                </CRow>
-                <a
-                  target={'_blank'}
-                  href={listBackendResult.data?.Results?.FunctionApp}
-                  rel="noreferrer"
-                >
-                  <CButton>Go to Function App Overview</CButton>
-                </a>
+                  {execFunctionAppRestartResult.isFetching && (
+                    <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
+                  )}
+                  Restart Function App
+                </CButton>
+                {execFunctionAppRestartResult.isSuccess && (
+                  <div className="mt-3">{execFunctionAppRestartResult.data?.Results}</div>
+                )}
               </CCardBody>
             </CCard>
           </CCol>
