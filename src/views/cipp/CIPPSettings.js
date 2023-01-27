@@ -1264,16 +1264,15 @@ const Maintenance = () => {
 }
 
 const Troubleshooting = () => {
-  const [listDebugMode, listDebugModeResult] = useLazyListDebugMode()
-  const [setDebugMode, setDebugModeResult] = useLazyExecDebugMode()
-  const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
-  const onSubmit = (values) => {
-    console.log(values)
-    setDebugMode(values)
+  const [listDebugMode, listDebugModeResult] = useLazyGenericGetRequestQuery()
+  const [setDebugMode, setDebugModeResult] = useLazyGenericPostRequestQuery()
+  //const [rebootFunctionApp, rebootFunctionAppResult] = useLazyRebootFunctionAppQuery()
+  const onSubmit = async (values) => {
+    setDebugMode({ path: 'api/ExecDebugMode', values: values})
   }
   return (
     <>
-      {listDebugModeResult.isUninitialized && listDebugMode()}
+      {listDebugModeResult.isUninitialized && listDebugMode({ path: 'api/ListDebugMode'})}
       {listDebugModeResult.isFetching && (
         <FontAwesomeIcon icon={faCircleNotch} spin className="me-2" size="1x" />
       )}
@@ -1287,20 +1286,35 @@ const Troubleshooting = () => {
           </CCardHeader>
           <CCardBody>
             <Form
-              initialValues={{}}
+              initialValues={{ ...listDebugModeResult.data}}
               onSubmit={onSubmit}
               render={({ handleSubmit, submitting, values }) => {
                 return (
                   <CForm onSubmit={handleSubmit}>
+                    {setDebugModeResult.isFetching && (
+                      <CCallout color="info">
+                        <CSpinner>Loading</CSpinner>
+                      </CCallout>
+                    )}
+                    {setDebugModeResult.isSuccess && (
+                      <CCallout color="info">{setDebugModeResult.data?.Results}</CCallout>
+                    )}
+                    {setDebugModeResult.isError && (
+                      <CCallout color="danger">
+                        Could not connect to API: {setDebugModeResult.error.message}
+                      </CCallout>
+                    )}
                     <CCol>
                       <CCol>
                         <RFFCFormSwitch
                           name="setDebugMode"
-                          label="Receive one email per tenant"
+                          label="Set Debug Mode"
                           value={false}
                         />
                       </CCol>
-                      <CButton type="submit">Set Debug Mode</CButton>
+                      <CButton disabled={submitting} type="submit">
+                        Save Debug Setting
+                      </CButton>
                     </CCol>
                   </CForm>
                 )
