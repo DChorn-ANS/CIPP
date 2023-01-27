@@ -1305,7 +1305,7 @@ const Troubleshooting = () => {
                     )}
                     <CCol>
                       <CCol>
-                        <RFFCFormSwitch name="setDebugMode" label="Set Debug Mode" value={false}/>
+                        <RFFCFormSwitch name="setDebugMode" label="Set Debug Mode" value={false} />
                       </CCol>
                       <CButton disabled={submitting} type="submit">
                         Save Debug Setting
