@@ -1285,9 +1285,7 @@ const Troubleshooting = () => {
             <CCardTitle>Debug Mode</CCardTitle>
           </CCardHeader>
           <CCardBody>
-            <CRow>
-              Enabling Debug mode produces additional logs for troubleshooting.
-            </CRow>
+            <CRow>Enabling Debug mode produces additional logs for troubleshooting.</CRow>
             <Form
               initialValues={{}}
               onSubmit={onSubmit}
