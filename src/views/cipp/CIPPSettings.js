@@ -28,8 +28,6 @@ import {
   useLazyGenericGetRequestQuery,
   useLazyGenericPostRequestQuery,
   useLazyListNotificationConfigQuery,
-  useLazyExecDebugMode,
-  useLazyListDebugMode,
 } from 'src/store/api/app'
 import {
   useExecAddExcludeTenantMutation,
@@ -1282,7 +1280,7 @@ const DebugMode = () => {
         <span>Error loading data</span>
       )}
       {listDebugModeResult.isSuccess && (
-        <CCard className="h-100 w-50">
+        <CCard className="h-100">
           <CCardHeader>
             <CCardTitle>Debug Mode</CCardTitle>
           </CCardHeader>
