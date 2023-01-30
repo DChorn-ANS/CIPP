@@ -5,6 +5,7 @@ import { CippPageList } from 'src/components/layout'
 import { RFFCFormSelect } from 'src/components/forms'
 import { useNavigate } from 'react-router-dom'
 import useQuery from 'src/hooks/useQuery'
+import { useLazyGenericGetRequestQuery } from 'src/store/api/app'
 
 const MailboxStatsList = () => {
   let navigate = useNavigate()
