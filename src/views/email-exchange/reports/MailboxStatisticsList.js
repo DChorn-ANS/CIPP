@@ -6,6 +6,7 @@ import { RFFCFormSelect } from 'src/components/forms'
 import { useNavigate } from 'react-router-dom'
 import useQuery from 'src/hooks/useQuery'
 import { useLazyGenericGetRequestQuery } from 'src/store/api/app'
+import { cellGenericFormatter } from 'src/components/tables/CellGenericFormat'
 
 const MailboxStatsList = () => {
   let navigate = useNavigate()
