@@ -6,7 +6,6 @@ import { RFFCFormSelect } from 'src/components/forms'
 import { useNavigate } from 'react-router-dom'
 import useQuery from 'src/hooks/useQuery'
 
-
 const MailboxStatsList = () => {
   let navigate = useNavigate()
   const tenant = useSelector((state) => state.app.currentTenant)
