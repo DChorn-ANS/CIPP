@@ -56,10 +56,10 @@ const MailboxStatsList = () => {
       path: '/api/ListMailboxStatistics',
       params: {
         tenantFilter: tenant.defaultDomainName,
-        reportDate: reportDate,
+        reportPeriod: reportPeriod,
       },
     })
-  }, [reportDate, ListMailboxStatistics, tenant.defaultDomainName, query])
+  }, [reportPeriod, ListMailboxStatistics, tenant.defaultDomainName, query])
 
   return (
     <>
