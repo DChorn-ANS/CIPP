@@ -52,11 +52,6 @@ const CippProfile = () => {
           <PageSizeSwitcher />
         </CCol>
       </CRow>
-      <CRow>
-        <CCol>
-          <TenantListSelector />
-        </CCol>
-      </CRow>
       <br></br>
       <CRow>
         <CCol>{!isLoading && <UsageLocation />}</CCol>
