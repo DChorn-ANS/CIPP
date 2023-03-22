@@ -132,7 +132,10 @@ const MFAList = () => {
       title="MFA Report"
       capabilities={{ allTenants: true, helpContext: 'https://google.com' }}
       datatable={{
-        filterlist: [{ filterName: 'Enabled users', filter: '"accountEnabled":true' }],
+        filterlist: [
+          { filterName: 'Enabled users', filter: '"accountEnabled":true' },
+          { filterName: 'Licensed users', filter: '"isLicensed":"true"' },
+        ],
         columns: tenant.defaultDomainName === 'AllTenants' ? Altcolumns : columns,
         path: '/api/ListMFAUsers',
         reportName: `${tenant?.defaultDomainName}-MFAReport-List`,

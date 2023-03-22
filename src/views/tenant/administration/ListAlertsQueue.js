@@ -120,6 +120,20 @@ const ListAlertsQueue = () => {
       cell: cellBooleanFormatter(),
     },
     {
+      name: 'Security Defaults Enabled',
+      selector: (row) => row['SecDefaultsOn'],
+      sortable: true,
+      exportSelector: 'SecDefaultsOn',
+      cell: cellBooleanFormatter(),
+    },
+    {
+      name: 'Security Defaults Disabled',
+      selector: (row) => row['SecDefaultsOff'],
+      sortable: true,
+      exportSelector: 'SecDefaultsOff',
+      cell: cellBooleanFormatter(),
+    },
+    {
       name: 'Defender Malware Alerts',
       selector: (row) => row['DefenderMalware'],
       sortable: true,
