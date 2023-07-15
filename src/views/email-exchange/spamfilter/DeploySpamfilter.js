@@ -39,7 +39,10 @@ const SpamFilterAdd = () => {
       (tenant) => (values[`Select_${tenant.defaultDomainName}`] = tenant.defaultDomainName),
     )
     values.TemplateType = values.Type
-    genericPostRequest({ path: '/api/AddDefenderForOffice?Function=HostedContentFilter', values: values })
+    genericPostRequest({
+      path: '/api/AddDefenderForOffice?Function=HostedContentFilter',
+      values: values
+    })
   }
   const WhenFieldChanges = ({ field, set }) => (
     <Field name={set} subscription={{}}>
@@ -122,7 +125,9 @@ const SpamFilterAdd = () => {
         <CRow>
           <CCol md={12}>
             {DefenderForOfficeTemplates.isUninitialized &&
-              DefenderForOfficeGetRequest({ path: 'api/ListDefenderForOfficeTemplates?Function=HostedContentFilter' })}
+              DefenderForOfficeGetRequest({
+                path: 'api/ListDefenderForOfficeTemplates?Function=HostedContentFilter'
+              })}
             {DefenderForOfficeTemplates.isSuccess && (
               <RFFCFormSelect
                 name="TemplateList"

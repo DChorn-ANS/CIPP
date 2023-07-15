@@ -11,7 +11,10 @@ const SpamFilterAddTemplate = () => {
   const handleSubmit = async (values) => {
     // alert(JSON.stringify(values, null, 2))
     // @todo hook this up
-    genericPostRequest({ path: '/api/AddDefenderForOfficeTemplate?Function=HostedContentFilter', values })
+    genericPostRequest({
+      path: '/api/AddDefenderForOfficeTemplate?Function=HostedContentFilter',
+      values
+    })
   }
 
   return (
