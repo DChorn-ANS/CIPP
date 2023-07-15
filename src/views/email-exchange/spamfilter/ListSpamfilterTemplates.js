@@ -17,7 +17,7 @@ const SpamFilterListTemplates = () => {
   const [ExecuteGetRequest, getResults] = useLazyGenericGetRequestQuery()
   const Offcanvas = (row, rowIndex, formatExtraData) => {
     const [ocVisible, setOCVisible] = useState(false)
-    const handleDeleteIntuneTemplate = (apiurl, message) => {
+    const handleDeleteDefenderForOfficeTemplate = (apiurl, message) => {
       ModalService.confirm({
         title: 'Confirm',
         body: <div>{message}</div>,
@@ -36,8 +36,8 @@ const SpamFilterListTemplates = () => {
           variant="ghost"
           color="danger"
           onClick={() =>
-            handleDeleteIntuneTemplate(
-              `/api/RemoveSpamfilterTemplate?ID=${row.GUID}`,
+            handleDeleteDefenderForOfficeTemplate(
+              `/api/RemoveDefenderForOfficeTemplate?ID=${row.GUID}&Function=HostedContentFilter`,
               'Do you want to delete the template?',
             )
           }
@@ -110,7 +110,7 @@ const SpamFilterListTemplates = () => {
         title="Spamfilter Templates"
         datatable={{
           reportName: `${tenant?.defaultDomainName}-Groups`,
-          path: '/api/ListSpamfilterTemplates',
+          path: '/api/ListDefenderForOfficeTemplates?Function=HostedContentFilter',
           params: { TenantFilter: tenant?.defaultDomainName },
           columns,
         }}

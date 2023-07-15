@@ -11,11 +11,11 @@ const SpamFilterAddTemplate = () => {
   const handleSubmit = async (values) => {
     // alert(JSON.stringify(values, null, 2))
     // @todo hook this up
-    genericPostRequest({ path: '/api/AddTransportTemplate', values })
+    genericPostRequest({ path: '/api/AddDefenderForOfficeTemplate?Function=HostedContentFilter', values })
   }
 
   return (
-    <CippPage tenantSelector={false} title="Add Transport Rule Template">
+    <CippPage tenantSelector={false} title="Add Spamfilter Template">
       <CippContentCard title="Template Details">
         {postResults.isFetching && (
           <CCallout color="info">
@@ -32,7 +32,7 @@ const SpamFilterAddTemplate = () => {
                   <CCol>
                     <RFFCFormTextarea
                       name="PowerShellCommand"
-                      label="New-TransportRule parameters"
+                      label="New-HostedContentFilterPolicy parameters"
                       placeholder={'Enter the JSON parameters for your rule.'}
                     />
                   </CCol>

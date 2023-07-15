@@ -31,7 +31,7 @@ Error.propTypes = {
 
 const requiredArray = (value) => (value && value.length !== 0 ? undefined : 'Required')
 const SpamFilterAdd = () => {
-  const [intuneGetRequest, intuneTemplates] = useLazyGenericGetRequestQuery()
+  const [DefenderForOfficeGetRequest, DefenderForOfficeTemplates] = useLazyGenericGetRequestQuery()
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const handleSubmit = async (values) => {
@@ -39,7 +39,7 @@ const SpamFilterAdd = () => {
       (tenant) => (values[`Select_${tenant.defaultDomainName}`] = tenant.defaultDomainName),
     )
     values.TemplateType = values.Type
-    genericPostRequest({ path: '/api/AddSpamfilter', values: values })
+    genericPostRequest({ path: '/api/AddDefenderForOffice?Function=HostedContentFilter', values: values })
   }
   const WhenFieldChanges = ({ field, set }) => (
     <Field name={set} subscription={{}}>
@@ -51,7 +51,7 @@ const SpamFilterAdd = () => {
           {({ form }) => (
             <OnChange name={field}>
               {(value) => {
-                let template = intuneTemplates.data.filter(function (obj) {
+                let template = DefenderForOfficeTemplates.data.filter(function (obj) {
                   return obj.GUID === value
                 })
                 // console.log(template[0][set])
@@ -86,7 +86,7 @@ const SpamFilterAdd = () => {
         <Field name="selectedTenants" validate={requiredArray}>
           {(props) => (
             <WizardTableField
-              reportName="Add-MEM-Policy-Tenant-Selector"
+              reportName="Add-Spamfilter-Tenant-Selector"
               keyField="defaultDomainName"
               path="/api/ListTenants?AllTenantSelector=true"
               columns={[
@@ -121,12 +121,12 @@ const SpamFilterAdd = () => {
         <hr className="my-4" />
         <CRow>
           <CCol md={12}>
-            {intuneTemplates.isUninitialized &&
-              intuneGetRequest({ path: 'api/ListSpamFilterTemplates' })}
-            {intuneTemplates.isSuccess && (
+            {DefenderForOfficeTemplates.isUninitialized &&
+              DefenderForOfficeGetRequest({ path: 'api/ListDefenderForOfficeTemplates?Function=HostedContentFilter' })}
+            {DefenderForOfficeTemplates.isSuccess && (
               <RFFCFormSelect
                 name="TemplateList"
-                values={intuneTemplates.data?.map((template) => ({
+                values={DefenderForOfficeTemplates.data?.map((template) => ({
                   value: template.GUID,
                   label: template.name,
                 }))}
@@ -140,7 +140,7 @@ const SpamFilterAdd = () => {
           <CCol>
             <RFFCFormTextarea
               name="PowerShellCommand"
-              label="New-TransportRule parameters"
+              label="New-HostedContentFilterPolicy parameters"
               placeholder={
                 'Enter the JSON information to use as parameters, or select from a template'
               }
