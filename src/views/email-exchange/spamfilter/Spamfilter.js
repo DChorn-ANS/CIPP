@@ -62,7 +62,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
             modalBody: row,
             modalType: 'POST',
-            modalUrl: `/api/AddSpamfilterTemplate`,
+            modalUrl: `/api/AddDefenderForOfficeTemplate`,
             modalMessage: 'Are you sure you want to create a template based on this rule?',
           },
           {
@@ -70,7 +70,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             color: 'info',
             icon: <FontAwesomeIcon icon={faCheck} className="me-2" />,
             modal: true,
-            modalUrl: `/api/EditSpamfilter?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}`,
+            modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}`,
             modalMessage: 'Are you sure you want to enable this rule?',
           },
           {
@@ -78,7 +78,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             color: 'info',
             icon: <FontAwesomeIcon icon={faBan} className="me-2" />,
             modal: true,
-            modalUrl: `/api/EditSpamfilter?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}`,
+            modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}`,
             modalMessage: 'Are you sure you want to disable this rule?',
           },
           {
@@ -86,7 +86,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             color: 'danger',
             modal: true,
             icon: <FontAwesomeIcon icon={faTrash} className="me-2" />,
-            modalUrl: `/api/RemoveSpamFilter?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}`,
+            modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}`,
             modalMessage: 'Are you sure you want to delete this rule?',
           },
         ]}
@@ -174,8 +174,8 @@ const SpamFilterList = () => {
       title="Spam Filters"
       tenantSelector={true}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-Spamfilter-list`,
-        path: '/api/Listspamfilter',
+        reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
+        path: '/api/ListDefenderForOffice?Function=HostedContentFilter',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
       }}
