@@ -41,7 +41,7 @@ const SpamFilterAdd = () => {
     values.TemplateType = values.Type
     genericPostRequest({
       path: '/api/AddDefenderForOffice?Function=HostedContentFilter',
-      values: values
+      values: values,
     })
   }
   const WhenFieldChanges = ({ field, set }) => (
@@ -126,7 +126,7 @@ const SpamFilterAdd = () => {
           <CCol md={12}>
             {DefenderForOfficeTemplates.isUninitialized &&
               DefenderForOfficeGetRequest({
-                path: 'api/ListDefenderForOfficeTemplates?Function=HostedContentFilter'
+                path: 'api/ListDefenderForOfficeTemplates?Function=HostedContentFilter',
               })}
             {DefenderForOfficeTemplates.isSuccess && (
               <RFFCFormSelect

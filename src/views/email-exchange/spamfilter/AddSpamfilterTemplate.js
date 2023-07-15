@@ -13,7 +13,7 @@ const SpamFilterAddTemplate = () => {
     // @todo hook this up
     genericPostRequest({
       path: '/api/AddDefenderForOfficeTemplate?Function=HostedContentFilter',
-      values
+      values,
     })
   }
 
