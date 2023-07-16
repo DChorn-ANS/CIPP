@@ -1,12 +1,142 @@
-import { CButton } from '@coreui/react'
-import { faBan, faBook, faCheck, faEllipsisV, faTrash } from '@fortawesome/free-solid-svg-icons'
+import React, { useEffect, useRef, useState } from 'react'
+import {
+  CButton,
+  CButtonGroup,
+  CCallout,
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCardTitle,
+  CCol,
+  CFormLabel,
+  CNav,
+  CNavItem,
+  CRow,
+  CTabContent,
+  CTabPane,
+  CForm,
+  CListGroup,
+  CListGroupItem,
+  CLink,
+  CSpinner,
+  CCardText,
+} from '@coreui/react'
+import {
+  useGenericGetRequestQuery,
+  useLazyExecClearCacheQuery,
+  useLazyExecNotificationConfigQuery,
+  useLazyExecPermissionsAccessCheckQuery,
+  useLazyExecTenantsAccessCheckQuery,
+  useLazyGenericGetRequestQuery,
+  useLazyGenericPostRequestQuery,
+  useLazyListNotificationConfigQuery,
+  useLoadVersionsQuery,
+} from 'src/store/api/app'
+import {
+  useExecAddExcludeTenantMutation,
+  useExecRemoveExcludeTenantMutation,
+} from 'src/store/api/tenants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { CippPageList } from 'src/components/layout'
-import { CippActionsOffcanvas } from 'src/components/utilities'
-import { cellBooleanFormatter, cellDateFormatter, CellTip } from 'src/components/tables'
+import {
+  faBan,
+  faBook,
+  faCheck,
+  faEllipsisV,
+  faTrash,
+  faCheckCircle,
+  faCircleNotch,
+  faExclamationTriangle,
+  faEye,
+  faEyeSlash,
+  faLink,
+  faRecycle,
+  faScroll,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons'
+import { useListTenantsQuery } from 'src/store/api/tenants'
+import { useLazyEditDnsConfigQuery, useLazyGetDnsConfigQuery } from 'src/store/api/domains'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  cellDateFormatter,
+  CellBadge,
+  cellBooleanFormatter,
+  CellTip,
+  CellTipIcon,
+  CippTable,
+} from 'src/components/tables'
+import { CippPage, CippPageList } from 'src/components/layout'
+import {
+  RFFCFormSwitch,
+  RFFCFormInput,
+  RFFCFormSelect,
+  RFFSelectSearch,
+} from 'src/components/forms'
+import { Form } from 'react-final-form'
+import useConfirmModal from 'src/hooks/useConfirmModal'
+import { setCurrentTenant } from 'src/store/features/app'
+import {
+  CippActionsOffcanvas,
+  CippCodeBlock,
+  ModalService,
+  StatusIcon,
+  TenantSelectorMultiple,
+} from 'src/components/utilities'
+import CippListOffcanvas from 'src/components/utilities/CippListOffcanvas'
+import { TitleButton } from 'src/components/buttons'
+import Skeleton from 'react-loading-skeleton'
+import { Buffer } from 'buffer'
+import Extensions from 'src/data/Extensions.json'
 
+const DefenderForOfficeSettings = () => {
+  const [active, setActive] = useState(1)
+  return (
+    <CippPage title="DefenderForOffice365" tenantSelector={false}>
+      <CNav variant="tabs" role="tablist">
+        <CNavItem active={active === 1} onClick={() => setActive(1)} href="#">
+          Anti-phishing
+        </CNavItem>
+        <CNavItem active={active === 2} onClick={() => setActive(2)} href="#">
+          Anti-spam Inbound
+        </CNavItem>
+        <CNavItem active={active === 3} onClick={() => setActive(3)} href="#">
+          Anti-spam Outbound
+        </CNavItem>
+        <CNavItem active={active === 4} onClick={() => setActive(4)} href="#">
+          Anti-Malware
+        </CNavItem>
+        <CNavItem active={active === 5} onClick={() => setActive(5)} href="#">
+          Safe Attachments
+        </CNavItem>
+        <CNavItem active={active === 6} onClick={() => setActive(6)} href="#">
+          Safe Links
+        </CNavItem>
+      </CNav>
+      <CTabContent>
+        <CTabPane visible={active === 1} className="mt-3">
+          <PhishingSettings />
+        </CTabPane>
+        <CTabPane visible={active === 2} className="mt-3">
+          <AntispamInboundSettings />
+        </CTabPane>
+        <CTabPane visible={active === 3} className="mt-3">
+          <AntispamOutboundSettings />
+        </CTabPane>
+        <CTabPane visible={active === 4} className="mt-3">
+          <AntimalwareSettings />
+        </CTabPane>
+        <CTabPane visible={active === 5} className="mt-3">
+          <SafeAttachmentsSettings />
+        </CTabPane>
+        <CTabPane visible={active === 6} className="mt-3">
+          <SafeLinks />
+        </CTabPane>
+      </CTabContent>
+    </CippPage>
+  )
+}
+export default DefenderForOfficeSettings
+
+const PhishingSettings = () => {
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
@@ -166,7 +296,6 @@ const columns = [
   },
 ]
 
-const SpamFilterList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
 
   return (
@@ -182,5 +311,3 @@ const SpamFilterList = () => {
     />
   )
 }
-
-export default SpamFilterList
