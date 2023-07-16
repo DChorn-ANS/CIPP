@@ -182,7 +182,20 @@ const PhishingSettings = () => {
               value: `${row.EnableUnauthenticatedSender}`,
             },
             { label: 'Enable "via" Tag', value: `${row.EnableViaTag}` },
-            { label: 'Phishing Threshold', value: `${row.PhishThresholdLevel}` },
+            {
+              label: 'Domain Impersonation Protection',
+              value: `${row.EnableTargetedDomainsProtection}`,
+            },
+            {
+              label: 'Include Organization Domains',
+              value: `${row.EnableOrganizationDomainsProtection}`,
+            },
+            { label: 'Include Custom Domains', value: `${row.TargetedDomainsToProtect}` },
+            {
+              label: 'User Impersonation Protection',
+              value: `${row.EnableTargetedUserProtection}`,
+            },
+            { label: 'Include Users', value: `${row.TargetedUsersToProtect}` },
           ]}
           actions={[
             {
@@ -329,8 +342,21 @@ const AntispamInboundSettings = () => {
           <FontAwesomeIcon icon={faEllipsisV} />
         </CButton>
         <CippActionsOffcanvas
-          title="Spam Score Settings"
+          title="Extended Settings"
           extendedInfo={[
+            {
+              label: 'Quarantine Spam Retention (days)',
+              value: `${row.QuarantineRetentionPeriod}`,
+            },
+            { label: 'Mark bulk mail as spam', value: `${row.MarkAsSpamBulkMail}` },
+            {
+              label: 'Bulk Mail Threshold',
+              value: `${row.BulkThreshold}`,
+            },
+            { label: 'Enable spam safety tips', value: `${row.InlineSafetyTipsEnabled}` },
+            { label: 'Enable zero-hour auto purge', value: `${row.ZapEnabled}` },
+            { label: 'Enable zero-hour auto purge - Phishing', value: `${row.PhishZapEnabled}` },
+            { label: 'Enable zero-hour auto purge - Spam', value: `${row.SpamZapEnabled}` },
             {
               label: 'Increase spam score with image links',
               value: `${row.IncreaseScoreWithImageLinks}`,
@@ -348,23 +374,32 @@ const AntispamInboundSettings = () => {
               value: `${row.IncreaseScoreWithBizOrInfoUrls}`,
             },
             { label: 'Mark Empty Messages as spam', value: `${row.MarkAsSpamEmptyMessages}` },
+            { label: 'Mark Embedded HTML as spam', value: `${row.MarkAsSpamEmbedTagsInHtml}` },
             {
               label: 'Mark javascript in HTML as spam',
               value: `${row.MarkAsSpamJavaScriptInHtml}`,
             },
-            { label: 'Mark iFrames as spam', value: `${row.MarkAsSpamFramesInHtml}` },
-            { label: 'Mark Object tags as spam', value: `${row.MarkAsSpamObjectTagsInHtml}` },
-            { label: 'Mark Embedded HTML as spam', value: `${row.MarkAsSpamEmbedTagsInHtml}` },
             { label: 'Mark Form tags as spam', value: `${row.MarkAsSpamFormTagsInHtml}` },
+            { label: 'Mark iFrames as spam', value: `${row.MarkAsSpamFramesInHtml}` },
             { label: 'Mark known html bugs as spam', value: `${row.MarkAsSpamWebBugsInHtml}` },
+            { label: 'Mark Object tags as spam', value: `${row.MarkAsSpamObjectTagsInHtml}` },
+
             {
               label: 'Mark Senstive wordlists as spam.',
               value: `${row.MarkAsSpamSensitiveWordList}`,
             },
             { label: 'Mark SPF Hard Fail as spam', value: `${row.MarkAsSpamSpfRecordHardFail}` },
             { label: 'Mark SenderID Fails as spam', value: `${row.MarkAsSpamFromAddressAuthFail}` },
-            { label: 'Mark known bulk mail as spam', value: `${row.MarkAsSpamBulkMail}` },
+
             { label: 'Mark Backscatter as spam', value: `${row.MarkAsSpamNdrBackscatter}` },
+            {
+              label: 'Mark messages with these languages as spam',
+              value: `${row.LanguageBlockList}`,
+            },
+            {
+              label: 'Mark messages from these countries as spam',
+              value: `${row.RegionBlockList}`,
+            },
           ]}
           actions={[
             {
@@ -458,6 +493,12 @@ const AntispamInboundSettings = () => {
       exportSelector: 'PhishSpamAction',
     },
     {
+      name: 'Intra-Org Settings',
+      selector: (row) => row['IntraOrgFilterState'],
+      sortable: true,
+      exportSelector: 'IntraOrgFilterState',
+    },
+    {
       name: 'Creation Date',
       selector: (row) => row['WhenCreated'],
       sortable: true,
@@ -505,42 +546,18 @@ const AntispamOutboundSettings = () => {
           <FontAwesomeIcon icon={faEllipsisV} />
         </CButton>
         <CippActionsOffcanvas
-          title="Spam Score Settings"
+          title="Extended Settings"
           extendedInfo={[
             {
-              label: 'Increase spam score with image links',
-              value: `${row.IncreaseScoreWithImageLinks}`,
+              label:
+                'Send a copy of suspicious outbound messages or message that exceed these limits to these users and groups',
+              value: `${row.BccSuspiciousOutboundAdditionalRecipients}`,
             },
             {
-              label: 'Increase spam score with links that contain an ip',
-              value: `${row.IncreaseScoreWithNumericIps}`,
+              label:
+                'Notify these users and groups if a sender is blocked due to sending outbound spam',
+              value: `${row.NotifyOutboundSpamRecipients}`,
             },
-            {
-              label: 'Increase Spam score with links that contain ports',
-              value: `${row.IncreaseScoreWithRedirectToOtherPort}`,
-            },
-            {
-              label: 'Increase Spam score for .Biz or .Info',
-              value: `${row.IncreaseScoreWithBizOrInfoUrls}`,
-            },
-            { label: 'Mark Empty Messages as spam', value: `${row.MarkAsSpamEmptyMessages}` },
-            {
-              label: 'Mark javascript in HTML as spam',
-              value: `${row.MarkAsSpamJavaScriptInHtml}`,
-            },
-            { label: 'Mark iFrames as spam', value: `${row.MarkAsSpamFramesInHtml}` },
-            { label: 'Mark Object tags as spam', value: `${row.MarkAsSpamObjectTagsInHtml}` },
-            { label: 'Mark Embedded HTML as spam', value: `${row.MarkAsSpamEmbedTagsInHtml}` },
-            { label: 'Mark Form tags as spam', value: `${row.MarkAsSpamFormTagsInHtml}` },
-            { label: 'Mark known html bugs as spam', value: `${row.MarkAsSpamWebBugsInHtml}` },
-            {
-              label: 'Mark Senstive wordlists as spam.',
-              value: `${row.MarkAsSpamSensitiveWordList}`,
-            },
-            { label: 'Mark SPF Hard Fail as spam', value: `${row.MarkAsSpamSpfRecordHardFail}` },
-            { label: 'Mark SenderID Fails as spam', value: `${row.MarkAsSpamFromAddressAuthFail}` },
-            { label: 'Mark known bulk mail as spam', value: `${row.MarkAsSpamBulkMail}` },
-            { label: 'Mark Backscatter as spam', value: `${row.MarkAsSpamNdrBackscatter}` },
           ]}
           actions={[
             {
@@ -616,22 +633,34 @@ const AntispamOutboundSettings = () => {
       exportSelector: 'rulePrio',
     },
     {
-      name: 'High Confidence Spam Action',
-      selector: (row) => row['HighConfidenceSpamAction'],
+      name: 'Internal Limit Per Hour',
+      selector: (row) => row['RecipientLimitInternalPerHour'],
       sortable: true,
-      exportSelector: 'HighConfidenceSpamAction',
+      exportSelector: 'RecipientLimitInternalPerHour',
     },
     {
-      name: 'Bulk Spam Action',
-      selector: (row) => row['BulkSpamAction'],
+      name: 'External Limit Per Hour',
+      selector: (row) => row['RecipientLimitExternalPerHour'],
       sortable: true,
-      exportSelector: 'BulkSpamAction',
+      exportSelector: 'RecipientLimitExternalPerHour',
     },
     {
-      name: 'Phish Spam Action',
-      selector: (row) => row['PhishSpamAction'],
+      name: 'Total Limit Per Day',
+      selector: (row) => row['RecipientLimitPerDay'],
       sortable: true,
-      exportSelector: 'PhishSpamAction',
+      exportSelector: 'RecipientLimitPerDay',
+    },
+    {
+      name: 'Threshold Reached Action',
+      selector: (row) => row['ActionWhenThresholdReached'],
+      sortable: true,
+      exportSelector: 'ActionWhenThresholdReached',
+    },
+    {
+      name: 'Automatic Forwarding Setting',
+      selector: (row) => row['AutoForwardingMode'],
+      sortable: true,
+      exportSelector: 'AutoForwardingMode',
     },
     {
       name: 'Creation Date',
