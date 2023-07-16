@@ -51,7 +51,6 @@ import {
   faLink,
   faRecycle,
   faScroll,
-  faTrash,
 } from '@fortawesome/free-solid-svg-icons'
 import { useListTenantsQuery } from 'src/store/api/tenants'
 import { useLazyEditDnsConfigQuery, useLazyGetDnsConfigQuery } from 'src/store/api/domains'
@@ -147,7 +146,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
         <FontAwesomeIcon icon={faEllipsisV} />
       </CButton>
       <CippActionsOffcanvas
-        title="User Information"
+        title="Spam Score Settings"
         extendedInfo={[
           {
             label: 'Increase spam score with image links',
