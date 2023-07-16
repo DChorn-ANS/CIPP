@@ -1,90 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
-import {
-  CButton,
-  CButtonGroup,
-  CCallout,
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCardTitle,
-  CCol,
-  CFormLabel,
-  CNav,
-  CNavItem,
-  CRow,
-  CTabContent,
-  CTabPane,
-  CForm,
-  CListGroup,
-  CListGroupItem,
-  CLink,
-  CSpinner,
-  CCardText,
-} from '@coreui/react'
-import {
-  useGenericGetRequestQuery,
-  useLazyExecClearCacheQuery,
-  useLazyExecNotificationConfigQuery,
-  useLazyExecPermissionsAccessCheckQuery,
-  useLazyExecTenantsAccessCheckQuery,
-  useLazyGenericGetRequestQuery,
-  useLazyGenericPostRequestQuery,
-  useLazyListNotificationConfigQuery,
-  useLoadVersionsQuery,
-} from 'src/store/api/app'
-import {
-  useExecAddExcludeTenantMutation,
-  useExecRemoveExcludeTenantMutation,
-} from 'src/store/api/tenants'
+import React, { useState } from 'react'
+import { CButton, CNav, CNavItem, CTabContent, CTabPane } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faBan,
-  faBook,
-  faCheck,
-  faEllipsisV,
-  faTrash,
-  faCheckCircle,
-  faCircleNotch,
-  faExclamationTriangle,
-  faEye,
-  faEyeSlash,
-  faLink,
-  faRecycle,
-  faScroll,
-} from '@fortawesome/free-solid-svg-icons'
-import { useListTenantsQuery } from 'src/store/api/tenants'
-import { useLazyEditDnsConfigQuery, useLazyGetDnsConfigQuery } from 'src/store/api/domains'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  cellDateFormatter,
-  CellBadge,
-  cellBooleanFormatter,
-  CellTip,
-  CellTipIcon,
-  CippTable,
-} from 'src/components/tables'
+import { faBan, faBook, faCheck, faEllipsisV, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { useSelector } from 'react-redux'
+import { cellDateFormatter, cellBooleanFormatter, CellTip } from 'src/components/tables'
 import { CippPage, CippPageList } from 'src/components/layout'
-import {
-  RFFCFormSwitch,
-  RFFCFormInput,
-  RFFCFormSelect,
-  RFFSelectSearch,
-} from 'src/components/forms'
-import { Form } from 'react-final-form'
-import useConfirmModal from 'src/hooks/useConfirmModal'
-import { setCurrentTenant } from 'src/store/features/app'
-import {
-  CippActionsOffcanvas,
-  CippCodeBlock,
-  ModalService,
-  StatusIcon,
-  TenantSelectorMultiple,
-} from 'src/components/utilities'
-import CippListOffcanvas from 'src/components/utilities/CippListOffcanvas'
-import { TitleButton } from 'src/components/buttons'
-import Skeleton from 'react-loading-skeleton'
-import { Buffer } from 'buffer'
-import Extensions from 'src/data/Extensions.json'
+import { CippActionsOffcanvas } from 'src/components/utilities'
 
 const DefenderForOfficeSettings = () => {
   const [active, setActive] = useState(1)
@@ -803,6 +724,7 @@ const AntimalwareSettings = () => {
       name: 'Common Attachments Filter',
       selector: (row) => row['EnableFileFilter'],
       sortable: true,
+      cell: cellBooleanFormatter(),
       exportSelector: 'EnableFileFilter',
     },
     {
@@ -815,6 +737,7 @@ const AntimalwareSettings = () => {
       name: 'Zero-hour Auto Purge',
       selector: (row) => row['ZapEnabled'],
       sortable: true,
+      cell: cellBooleanFormatter(),
       exportSelector: 'ZapEnabled',
     },
     {
@@ -932,10 +855,10 @@ const SafeAttachmentsSettings = () => {
     },
     {
       name: 'Default Rule',
-      selector: (row) => row['IsDefault'],
+      selector: (row) => row['IsBuiltInProtection'],
       sortable: true,
       cell: cellBooleanFormatter(),
-      exportSelector: 'IsDefault',
+      exportSelector: 'IsBuiltInProtection',
     },
     {
       name: 'Rule State',
@@ -1019,9 +942,9 @@ const SafeLinksSettings = () => {
             },
             {
               label: 'Do not rewrite URLs',
-              value: `${row.DoNotRewriteUrls}`,
+              value: `${row.DisableRewriteUrls}`,
             },
-            { label: 'Do not rewrite these URLs', value: `${row.DisableUrlRewrite}` },
+            { label: 'Do not rewrite these URLs', value: `${row.DoNotRewriteUrls}` },
             {
               label: 'Track User Clicks',
               value: `${row.TrackClicks}`,
@@ -1088,10 +1011,10 @@ const SafeLinksSettings = () => {
     },
     {
       name: 'Default Rule',
-      selector: (row) => row['IsDefault'],
+      selector: (row) => row['IsBuiltInProtection'],
       sortable: true,
       cell: cellBooleanFormatter(),
-      exportSelector: 'IsDefault',
+      exportSelector: 'IsBuiltInProtection',
     },
     {
       name: 'Rule State',
@@ -1109,18 +1032,21 @@ const SafeLinksSettings = () => {
       name: 'Email',
       selector: (row) => row['EnableSafeLinksForEmail'],
       sortable: true,
+      cell: cellBooleanFormatter(),
       exportSelector: 'EnableSafeLinksForEmail',
     },
     {
       name: 'Teams',
       selector: (row) => row['EnableSafeLinksForTeams'],
       sortable: true,
+      cell: cellBooleanFormatter(),
       exportSelector: 'EnableSafeLinksForTeams',
     },
     {
       name: 'Office Apps',
       selector: (row) => row['EnableSafeLinksForOffice'],
       sortable: true,
+      cell: cellBooleanFormatter(),
       exportSelector: 'EnableSafeLinksForOffice',
     },
     {

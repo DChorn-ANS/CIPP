@@ -197,15 +197,17 @@ const AddTransportTemplate = React.lazy(() =>
 const TransportDeploy = React.lazy(() =>
   import('src/views/email-exchange/transport/DeployTransport'),
 )
-const SpamfilterList = React.lazy(() => import('src/views/email-exchange/spamfilter/Spamfilter'))
-const SpamFilterTemplate = React.lazy(() =>
-  import('src/views/email-exchange/spamfilter/ListSpamfilterTemplates'),
+const DefenderforOffice365List = React.lazy(() =>
+  import('src/views/email-exchange/DefenderforOffice365/DefenderforOffice365'),
 )
-const AddSpamFilterTemplate = React.lazy(() =>
-  import('src/views/email-exchange/spamfilter/AddSpamfilterTemplate'),
+const DefenderforOffice365Template = React.lazy(() =>
+  import('src/views/email-exchange/DefenderforOffice365/ListDefenderforOffice365Templates'),
 )
-const SpamFilterDeploy = React.lazy(() =>
-  import('src/views/email-exchange/spamfilter/DeploySpamfilter'),
+const AddDefenderforOffice365Template = React.lazy(() =>
+  import('src/views/email-exchange/DefenderforOffice365/AddDefenderforOffice365Template'),
+)
+const DefenderforOffice365Deploy = React.lazy(() =>
+  import('src/views/email-exchange/DefenderforOffice365/DeployDefenderforOffice365'),
 )
 const ConnectorList = React.lazy(() => import('src/views/email-exchange/connectors/ConnectorList'))
 const ConnectorListTemplates = React.lazy(() =>
@@ -559,24 +561,24 @@ const routes = [
     component: AddTransportTemplate,
   },
   {
-    path: '/email/spamfilter/list-spamfilter',
-    name: 'List Spamfilter',
-    component: SpamfilterList,
+    path: '/email/DefenderforOffice365/list-policies',
+    name: 'List Defender For Office 365',
+    component: DefenderforOffice365List,
   },
   {
-    path: '/email/spamfilter/deploy',
-    name: 'Deploy Spamfilter',
-    component: SpamFilterDeploy,
+    path: '/email/DefenderforOffice365/deploy',
+    name: 'Deploy Defender for Office 365',
+    component: DefenderforOffice365Deploy,
   },
   {
-    path: '/email/spamfilter/list-templates',
-    name: 'Spamfilter Templates',
-    component: SpamFilterTemplate,
+    path: '/email/DefenderforOffice365/list-templates',
+    name: 'Defender for Office 365 Templates',
+    component: DefenderforOffice365Template,
   },
   {
-    path: '/email/spamfilter/add-template',
-    name: 'Spamfilter Template',
-    component: AddSpamFilterTemplate,
+    path: '/email/DefenderforOffice365/add-template',
+    name: 'Defender for Office 365 Template',
+    component: AddDefenderforOffice365Template,
   },
   {
     name: 'Edit Mailbox Permissions',
