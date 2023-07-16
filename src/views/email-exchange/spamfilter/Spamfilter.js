@@ -146,42 +146,43 @@ const PhishingSettings = () => {
           <FontAwesomeIcon icon={faEllipsisV} />
         </CButton>
         <CippActionsOffcanvas
-          title="Spam Score Settings"
+          title="Phishing threshold & protection Settings"
           extendedInfo={[
             {
-              label: 'Increase spam score with image links',
-              value: `${row.IncreaseScoreWithImageLinks}`,
+              label: 'Honor Dmarc Policy',
+              value: `${row.HonorDmarcPolicy}`,
             },
             {
-              label: 'Increase spam score with links that contain an ip',
-              value: `${row.IncreaseScoreWithNumericIps}`,
+              label: 'Honor Dmarc Policy - Quarantine',
+              value: `${row.DmarcQuarantineAction}`,
             },
             {
-              label: 'Increase Spam score with links that contain ports',
-              value: `${row.IncreaseScoreWithRedirectToOtherPort}`,
+              label: 'Honor Dmarc Policy - Reject',
+              value: `${row.DmarcRejectAction}`,
             },
             {
-              label: 'Increase Spam score for .Biz or .Info',
-              value: `${row.IncreaseScoreWithBizOrInfoUrls}`,
+              label: 'Enable first contact safety tip',
+              value: `${row.EnableFirstContactSafetyTips}`,
             },
-            { label: 'Mark Empty Messages as spam', value: `${row.MarkAsSpamEmptyMessages}` },
             {
-              label: 'Mark javascript in HTML as spam',
-              value: `${row.MarkAsSpamJavaScriptInHtml}`,
+              label: 'Enable user impersonation safety tip',
+              value: `${row.EnableSimilarUsersSafetyTips}`,
             },
-            { label: 'Mark iFrames as spam', value: `${row.MarkAsSpamFramesInHtml}` },
-            { label: 'Mark Object tags as spam', value: `${row.MarkAsSpamObjectTagsInHtml}` },
-            { label: 'Mark Embedded HTML as spam', value: `${row.MarkAsSpamEmbedTagsInHtml}` },
-            { label: 'Mark Form tags as spam', value: `${row.MarkAsSpamFormTagsInHtml}` },
-            { label: 'Mark known html bugs as spam', value: `${row.MarkAsSpamWebBugsInHtml}` },
             {
-              label: 'Mark Senstive wordlists as spam.',
-              value: `${row.MarkAsSpamSensitiveWordList}`,
+              label: 'Enable domain impersonation safety tip',
+              value: `${row.EnableSimilarDomainsSafetyTips}`,
             },
-            { label: 'Mark SPF Hard Fail as spam', value: `${row.MarkAsSpamSpfRecordHardFail}` },
-            { label: 'Mark SenderID Fails as spam', value: `${row.MarkAsSpamFromAddressAuthFail}` },
-            { label: 'Mark known bulk mail as spam', value: `${row.MarkAsSpamBulkMail}` },
-            { label: 'Mark Backscatter as spam', value: `${row.MarkAsSpamNdrBackscatter}` },
+
+            {
+              label: 'Enable unusual characters safety tip',
+              value: `${row.EnableUnusualCharactersSafetyTips}`,
+            },
+            {
+              label: 'Show (?) for unauthenticated senders',
+              value: `${row.EnableUnauthenticatedSender}`,
+            },
+            { label: 'Enable "via" Tag', value: `${row.EnableViaTag}` },
+            { label: 'Phishing Threshold', value: `${row.PhishThresholdLevel}` },
           ]}
           actions={[
             {
@@ -191,7 +192,7 @@ const PhishingSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=HostedContentFilter`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=AntiPhish`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -199,7 +200,7 @@ const PhishingSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faCheck} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=AntiPhish`,
               modalMessage: 'Are you sure you want to enable this rule?',
             },
             {
@@ -207,7 +208,7 @@ const PhishingSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faBan} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=AntiPhish`,
               modalMessage: 'Are you sure you want to disable this rule?',
             },
             {
@@ -215,7 +216,7 @@ const PhishingSettings = () => {
               color: 'danger',
               modal: true,
               icon: <FontAwesomeIcon icon={faTrash} className="me-2" />,
-              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=AntiPhish`,
               modalMessage: 'Are you sure you want to delete this rule?',
             },
           ]}
@@ -257,22 +258,28 @@ const PhishingSettings = () => {
       exportSelector: 'rulePrio',
     },
     {
-      name: 'High Confidence Spam Action',
-      selector: (row) => row['HighConfidenceSpamAction'],
+      name: 'User Impersonation Action',
+      selector: (row) => row['TargetedUserProtectionAction'],
       sortable: true,
-      exportSelector: 'HighConfidenceSpamAction',
+      exportSelector: 'TargetedUserProtectionAction',
     },
     {
-      name: 'Bulk Spam Action',
-      selector: (row) => row['BulkSpamAction'],
+      name: 'Domain Impersonation Action',
+      selector: (row) => row['TargetedDomainProtectionAction'],
       sortable: true,
-      exportSelector: 'BulkSpamAction',
+      exportSelector: 'TargetedDomainProtectionAction',
     },
     {
-      name: 'Phish Spam Action',
-      selector: (row) => row['PhishSpamAction'],
+      name: 'Mailbox Intelligence Action',
+      selector: (row) => row['MailboxIntelligenceProtectionAction'],
       sortable: true,
-      exportSelector: 'PhishSpamAction',
+      exportSelector: 'MailboxIntelligenceProtectionAction',
+    },
+    {
+      name: 'Spoof Intelligence Action',
+      selector: (row) => row['AuthenticationFailAction'],
+      sortable: true,
+      exportSelector: 'AuthenticationFailAction',
     },
     {
       name: 'Creation Date',
@@ -543,7 +550,7 @@ const AntispamOutboundSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=HostedContentFilter`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=HostedOutboundSpamFilter`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -551,7 +558,7 @@ const AntispamOutboundSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faCheck} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedOutboundSpamFilter`,
               modalMessage: 'Are you sure you want to enable this rule?',
             },
             {
@@ -559,7 +566,7 @@ const AntispamOutboundSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faBan} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedOutboundSpamFilter`,
               modalMessage: 'Are you sure you want to disable this rule?',
             },
             {
@@ -567,7 +574,7 @@ const AntispamOutboundSettings = () => {
               color: 'danger',
               modal: true,
               icon: <FontAwesomeIcon icon={faTrash} className="me-2" />,
-              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedOutboundSpamFilter`,
               modalMessage: 'Are you sure you want to delete this rule?',
             },
           ]}
@@ -655,7 +662,7 @@ const AntispamOutboundSettings = () => {
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
-        path: '/api/ListDefenderForOffice?Function=HostedContentFilter',
+        path: '/api/ListDefenderForOffice?Function=HostedOutboundSpamFilter',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
       }}
@@ -719,7 +726,7 @@ const AntimalwareSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=HostedContentFilter`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=MalwareFilter`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -727,7 +734,7 @@ const AntimalwareSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faCheck} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=MalwareFilter`,
               modalMessage: 'Are you sure you want to enable this rule?',
             },
             {
@@ -735,7 +742,7 @@ const AntimalwareSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faBan} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=MalwareFilter`,
               modalMessage: 'Are you sure you want to disable this rule?',
             },
             {
@@ -743,7 +750,7 @@ const AntimalwareSettings = () => {
               color: 'danger',
               modal: true,
               icon: <FontAwesomeIcon icon={faTrash} className="me-2" />,
-              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=MalwareFilter`,
               modalMessage: 'Are you sure you want to delete this rule?',
             },
           ]}
@@ -831,7 +838,7 @@ const AntimalwareSettings = () => {
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
-        path: '/api/ListDefenderForOffice?Function=HostedContentFilter',
+        path: '/api/ListDefenderForOffice?Function=MalwareFilter',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
       }}
@@ -895,7 +902,7 @@ const SafeAttachmentsSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=HostedContentFilter`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=SafeAttachment`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -903,7 +910,7 @@ const SafeAttachmentsSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faCheck} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=SafeAttachment`,
               modalMessage: 'Are you sure you want to enable this rule?',
             },
             {
@@ -911,7 +918,7 @@ const SafeAttachmentsSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faBan} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=SafeAttachment`,
               modalMessage: 'Are you sure you want to disable this rule?',
             },
             {
@@ -919,7 +926,7 @@ const SafeAttachmentsSettings = () => {
               color: 'danger',
               modal: true,
               icon: <FontAwesomeIcon icon={faTrash} className="me-2" />,
-              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=SafeAttachment`,
               modalMessage: 'Are you sure you want to delete this rule?',
             },
           ]}
@@ -1007,7 +1014,7 @@ const SafeAttachmentsSettings = () => {
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
-        path: '/api/ListDefenderForOffice?Function=HostedContentFilter',
+        path: '/api/ListDefenderForOffice?Function=SafeAttachment',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
       }}
@@ -1071,7 +1078,7 @@ const SafeLinksSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=HostedContentFilter`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=SafeLinks`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -1079,7 +1086,7 @@ const SafeLinksSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faCheck} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=enable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=SafeLinks`,
               modalMessage: 'Are you sure you want to enable this rule?',
             },
             {
@@ -1087,7 +1094,7 @@ const SafeLinksSettings = () => {
               color: 'info',
               icon: <FontAwesomeIcon icon={faBan} className="me-2" />,
               modal: true,
-              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/EditDefenderForOffice?State=disable&TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=SafeLinks`,
               modalMessage: 'Are you sure you want to disable this rule?',
             },
             {
@@ -1095,7 +1102,7 @@ const SafeLinksSettings = () => {
               color: 'danger',
               modal: true,
               icon: <FontAwesomeIcon icon={faTrash} className="me-2" />,
-              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=HostedContentFilter`,
+              modalUrl: `/api/RemoveDefenderForOffice?TenantFilter=${tenant.defaultDomainName}&name=${row.Name}&Function=SafeLinks`,
               modalMessage: 'Are you sure you want to delete this rule?',
             },
           ]}
@@ -1183,7 +1190,7 @@ const SafeLinksSettings = () => {
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
-        path: '/api/ListDefenderForOffice?Function=HostedContentFilter',
+        path: '/api/ListDefenderForOffice?Function=SafeLinks',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
       }}
