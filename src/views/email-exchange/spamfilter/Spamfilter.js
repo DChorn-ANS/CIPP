@@ -310,7 +310,7 @@ const PhishingSettings = () => {
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
-        path: '/api/ListDefenderForOffice?Function=HostedContentFilter',
+        path: '/api/ListDefenderForOffice?Function=AntiPhish',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
       }}
