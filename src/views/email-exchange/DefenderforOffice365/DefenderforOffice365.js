@@ -8,50 +8,27 @@ import { CippPage, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 
 const DefenderForOfficeSettings = () => {
-  const [active, setActive] = useState(1)
   return (
-    <CippPage title="DefenderForOffice365" tenantSelector={false}>
-      <CNav variant="tabs" role="tablist">
-        <CNavItem active={active === 1} onClick={() => setActive(1)} href="#">
-          Anti phishing
-        </CNavItem>
-        <CNavItem active={active === 2} onClick={() => setActive(2)} href="#">
-          Anti spam Inbound
-        </CNavItem>
-        <CNavItem active={active === 3} onClick={() => setActive(3)} href="#">
-          Anti spam Outbound
-        </CNavItem>
-        <CNavItem active={active === 4} onClick={() => setActive(4)} href="#">
-          Anti Malware
-        </CNavItem>
-        <CNavItem active={active === 5} onClick={() => setActive(5)} href="#">
-          Safe Attachments
-        </CNavItem>
-        <CNavItem active={active === 6} onClick={() => setActive(6)} href="#">
-          Safe Links
-        </CNavItem>
-      </CNav>
-      <CTabContent>
-        <CTabPane visible={active === 1} className="mt-3">
-          <PhishingSettings />
-        </CTabPane>
-        <CTabPane visible={active === 2} className="mt-3">
-          <AntispamInboundSettings />
-        </CTabPane>
-        <CTabPane visible={active === 3} className="mt-3">
-          <AntispamOutboundSettings />
-        </CTabPane>
-        <CTabPane visible={active === 4} className="mt-3">
-          <AntimalwareSettings />
-        </CTabPane>
-        <CTabPane visible={active === 5} className="mt-3">
-          <SafeAttachmentsSettings />
-        </CTabPane>
-        <CTabPane visible={active === 6} className="mt-3">
-          <SafeLinksSettings />
-        </CTabPane>
-      </CTabContent>
-    </CippPage>
+    <div>
+      <CRow className="mb-3">
+        <PhishingSettings />
+      </CRow>
+      <CRow className="mb-3">
+        <AntispamInboundSettings />
+      </CRow>
+      <CRow className="mb-3">
+        <AntispamOutboundSettings />
+      </CRow>
+      <CRow className="mb-3">
+        <AntimalwareSettings />
+      </CRow>
+      <CRow className="mb-3">
+        <SafeAttachmentsSettings />
+      </CRow>
+      <CRow className="mb-3">
+        <SafeLinksSettings />
+      </CRow>
+    </div>
   )
 }
 export default DefenderForOfficeSettings
