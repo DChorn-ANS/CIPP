@@ -634,25 +634,25 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Spamfilter',
-    section: 'Spamfilter',
+    name: 'Defender for Office 365',
+    section: 'Defender for Office 365',
     to: '/tenant/administration',
     icon: <FontAwesomeIcon icon={faEnvelope} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'Spamfilter',
-        to: '/email/spamfilter/list-spamfilter',
+        name: 'Defender for Office 365',
+        to: '/email/DefenderForOffice365/list-policies',
       },
       {
         component: CNavItem,
-        name: 'Apply Spamfilter Template',
-        to: '/email/spamfilter/deploy',
+        name: 'Apply Defender for Office 365 Template',
+        to: '/email/DefenderForOffice365/deploy',
       },
       {
         component: CNavItem,
-        name: 'Templates',
-        to: '/email/spamfilter/list-templates',
+        name: 'Defender for Office 365 Templates',
+        to: '/email/Defender for Office 365/list-templates',
       },
     ],
   },

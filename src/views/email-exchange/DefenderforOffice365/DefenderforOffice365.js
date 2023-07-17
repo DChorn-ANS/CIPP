@@ -13,16 +13,16 @@ const DefenderForOfficeSettings = () => {
     <CippPage title="DefenderForOffice365" tenantSelector={false}>
       <CNav variant="tabs" role="tablist">
         <CNavItem active={active === 1} onClick={() => setActive(1)} href="#">
-          Anti-phishing
+          Anti phishing
         </CNavItem>
         <CNavItem active={active === 2} onClick={() => setActive(2)} href="#">
-          Anti-spam Inbound
+          Anti spam Inbound
         </CNavItem>
         <CNavItem active={active === 3} onClick={() => setActive(3)} href="#">
-          Anti-spam Outbound
+          Anti spam Outbound
         </CNavItem>
         <CNavItem active={active === 4} onClick={() => setActive(4)} href="#">
-          Anti-Malware
+          Anti Malware
         </CNavItem>
         <CNavItem active={active === 5} onClick={() => setActive(5)} href="#">
           Safe Attachments
@@ -243,7 +243,7 @@ const PhishingSettings = () => {
 
   return (
     <CippPageList
-      title="Spam Filters"
+      title="Anti Phishing"
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
@@ -447,7 +447,7 @@ const AntispamInboundSettings = () => {
 
   return (
     <CippPageList
-      title="Spam Filters"
+      title="Inbound Anti Spam"
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
@@ -609,7 +609,7 @@ const AntispamOutboundSettings = () => {
 
   return (
     <CippPageList
-      title="Spam Filters"
+      title="Outbound Anti Spam"
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
@@ -632,7 +632,7 @@ const AntimalwareSettings = () => {
           <FontAwesomeIcon icon={faEllipsisV} />
         </CButton>
         <CippActionsOffcanvas
-          title="Spam Score Settings"
+          title="Extended Settings"
           extendedInfo={[
             {
               label: 'File Types blocked as malware',
@@ -765,7 +765,7 @@ const AntimalwareSettings = () => {
 
   return (
     <CippPageList
-      title="Spam Filters"
+      title="Anti Malware"
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
@@ -788,7 +788,7 @@ const SafeAttachmentsSettings = () => {
           <FontAwesomeIcon icon={faEllipsisV} />
         </CButton>
         <CippActionsOffcanvas
-          title="Spam Score Settings"
+          title="Extended Settings"
           extendedInfo={[
             {
               label: 'Redirect Attachments',
@@ -903,7 +903,7 @@ const SafeAttachmentsSettings = () => {
 
   return (
     <CippPageList
-      title="Spam Filters"
+      title="Safe Attachments"
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
@@ -926,7 +926,7 @@ const SafeLinksSettings = () => {
           <FontAwesomeIcon icon={faEllipsisV} />
         </CButton>
         <CippActionsOffcanvas
-          title="Spam Score Settings"
+          title="Extended Settings"
           extendedInfo={[
             {
               label: 'Apply Safe Links to Internal messages',
@@ -1074,7 +1074,7 @@ const SafeLinksSettings = () => {
 
   return (
     <CippPageList
-      title="Spam Filters"
+      title="Safe Links"
       tenantSelector={true}
       datatable={{
         reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
