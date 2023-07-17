@@ -1,5 +1,16 @@
 import React from 'react'
-import { CButton, CCallout, CCol, CForm, CRow, CSpinner } from '@coreui/react'
+import {
+  CButton,
+  CCallout,
+  CCol,
+  CForm,
+  CRow,
+  CSpinner,
+  CNav,
+  CNavItem,
+  CTabContent,
+  CTabPane,
+} from '@coreui/react'
 import { Form } from 'react-final-form'
 import { CippContentCard, CippPage } from 'src/components/layout'
 import { RFFCFormTextarea } from 'src/components/forms'
