@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { CButton, CNav, CNavItem, CTabContent, CTabPane } from '@coreui/react'
+import { CRow, CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBan, faBook, faCheck, faEllipsisV, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from 'react-redux'
 import { cellDateFormatter, cellBooleanFormatter, CellTip } from 'src/components/tables'
-import { CRow, CippPageList } from 'src/components/layout'
+import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 
 const DefenderForOfficeSettings = () => {
