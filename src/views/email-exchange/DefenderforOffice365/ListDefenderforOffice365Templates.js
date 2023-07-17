@@ -2,60 +2,37 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { CippCodeBlock, CippOffcanvas } from 'src/components/utilities'
 import { CellTip, cellBooleanFormatter } from 'src/components/tables'
-import { CButton, CCallout, CSpinner, CNav, CNavItem, CTabContent, CTabPane } from '@coreui/react'
+import { CButton, CCallout, CSpinner, CRow } from '@coreui/react'
 import { faEye, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useLazyGenericGetRequestQuery } from 'src/store/api/app'
-import { CippPage, CippPageList } from 'src/components/layout'
+import { CippPageList } from 'src/components/layout'
 import { ModalService } from 'src/components/utilities'
 import { TitleButton } from 'src/components/buttons'
 import CippCodeOffCanvas from 'src/components/utilities/CippCodeOffcanvas'
 
 const DefenderForOfficeTemplates = () => {
-  const [active, setActive] = useState(1)
   return (
-    <CippPage title="DefenderForOffice365" tenantSelector={false}>
-      <CNav variant="tabs" role="tablist">
-        <CNavItem active={active === 1} onClick={() => setActive(1)} href="#">
-          Anti phishing
-        </CNavItem>
-        <CNavItem active={active === 2} onClick={() => setActive(2)} href="#">
-          Anti spam Inbound
-        </CNavItem>
-        <CNavItem active={active === 3} onClick={() => setActive(3)} href="#">
-          Anti spam Outbound
-        </CNavItem>
-        <CNavItem active={active === 4} onClick={() => setActive(4)} href="#">
-          Anti Malware
-        </CNavItem>
-        <CNavItem active={active === 5} onClick={() => setActive(5)} href="#">
-          Safe Attachments
-        </CNavItem>
-        <CNavItem active={active === 6} onClick={() => setActive(6)} href="#">
-          Safe Links
-        </CNavItem>
-      </CNav>
-      <CTabContent>
-        <CTabPane visible={active === 1} className="mt-3">
-          <PhishingTemplates />
-        </CTabPane>
-        <CTabPane visible={active === 2} className="mt-3">
-          <AntispamInboundTemplates />
-        </CTabPane>
-        <CTabPane visible={active === 3} className="mt-3">
-          <AntispamOutboundTemplates />
-        </CTabPane>
-        <CTabPane visible={active === 4} className="mt-3">
-          <AntimalwareTemplates />
-        </CTabPane>
-        <CTabPane visible={active === 5} className="mt-3">
-          <SafeAttachmentsTemplates />
-        </CTabPane>
-        <CTabPane visible={active === 6} className="mt-3">
-          <SafeLinksTemplates />
-        </CTabPane>
-      </CTabContent>
-    </CippPage>
+    <div>
+      <CRow className="mb-3">
+        <PhishingTemplates />
+      </CRow>
+      <CRow className="mb-3">
+        <AntispamInboundTemplates />
+      </CRow>
+      <CRow className="mb-3">
+        <AntispamOutboundTemplates />
+      </CRow>
+      <CRow className="mb-3">
+        <AntimalwareTemplates />
+      </CRow>
+      <CRow className="mb-3">
+        <SafeAttachmentsTemplates />
+      </CRow>
+      <CRow className="mb-3">
+        <SafeLinksTemplates />
+      </CRow>
+    </div>
   )
 }
 export default DefenderForOfficeTemplates
