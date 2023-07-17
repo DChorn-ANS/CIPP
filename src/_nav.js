@@ -17,7 +17,6 @@ import {
   faBus,
   faExclamationTriangle,
   faUserShield,
-  faEnvelope,
   faToolbox,
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -637,7 +636,7 @@ const _nav = [
     name: 'Defender for Office 365',
     section: 'Defender for Office 365',
     to: '/tenant/administration',
-    icon: <FontAwesomeIcon icon={faEnvelope} className="nav-icon" />,
+    icon: <FontAwesomeIcon icon={faShieldAlt} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -652,7 +651,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Defender for Office 365 Templates',
-        to: '/email/Defender for Office 365/list-templates',
+        to: '/email/DefenderforOffice365/list-templates',
       },
     ],
   },
