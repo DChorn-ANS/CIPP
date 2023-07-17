@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBan, faBook, faCheck, faEllipsisV, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from 'react-redux'
 import { cellDateFormatter, cellBooleanFormatter, CellTip } from 'src/components/tables'
-import { CippPage, CippPageList } from 'src/components/layout'
+import { CRow, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 
 const DefenderForOfficeSettings = () => {
