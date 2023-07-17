@@ -106,7 +106,7 @@ const PhishingSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=AntiPhish`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate?Function=AntiPhish`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -310,7 +310,7 @@ const AntispamInboundSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=HostedContentFilter`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate?Function=HostedContentFilter`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -466,7 +466,7 @@ const AntispamOutboundSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=HostedOutboundSpamFilter`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate?Function=HostedOutboundSpamFilter`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -632,7 +632,7 @@ const AntimalwareSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=MalwareFilter`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate?Function=MalwareFilter`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -784,7 +784,7 @@ const SafeAttachmentsSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=SafeAttachment`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate?Function=SafeAttachment`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
@@ -940,7 +940,7 @@ const SafeLinksSettings = () => {
               icon: <FontAwesomeIcon icon={faBook} className="me-2" />,
               modalBody: row,
               modalType: 'POST',
-              modalUrl: `/api/AddDefenderForOfficeTemplate&Function=SafeLinks`,
+              modalUrl: `/api/AddDefenderForOfficeTemplate?Function=SafeLinks`,
               modalMessage: 'Are you sure you want to create a template based on this rule?',
             },
             {
