@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
 import { CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEllipsisV, faMinusCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { faEllipsisV, faMinusCircle, faPaperPlane, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { cellDateFormatter, CellTip } from 'src/components/tables'
 
@@ -35,8 +35,16 @@ const QuarantineList = () => {
           ]}
           actions={[
             {
-              label: 'Release',
+              label: 'Preview',
               color: 'info',
+              modal: true,
+              modalUrl: `/api/ExecQuarantineManagement?TenantFilter=${tenant.defaultDomainName}&ID=${row.Identity}&Type=Preview`,
+              modalMessage: 'Are you sure you want to preview this message?',
+              icon: <FontAwesomeIcon icon={faEye} className="me-2" />,
+            },
+            {
+              label: 'Release',
+              color: 'success',
               modal: true,
               modalUrl: `/api/ExecQuarantineManagement?TenantFilter=${tenant.defaultDomainName}&ID=${row.Identity}&Type=Release`,
               modalMessage: 'Are you sure you want to release this message?',
@@ -44,7 +52,7 @@ const QuarantineList = () => {
             },
             {
               label: 'Deny',
-              color: 'info',
+              color: 'danger',
               modal: true,
               modalUrl: `/api/ExecQuarantineManagement?TenantFilter=${tenant.defaultDomainName}&ID=${row.Identity}&Type=Deny`,
               modalMessage: 'Are you sure you want to deny this message?',
@@ -53,7 +61,7 @@ const QuarantineList = () => {
             {
               label: 'Release & Allow Sender',
               color: 'info',
-              modal: true,
+              modal: success,
               modalUrl: `/api/ExecQuarantineManagement?TenantFilter=${tenant.defaultDomainName}&ID=${row.Identity}&Type=Release&AllowSender=true`,
               modalMessage:
                 'Are you sure you want to release this email, and add the sender to the whitelist?',
