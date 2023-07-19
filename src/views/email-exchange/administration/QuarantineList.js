@@ -135,6 +135,7 @@ const QuarantineList = () => {
       capabilities={{ allTenants: false, helpContext: 'https://google.com' }}
       title="Quarantine Management"
       datatable={{
+        filterlist: [{ filterName: 'Release Requested', filter: '"ReleaseStatus":"REQUESTED"' }],
         keyField: 'id',
         reportName: `${tenant?.defaultDomainName}-Mailbox-Quarantine`,
         path: '/api/ListMailQuarantine',
