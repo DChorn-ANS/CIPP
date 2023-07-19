@@ -60,8 +60,8 @@ const QuarantineList = () => {
             },
             {
               label: 'Release & Allow Sender',
-              color: 'info',
-              modal: success,
+              color: 'success',
+              modal: true,
               modalUrl: `/api/ExecQuarantineManagement?TenantFilter=${tenant.defaultDomainName}&ID=${row.Identity}&Type=Release&AllowSender=true`,
               modalMessage:
                 'Are you sure you want to release this email, and add the sender to the whitelist?',
