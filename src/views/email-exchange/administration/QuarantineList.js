@@ -52,7 +52,7 @@ const QuarantineList = () => {
             },
             {
               label: 'Deny',
-              color: 'warning',
+              color: 'danger',
               modal: true,
               modalUrl: `/api/ExecQuarantineManagement?TenantFilter=${tenant.defaultDomainName}&ID=${row.Identity}&Type=Deny`,
               modalMessage: 'Are you sure you want to deny this message?',
