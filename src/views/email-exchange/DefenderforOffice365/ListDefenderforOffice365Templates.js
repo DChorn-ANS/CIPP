@@ -16,7 +16,9 @@ const DefenderForOfficeTemplates = () => {
     <div>
       <CCol>
         <CRow>
-          <TitleButton href="/email/DefenderforOffice365/add-template" title="Add Template" />
+          <a target="_blank" href="/email/DefenderforOffice365/add-template">
+            <CButton color="primary">Add Template</CButton>
+          </a>
         </CRow>
         <CRow className="mb-3">
           <PhishingTemplates />
