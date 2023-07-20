@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { CippCodeBlock, CippOffcanvas } from 'src/components/utilities'
 import { CellTip, cellBooleanFormatter } from 'src/components/tables'
-import { CButton, CCallout, CSpinner, CRow } from '@coreui/react'
+import { CButton, CCallout, CSpinner, CRow, CCol } from '@coreui/react'
 import { faEye, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useLazyGenericGetRequestQuery } from 'src/store/api/app'
@@ -14,24 +14,29 @@ import CippCodeOffCanvas from 'src/components/utilities/CippCodeOffcanvas'
 const DefenderForOfficeTemplates = () => {
   return (
     <div>
-      <CRow className="mb-3">
-        <PhishingTemplates />
-      </CRow>
-      <CRow className="mb-3">
-        <AntispamInboundTemplates />
-      </CRow>
-      <CRow className="mb-3">
-        <AntispamOutboundTemplates />
-      </CRow>
-      <CRow className="mb-3">
-        <AntimalwareTemplates />
-      </CRow>
-      <CRow className="mb-3">
-        <SafeAttachmentsTemplates />
-      </CRow>
-      <CRow className="mb-3">
-        <SafeLinksTemplates />
-      </CRow>
+      <CCol>
+        <CRow>
+          <TitleButton href="/email/DefenderforOffice365/add-template" title="Add Template" />
+        </CRow>
+        <CRow className="mb-3">
+          <PhishingTemplates />
+        </CRow>
+        <CRow className="mb-3">
+          <AntispamInboundTemplates />
+        </CRow>
+        <CRow className="mb-3">
+          <AntispamOutboundTemplates />
+        </CRow>
+        <CRow className="mb-3">
+          <AntimalwareTemplates />
+        </CRow>
+        <CRow className="mb-3">
+          <SafeAttachmentsTemplates />
+        </CRow>
+        <CRow className="mb-3">
+          <SafeLinksTemplates />
+        </CRow>
+      </CCol>
     </div>
   )
 }
