@@ -10,7 +10,7 @@ const DefenderForOfficeTemplates = () => {
 
   const handleSubmit = async (values) => {
     genericPostRequest({
-      path: '/api/AddDefenderForOfficeTemplate?Function=AntiPhish',
+      path: '/api/AddDefenderForOfficeTemplate?Function=' + values.PolicyType,
       values,
     })
   }
