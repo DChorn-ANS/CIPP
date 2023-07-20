@@ -37,7 +37,7 @@ const DefenderForOfficeTemplates = () => {
                       placeholder={'Enter the JSON parameters for your rule.'}
                       values={[
                         { label: 'Anti Phish', value: 'AntiPhish' },
-                        { label: 'Inbound Anti Spam', value: 'Spamfilter' },
+                        { label: 'Inbound Anti Spam', value: 'HostedContentFilter' },
                         { label: 'Outbound Anti Spam', value: 'HostedOutboundSpamFilter' },
                         { label: 'Anti Malware', value: 'MalwareFilter' },
                         { label: 'Safe Attachments', value: 'SafeAttachment' },
