@@ -143,7 +143,9 @@ const PhishingTemplates = () => {
       )}
       <CippPageList
         title="Anti Phishing Templates"
-        titleButton={<TitleButton href="/email/transport/add-template" title="Add Template" />}
+        titleButton={
+          <TitleButton href="/email/DefenderforOffice365/add-template" title="Add Template" />
+        }
         datatable={{
           reportName: `${tenant?.defaultDomainName}-SpamfilterTemplates`,
           path: '/api/ListDefenderForOfficeTemplates?Function=AntiPhish',
