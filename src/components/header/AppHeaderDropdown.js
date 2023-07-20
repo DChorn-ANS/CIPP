@@ -31,7 +31,14 @@ const AppHeaderDropdown = () => {
 
   useEffect(() => {
     if (cippQueueList.isFetching) {
-      setCippQueueExtendedInfo([{ label: 'Fetching recent jobs', value: 'Please wait' }])
+      setCippQueueExtendedInfo([
+        {
+          label: 'Fetching recent jobs',
+          value: 'Please wait',
+          timpestamp: Date(),
+          link: '#',
+        },
+      ])
     }
     if (
       cippQueueList.isSuccess &&
@@ -42,12 +49,15 @@ const AppHeaderDropdown = () => {
         cippQueueList.data?.map((job) => ({
           label: `${job.Name}`,
           value: job.Status,
+          link: job.Link,
+          timestamp: job.Timestamp,
         })),
       )
     } else {
-      setCippQueueExtendedInfo([{ label: 'No jobs to display', value: '' }])
+      setCippQueueExtendedInfo([
+        { label: 'No jobs to display', value: '', timpestamp: Date(), link: '#' },
+      ])
     }
-    console.log(cippQueueList)
   }, [cippQueueList])
 
   return (
@@ -89,7 +99,8 @@ const AppHeaderDropdown = () => {
       </CippOffcanvas>
       <CippActionsOffcanvas
         title="Recent Jobs"
-        extendedInfo={cippQueueExtendedInfo}
+        extendedInfo={[]}
+        cards={cippQueueExtendedInfo}
         actions={[
           {
             label: 'Clear History',
