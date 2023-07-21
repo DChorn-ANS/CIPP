@@ -59,7 +59,7 @@ const AddPolicy = () => {
                   return obj.GUID === value
                 })
                 // console.log(template[0][set])
-                onChange(JSON.stringify(template[0]))
+                onChange(template[0][set])
               }}
             </OnChange>
           )}
@@ -130,38 +130,36 @@ const AddPolicy = () => {
                 path: 'api/ListDefenderForOfficeTemplates',
               })}
             {DefenderForOfficeTemplates.isSuccess && (
-              <div>
-                <RFFCFormSelect
-                  name="TypeList"
-                  values={[
-                    { label: 'Anti Phish', value: 'AntiPhish' },
-                    { label: 'Inbound Anti Spam', value: 'HostedContentFilter' },
-                    { label: 'Outbound Anti Spam', value: 'HostedOutboundSpamFilter' },
-                    { label: 'Anti Malware', value: 'MalwareFilter' },
-                    { label: 'Safe Attachments', value: 'SafeAttachment' },
-                    { label: 'Safe Links', value: 'SafeLinks' },
-                  ]}
-                  placeholder="Select a template"
-                  label="Please choose a template to apply, or enter the information manually."
-                />
-                <RFFCFormSelect
-                  name="TemplateList"
-                  values={DefenderForOfficeTemplates.map((template) => ({
-                    value: template.GUID,
-                    label: template.name,
-                  }))}
-                  placeholder="Select a template"
-                  label="Please choose a template to apply, or enter the information manually."
-                />
-              </div>
+              <RFFCFormSelect
+                name="TemplateList"
+                values={DefenderForOfficeTemplates.data?.map((template) => ({
+                  value: template.GUID,
+                  label: template.Type + ' - ' + template.name,
+                }))}
+                placeholder="Select a template"
+                label="Please choose a template to apply, or enter the information manually."
+              />
             )}
           </CCol>
         </CRow>
         <CRow>
           <CCol>
+            <RFFCFormSelect
+              name="Type"
+              values={[
+                { label: 'Anti Phish', value: 'AntiPhish' },
+                { label: 'Inbound Anti Spam', value: 'HostedContentFilter' },
+                { label: 'Outbound Anti Spam', value: 'HostedOutboundSpamFilter' },
+                { label: 'Anti Malware', value: 'MalwareFilter' },
+                { label: 'Safe Attachments', value: 'SafeAttachment' },
+                { label: 'Safe Links', value: 'SafeLinks' },
+              ]}
+              placeholder="Select a template"
+              label="Please choose a template to apply, or enter the information manually."
+            />
             <RFFCFormTextarea
-              name="PowerShellCommand"
-              label="New-SafeLinksPolicy parameters"
+              name="JSON"
+              label="JSON Parameters"
               placeholder={
                 'Enter the JSON information to use as parameters, or select from a template'
               }
@@ -169,7 +167,8 @@ const AddPolicy = () => {
           </CCol>
         </CRow>
         <hr className="my-4" />
-        <WhenFieldChanges field="TemplateList" set="PowerShellCommand" />
+        <WhenFieldChanges field="TemplateList" set="JSON" />
+        <WhenFieldChanges field="TemplateList" set="Type" />
       </CippWizard.Page>
       <CippWizard.Page title="Review and Confirm" description="Confirm the settings to apply">
         <center>
