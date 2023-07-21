@@ -169,7 +169,7 @@ const DefenderForOfficeTemplates = () => {
                 />
                 <RFFCFormSelect
                   name="TemplateList"
-                  values={FilteredData.list.map((template) => ({
+                  values={DefenderForOfficeTemplates.map((template) => ({
                     value: template.GUID,
                     label: template.name,
                   }))}
