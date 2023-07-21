@@ -184,6 +184,7 @@ const ListAppliedStandards = () => {
                             .filter((obj) => obj.cat === 'Global')
                             .map((item, key) => (
                               <>
+                                {console.log(item.name)}
                                 <CCol>
                                   <RFFCFormSwitch
                                     key={key}
