@@ -7,6 +7,7 @@ import { cellDateFormatter, cellBooleanFormatter, CellTip } from 'src/components
 import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { useSelector } from 'react-redux'
+import { ModalService } from 'src/components/utilities'
 
 const DefenderForOfficeSettings = () => {
   return (
