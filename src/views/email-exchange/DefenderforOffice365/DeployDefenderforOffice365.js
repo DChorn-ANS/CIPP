@@ -1,18 +1,9 @@
 import React, { useState } from 'react'
-import {
-  CCol,
-  CRow,
-  CCallout,
-  CSpinner,
-  CNav,
-  CNavItem,
-  CTabContent,
-  CTabPane,
-} from '@coreui/react'
+import { CCol, CRow, CCallout, CSpinner } from '@coreui/react'
 import { Field, FormSpy } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
-import { CippPage, CippWizard } from 'src/components/layout'
+import { CippWizard } from 'src/components/layout'
 import { WizardTableField } from 'src/components/tables'
 import PropTypes from 'prop-types'
 import { RFFCFormSelect, RFFCFormTextarea } from 'src/components/forms'
@@ -76,6 +67,11 @@ const DefenderForOfficeTemplates = () => {
       )}
     </Field>
   )
+
+  const [FilterValue, setFilterValue] = useState('')
+  const handleChange = (e) => {
+    setFilterValue(e.target.value)
+  }
 
   const formValues = {
     TemplateType: 'Admin',
@@ -152,11 +148,12 @@ const DefenderForOfficeTemplates = () => {
                   ]}
                   placeholder="Select a template"
                   label="Please choose a template to apply, or enter the information manually."
+                  onChange={handleChange}
                 />
                 <RFFCFormSelect
                   name="TemplateList"
                   values={DefenderForOfficeTemplates.data
-                    ?.filter((obj) => obj.Type === TypeList.value)
+                    ?.filter((obj) => obj.Type === { FilterValue })
                     .map((template) => ({
                       value: template.GUID,
                       label: template.name,
