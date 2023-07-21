@@ -31,7 +31,7 @@ Error.propTypes = {
 
 const requiredArray = (value) => (value && value.length !== 0 ? undefined : 'Required')
 
-const DefenderForOfficeTemplates = () => {
+const AddPolicy = () => {
   const [DefenderForOfficeGetRequest, DefenderForOfficeTemplates] = useLazyGenericGetRequestQuery()
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
@@ -220,4 +220,4 @@ const DefenderForOfficeTemplates = () => {
   )
 }
 
-export default DefenderForOfficeTemplates
+export default AddPolicy
