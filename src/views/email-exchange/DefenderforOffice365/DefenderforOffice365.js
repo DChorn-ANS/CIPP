@@ -143,6 +143,22 @@ const PhishingSettings = () => {
       </>
     )
   }
+  const handleIncludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleInclAll.split('<br />'),
+      title: `Included`,
+    })
+  }
+  const handleExcludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleExclAll.split('<br />'),
+      title: `Excluded`,
+    })
+  }
 
   const columns = [
     {
@@ -152,13 +168,6 @@ const PhishingSettings = () => {
       wrap: true,
       cell: (row) => CellTip(row['Name']),
       exportSelector: 'Name',
-    },
-    {
-      name: 'Default Rule',
-      selector: (row) => row['IsDefault'],
-      sortable: true,
-      cell: cellBooleanFormatter(),
-      exportSelector: 'IsDefault',
     },
     {
       name: 'Rule State',
@@ -171,6 +180,34 @@ const PhishingSettings = () => {
       selector: (row) => row['rulePrio'],
       sortable: true,
       exportSelector: 'rulePrio',
+    },
+    {
+      name: 'Included',
+      selector: (row) => row['ruleInclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+            {cell} Inclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Included Count',
+    },
+    {
+      name: 'Excluded',
+      selector: (row) => row['ruleExclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+            {cell} Exclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Excluded Count',
     },
     {
       name: 'User Impersonation Action',
@@ -347,6 +384,22 @@ const AntispamInboundSettings = () => {
       </>
     )
   }
+  const handleIncludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleInclAll.split('<br />'),
+      title: `Included`,
+    })
+  }
+  const handleExcludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleExclAll.split('<br />'),
+      title: `Excluded`,
+    })
+  }
 
   const columns = [
     {
@@ -356,13 +409,6 @@ const AntispamInboundSettings = () => {
       wrap: true,
       cell: (row) => CellTip(row['Name']),
       exportSelector: 'Name',
-    },
-    {
-      name: 'Default Rule',
-      selector: (row) => row['IsDefault'],
-      sortable: true,
-      cell: cellBooleanFormatter(),
-      exportSelector: 'IsDefault',
     },
     {
       name: 'Rule State',
@@ -375,6 +421,34 @@ const AntispamInboundSettings = () => {
       selector: (row) => row['rulePrio'],
       sortable: true,
       exportSelector: 'rulePrio',
+    },
+    {
+      name: 'Included',
+      selector: (row) => row['ruleInclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+            {cell} Inclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Included Count',
+    },
+    {
+      name: 'Excluded',
+      selector: (row) => row['ruleExclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+            {cell} Exclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Excluded Count',
     },
     {
       name: 'High Confidence Spam Action',
@@ -503,6 +577,22 @@ const AntispamOutboundSettings = () => {
       </>
     )
   }
+  const handleIncludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleInclAll.split('<br />'),
+      title: `Included`,
+    })
+  }
+  const handleExcludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleExclAll.split('<br />'),
+      title: `Excluded`,
+    })
+  }
 
   const columns = [
     {
@@ -512,13 +602,6 @@ const AntispamOutboundSettings = () => {
       wrap: true,
       cell: (row) => CellTip(row['Name']),
       exportSelector: 'Name',
-    },
-    {
-      name: 'Default Rule',
-      selector: (row) => row['IsDefault'],
-      sortable: true,
-      cell: cellBooleanFormatter(),
-      exportSelector: 'IsDefault',
     },
     {
       name: 'Rule State',
@@ -531,6 +614,34 @@ const AntispamOutboundSettings = () => {
       selector: (row) => row['rulePrio'],
       sortable: true,
       exportSelector: 'rulePrio',
+    },
+    {
+      name: 'Included',
+      selector: (row) => row['ruleInclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+            {cell} Inclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Included Count',
+    },
+    {
+      name: 'Excluded',
+      selector: (row) => row['ruleExclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+            {cell} Exclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Excluded Count',
     },
     {
       name: 'Internal Limit Per Hour',
@@ -669,6 +780,22 @@ const AntimalwareSettings = () => {
       </>
     )
   }
+  const handleIncludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleInclAll.split('<br />'),
+      title: `Included`,
+    })
+  }
+  const handleExcludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleExclAll.split('<br />'),
+      title: `Excluded`,
+    })
+  }
 
   const columns = [
     {
@@ -678,13 +805,6 @@ const AntimalwareSettings = () => {
       wrap: true,
       cell: (row) => CellTip(row['Name']),
       exportSelector: 'Name',
-    },
-    {
-      name: 'Default Rule',
-      selector: (row) => row['IsDefault'],
-      sortable: true,
-      cell: cellBooleanFormatter(),
-      exportSelector: 'IsDefault',
     },
     {
       name: 'Rule State',
@@ -697,6 +817,34 @@ const AntimalwareSettings = () => {
       selector: (row) => row['rulePrio'],
       sortable: true,
       exportSelector: 'rulePrio',
+    },
+    {
+      name: 'Included',
+      selector: (row) => row['ruleInclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+            {cell} Inclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Included Count',
+    },
+    {
+      name: 'Excluded',
+      selector: (row) => row['ruleExclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+            {cell} Exclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Excluded Count',
     },
     {
       name: 'Common Attachments Filter',
@@ -821,6 +969,22 @@ const SafeAttachmentsSettings = () => {
       </>
     )
   }
+  const handleIncludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleInclAll.split('<br />'),
+      title: `Included`,
+    })
+  }
+  const handleExcludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleExclAll.split('<br />'),
+      title: `Excluded`,
+    })
+  }
 
   const columns = [
     {
@@ -830,13 +994,6 @@ const SafeAttachmentsSettings = () => {
       wrap: true,
       cell: (row) => CellTip(row['Name']),
       exportSelector: 'Name',
-    },
-    {
-      name: 'Default Rule',
-      selector: (row) => row['IsBuiltInProtection'],
-      sortable: true,
-      cell: cellBooleanFormatter(),
-      exportSelector: 'IsBuiltInProtection',
     },
     {
       name: 'Rule State',
@@ -849,6 +1006,34 @@ const SafeAttachmentsSettings = () => {
       selector: (row) => row['rulePrio'],
       sortable: true,
       exportSelector: 'rulePrio',
+    },
+    {
+      name: 'Included',
+      selector: (row) => row['ruleInclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+            {cell} Inclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Included Count',
+    },
+    {
+      name: 'Excluded',
+      selector: (row) => row['ruleExclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+            {cell} Exclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Excluded Count',
     },
     {
       name: 'Action',
@@ -977,6 +1162,22 @@ const SafeLinksSettings = () => {
       </>
     )
   }
+  const handleIncludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleInclAll.split('<br />'),
+      title: `Included`,
+    })
+  }
+  const handleExcludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.ruleExclAll.split('<br />'),
+      title: `Excluded`,
+    })
+  }
 
   const columns = [
     {
@@ -986,13 +1187,6 @@ const SafeLinksSettings = () => {
       wrap: true,
       cell: (row) => CellTip(row['Name']),
       exportSelector: 'Name',
-    },
-    {
-      name: 'Default Rule',
-      selector: (row) => row['IsBuiltInProtection'],
-      sortable: true,
-      cell: cellBooleanFormatter(),
-      exportSelector: 'IsBuiltInProtection',
     },
     {
       name: 'Rule State',
@@ -1005,6 +1199,34 @@ const SafeLinksSettings = () => {
       selector: (row) => row['rulePrio'],
       sortable: true,
       exportSelector: 'rulePrio',
+    },
+    {
+      name: 'Included',
+      selector: (row) => row['ruleInclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+            {cell} Inclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Included Count',
+    },
+    {
+      name: 'Excluded',
+      selector: (row) => row['ruleExclAllCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        return (
+          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+            {cell} Exclusion{cell > 1 ? 's' : ''}
+          </CButton>
+        )
+      },
+      exportSelector: 'Excluded Count',
     },
     {
       name: 'Email',
