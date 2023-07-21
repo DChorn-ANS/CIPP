@@ -41,7 +41,7 @@ const DefenderForOfficeTemplates = () => {
     )
     values.TemplateType = values.Type
     genericPostRequest({
-      path: '/api/AddDefenderForOffice',
+      path: '/api/AddDefenderForOffice?Function=SafeLinks',
       values: values,
     })
   }
@@ -68,28 +68,10 @@ const DefenderForOfficeTemplates = () => {
     </Field>
   )
 
-  const WhenFilterChanges = ({ field, set }) => (
-    <Field name={set} subscription={{}}>
-      {(
-        // No subscription. We only use Field to get to the change function
-        { input: { onChange } },
-      ) => (
-        <FormSpy subscription={{}}>
-          {({ form }) => (
-            <OnChange name={field}>
-              {(value) => {
-                let template = DefenderForOfficeTemplates.data.filter(function (obj) {
-                  return obj.Type === value
-                })
-                // console.log(template[0][set])
-                onChange(template)
-              }}
-            </OnChange>
-          )}
-        </FormSpy>
-      )}
-    </Field>
-  )
+  const [FilteredData, setFilteredData] = useState('')
+  const handleChange = (e) => {
+    setFilteredData(DefenderForOfficeTemplates.data?.filter((obj) => obj.Type === e.target.value))
+  }
 
   const formValues = {
     TemplateType: 'Admin',
@@ -166,10 +148,11 @@ const DefenderForOfficeTemplates = () => {
                   ]}
                   placeholder="Select a template"
                   label="Please choose a template to apply, or enter the information manually."
+                  onChange={handleChange}
                 />
                 <RFFCFormSelect
                   name="TemplateList"
-                  values={DefenderForOfficeTemplates.map((template) => ({
+                  values={FilteredData.map((template) => ({
                     value: template.GUID,
                     label: template.name,
                   }))}
@@ -193,7 +176,6 @@ const DefenderForOfficeTemplates = () => {
         </CRow>
         <hr className="my-4" />
         <WhenFieldChanges field="TemplateList" set="PowerShellCommand" />
-        <WhenFilterChanges field="TypeList" set="TemplateList" />
       </CippWizard.Page>
       <CippWizard.Page title="Review and Confirm" description="Confirm the settings to apply">
         <center>
