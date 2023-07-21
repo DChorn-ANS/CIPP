@@ -92,13 +92,13 @@ const PhishingSettings = () => {
             },
             {
               label: 'Include Custom Domains',
-              value: `${row.TargetedDomainsToProtect.split(';')}`,
+              value: `${row.TargetedDomainsToProtect}`,
             },
             {
               label: 'User Impersonation Protection',
               value: `${row.EnableTargetedUserProtection}`,
             },
-            { label: 'Include Users', value: `${row.TargetedUsersToProtect.split(';')}` },
+            { label: 'Include Users', value: `${row.TargetedUsersToProtect}` },
           ]}
           actions={[
             {
@@ -334,11 +334,11 @@ const AntispamInboundSettings = () => {
             { label: 'Mark Backscatter as spam', value: `${row.MarkAsSpamNdrBackscatter}` },
             {
               label: 'Mark messages with these languages as spam',
-              value: `${row.LanguageBlockList.split(',')}`,
+              value: `${row.LanguageBlockList}`,
             },
             {
               label: 'Mark messages from these countries as spam',
-              value: `${row.RegionBlockList.split(',')}`,
+              value: `${row.RegionBlockList}`,
             },
           ]}
           actions={[
@@ -726,7 +726,7 @@ const AntimalwareSettings = () => {
           extendedInfo={[
             {
               label: 'File Types blocked as malware',
-              value: `${row.FileTypes.split(',')}`,
+              value: `${row.FileTypes}`,
             },
             {
               label: 'Internal sender undelivered message notification',
