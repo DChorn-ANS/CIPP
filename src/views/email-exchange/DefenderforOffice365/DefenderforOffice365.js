@@ -148,7 +148,7 @@ const PhishingSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleInclAll.split(';'),
+      data: row.ruleInclAll.split('<br />'),
       title: `Included`,
     })
   }
@@ -156,7 +156,7 @@ const PhishingSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleExclAll.split(';'),
+      data: row.ruleExclAll.split('<br />'),
       title: `Excluded`,
     })
   }
@@ -389,7 +389,7 @@ const AntispamInboundSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleInclAll.split(';'),
+      data: row.ruleInclAll.split('<br />'),
       title: `Included`,
     })
   }
@@ -397,7 +397,7 @@ const AntispamInboundSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleExclAll.split(';'),
+      data: row.ruleExclAll.split('<br />'),
       title: `Excluded`,
     })
   }
@@ -582,7 +582,7 @@ const AntispamOutboundSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleInclAll.split(';'),
+      data: row.ruleInclAll.split('<br />'),
       title: `Included`,
     })
   }
@@ -590,7 +590,7 @@ const AntispamOutboundSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleExclAll.split(';'),
+      data: row.ruleExclAll.split('<br />'),
       title: `Excluded`,
     })
   }
@@ -785,7 +785,7 @@ const AntimalwareSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleInclAll.split(';'),
+      data: row.ruleInclAll.split('<br />'),
       title: `Included`,
     })
   }
@@ -793,7 +793,7 @@ const AntimalwareSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleExclAll.split(';'),
+      data: row.ruleExclAll.split('<br />'),
       title: `Excluded`,
     })
   }
@@ -974,7 +974,7 @@ const SafeAttachmentsSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleInclAll.split(';'),
+      data: row.ruleInclAll.split('<br />'),
       title: `Included`,
     })
   }
@@ -982,7 +982,7 @@ const SafeAttachmentsSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleExclAll.split(';'),
+      data: row.ruleExclAll.split('<br />'),
       title: `Excluded`,
     })
   }
@@ -1167,7 +1167,7 @@ const SafeLinksSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleInclAll.split(';'),
+      data: row.ruleInclAll.split('<br />'),
       title: `Included`,
     })
   }
@@ -1175,7 +1175,7 @@ const SafeLinksSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleExclAll.split(';'),
+      data: row.ruleExclAll.split('<br />'),
       title: `Excluded`,
     })
   }
