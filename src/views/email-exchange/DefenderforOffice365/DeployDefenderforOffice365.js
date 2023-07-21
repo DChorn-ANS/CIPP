@@ -41,7 +41,7 @@ const DefenderForOfficeTemplates = () => {
     )
     values.TemplateType = values.Type
     genericPostRequest({
-      path: '/api/AddDefenderForOffice?Function=SafeLinks',
+      path: '/api/AddDefenderForOffice',
       values: values,
     })
   }
@@ -68,9 +68,19 @@ const DefenderForOfficeTemplates = () => {
     </Field>
   )
 
-  const [FilteredData, setFilteredData] = useState('')
+  const [FilteredData, setFilteredData] = useState({
+    filter: '',
+    list: [],
+  })
   const handleChange = (e) => {
-    setFilteredData(DefenderForOfficeTemplates.data?.filter((obj) => obj.Type === e.target.value))
+    const results = DefenderForOfficeTemplates.data?.filter((obj) => {
+      if (e.target.value === '') return DefenderForOfficeTemplates
+      return obj.Type === e.target.value
+    })
+    setFilteredData({
+      filter: e.target.value,
+      list: results,
+    })
   }
 
   const formValues = {
@@ -152,7 +162,7 @@ const DefenderForOfficeTemplates = () => {
                 />
                 <RFFCFormSelect
                   name="TemplateList"
-                  values={FilteredData.map((template) => ({
+                  values={FilteredData.list.map((template) => ({
                     value: template.GUID,
                     label: template.name,
                   }))}
