@@ -68,9 +68,9 @@ const DefenderForOfficeTemplates = () => {
     </Field>
   )
 
-  const [FilterValue, setFilterValue] = useState('')
+  const [FilteredData, setFilteredData] = useState('')
   const handleChange = (e) => {
-    setFilterValue(e.target.value)
+    setFilteredData(DefenderForOfficeTemplates.data?.filter((obj) => obj.Type === e.target.value))
   }
 
   const formValues = {
@@ -152,12 +152,10 @@ const DefenderForOfficeTemplates = () => {
                 />
                 <RFFCFormSelect
                   name="TemplateList"
-                  values={DefenderForOfficeTemplates.data
-                    ?.filter((obj) => obj.Type === { FilterValue })
-                    .map((template) => ({
-                      value: template.GUID,
-                      label: template.name,
-                    }))}
+                  values={FilteredData.map((template) => ({
+                    value: template.GUID,
+                    label: template.name,
+                  }))}
                   placeholder="Select a template"
                   label="Please choose a template to apply, or enter the information manually."
                 />

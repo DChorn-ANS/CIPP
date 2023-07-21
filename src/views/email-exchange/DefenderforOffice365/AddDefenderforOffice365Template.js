@@ -34,7 +34,7 @@ const DefenderForOfficeTemplates = () => {
                     <RFFCFormSelect
                       name="PolicyType"
                       label="Policy Type"
-                      placeholder={'Enter the JSON parameters for your rule.'}
+                      placeholder={'Select the policy type'}
                       values={[
                         { label: 'Anti Phish', value: 'AntiPhish' },
                         { label: 'Inbound Anti Spam', value: 'HostedContentFilter' },
