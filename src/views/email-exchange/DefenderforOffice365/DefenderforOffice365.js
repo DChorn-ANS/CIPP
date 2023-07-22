@@ -92,13 +92,24 @@ const PhishingSettings = () => {
             },
             {
               label: 'Include Custom Domains',
-              value: `${row.TargetedDomainsToProtect}`,
+              value: `${
+                row.TargetedDomainsToProtect.includes(',')
+                  ? row.TargetedDomainsToProtect.split(',')
+                  : row.TargetedDomainsToProtect
+              }`,
             },
             {
               label: 'User Impersonation Protection',
               value: `${row.EnableTargetedUserProtection}`,
             },
-            { label: 'Include Users', value: `${row.TargetedUsersToProtect}` },
+            {
+              label: 'Include Users',
+              value: `${
+                row.TargetedUsersToProtect.includes(',')
+                  ? row.TargetedUsersToProtect.split(',')
+                  : row.TargetedUsersToProtect
+              }`,
+            },
           ]}
           actions={[
             {
@@ -334,11 +345,19 @@ const AntispamInboundSettings = () => {
             { label: 'Mark Backscatter as spam', value: `${row.MarkAsSpamNdrBackscatter}` },
             {
               label: 'Mark messages with these languages as spam',
-              value: `${row.LanguageBlockList}`,
+              value: `${
+                row.LanguageBlockList.includes(',')
+                  ? row.LanguageBlockList.split(',')
+                  : row.LanguageBlockList
+              }`,
             },
             {
               label: 'Mark messages from these countries as spam',
-              value: `${row.RegionBlockList}`,
+              value: `${
+                row.RegionBlockList.includes(',')
+                  ? row.RegionBlockList.split(',')
+                  : row.RegionBlockList
+              }`,
             },
           ]}
           actions={[
@@ -527,11 +546,19 @@ const AntispamOutboundSettings = () => {
           extendedInfo={[
             {
               label: 'Send a copy of message users and groups',
-              value: `${row.BccSuspiciousOutboundAdditionalRecipients}`,
+              value: `${
+                row.BccSuspiciousOutboundAdditionalRecipients.includes(',')
+                  ? row.BccSuspiciousOutboundAdditionalRecipients.split(',')
+                  : row.BccSuspiciousOutboundAdditionalRecipients
+              }`,
             },
             {
               label: 'Notify these users and groups if blocked',
-              value: `${row.NotifyOutboundSpamRecipients}`,
+              value: `${
+                row.NotifyOutboundSpamRecipients.includes(',')
+                  ? row.NotifyOutboundSpamRecipients.split(',')
+                  : row.NotifyOutboundSpamRecipients
+              }`,
             },
           ]}
           actions={[
@@ -726,7 +753,7 @@ const AntimalwareSettings = () => {
           extendedInfo={[
             {
               label: 'File Types blocked as malware',
-              value: `${row.FileTypes}`,
+              value: `${row.FileTypes.includes(',') ? row.FileTypes.split(',') : row.FileTypes}`,
             },
             {
               label: 'Internal sender undelivered message notification',
