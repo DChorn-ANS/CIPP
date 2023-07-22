@@ -163,6 +163,7 @@ const AddPolicy = () => {
               placeholder={
                 'Enter the JSON information to use as parameters, or select from a template'
               }
+              style="height: 400px;"
             />
           </CCol>
         </CRow>
