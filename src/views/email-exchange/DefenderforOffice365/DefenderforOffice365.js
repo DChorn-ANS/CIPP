@@ -199,11 +199,15 @@ const PhishingSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-            {cell} Inclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={false} />
+        }
       },
       exportSelector: 'Included Count',
     },
@@ -213,11 +217,15 @@ const PhishingSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
-            {cell} Exclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
       },
       exportSelector: 'Excluded Count',
     },
@@ -448,11 +456,15 @@ const AntispamInboundSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-            {cell} Inclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={false} />
+        }
       },
       exportSelector: 'Included Count',
     },
@@ -462,11 +474,15 @@ const AntispamInboundSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
-            {cell} Exclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
       },
       exportSelector: 'Excluded Count',
     },
@@ -649,11 +665,15 @@ const AntispamOutboundSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-            {cell} Inclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={false} />
+        }
       },
       exportSelector: 'Included Count',
     },
@@ -663,11 +683,15 @@ const AntispamOutboundSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
-            {cell} Exclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
       },
       exportSelector: 'Excluded Count',
     },
@@ -852,11 +876,15 @@ const AntimalwareSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-            {cell} Inclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={false} />
+        }
       },
       exportSelector: 'Included Count',
     },
@@ -866,11 +894,15 @@ const AntimalwareSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
-            {cell} Exclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
       },
       exportSelector: 'Excluded Count',
     },
@@ -1041,11 +1073,15 @@ const SafeAttachmentsSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-            {cell} Inclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={false} />
+        }
       },
       exportSelector: 'Included Count',
     },
@@ -1055,11 +1091,15 @@ const SafeAttachmentsSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
-            {cell} Exclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
       },
       exportSelector: 'Excluded Count',
     },
@@ -1234,11 +1274,15 @@ const SafeLinksSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-            {cell} Inclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={false} />
+        }
       },
       exportSelector: 'Included Count',
     },
@@ -1248,11 +1292,15 @@ const SafeLinksSettings = () => {
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
-        return (
-          <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
-            {cell} Exclusion{cell > 1 ? 's' : ''}
-          </CButton>
-        )
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleExcludedList({ row })}>
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
       },
       exportSelector: 'Excluded Count',
     },
