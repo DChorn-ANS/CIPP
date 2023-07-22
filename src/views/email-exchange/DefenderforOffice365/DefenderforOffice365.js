@@ -194,7 +194,7 @@ const PhishingSettings = () => {
         if (cell > 0) {
           return (
             <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-              {cell} Exclusion{cell > 1 ? 's' : ''}
+              {cell} Inclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
         } else if (cell === 0) {
@@ -443,7 +443,7 @@ const AntispamInboundSettings = () => {
         if (cell > 0) {
           return (
             <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-              {cell} Exclusion{cell > 1 ? 's' : ''}
+              {cell} Inclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
         } else if (cell === 0) {
@@ -644,7 +644,7 @@ const AntispamOutboundSettings = () => {
         if (cell > 0) {
           return (
             <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-              {cell} Exclusion{cell > 1 ? 's' : ''}
+              {cell} Inclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
         } else if (cell === 0) {
@@ -855,7 +855,7 @@ const AntimalwareSettings = () => {
         if (cell > 0) {
           return (
             <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-              {cell} Exclusion{cell > 1 ? 's' : ''}
+              {cell} Inclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
         } else if (cell === 0) {
@@ -1052,7 +1052,7 @@ const SafeAttachmentsSettings = () => {
         if (cell > 0) {
           return (
             <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-              {cell} Exclusion{cell > 1 ? 's' : ''}
+              {cell} Inclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
         } else if (cell === 0) {
@@ -1253,7 +1253,7 @@ const SafeLinksSettings = () => {
         if (cell > 0) {
           return (
             <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-              {cell} Exclusion{cell > 1 ? 's' : ''}
+              {cell} Inclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
         } else if (cell === 0) {
