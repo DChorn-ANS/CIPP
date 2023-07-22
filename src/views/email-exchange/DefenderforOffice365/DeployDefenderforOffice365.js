@@ -154,7 +154,7 @@ const AddPolicy = () => {
                 { label: 'Safe Attachments', value: 'SafeAttachment' },
                 { label: 'Safe Links', value: 'SafeLinks' },
               ]}
-              placeholder="Select a template"
+              placeholder="Select a policy type"
               label="Policy Type"
             />
             <RFFCFormTextarea
