@@ -8,7 +8,6 @@ import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { useSelector } from 'react-redux'
 import { ModalService } from 'src/components/utilities'
-import { CippOffcanvasTable } from 'src/components/tables'
 
 const DefenderForOfficeSettings = () => {
   return (
@@ -754,14 +753,7 @@ const AntimalwareSettings = () => {
           extendedInfo={[
             {
               label: 'File Types blocked as malware',
-              value: (
-                <CippOffcanvasTable
-                  Rows={row.FileTypes.map((FileType) => ({
-                    value: FileType,
-                    label: '',
-                  }))}
-                />
-              ),
+              value: `${row.FileTypes}`,
             },
             {
               label: 'Internal sender undelivered message notification',
