@@ -199,6 +199,8 @@ const PhishingSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
+        } else if (cell === 'default') {
+          return <CellBoolean cell={true} />
         }
       },
       exportSelector: 'Included Count',
@@ -448,6 +450,8 @@ const AntispamInboundSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
+        } else if (cell === 'default') {
+          return <CellBoolean cell={true} />
         }
       },
       exportSelector: 'Included Count',
@@ -649,6 +653,8 @@ const AntispamOutboundSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
+        } else if (cell === 'default') {
+          return <CellBoolean cell={true} />
         }
       },
       exportSelector: 'Included Count',
@@ -860,6 +866,8 @@ const AntimalwareSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
+        } else if (cell === 'default') {
+          return <CellBoolean cell={true} />
         }
       },
       exportSelector: 'Included Count',
@@ -1057,6 +1065,8 @@ const SafeAttachmentsSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
+        } else if (cell === 'default') {
+          return <CellBoolean cell={true} />
         }
       },
       exportSelector: 'Included Count',
@@ -1253,11 +1263,13 @@ const SafeLinksSettings = () => {
         if (cell > 0) {
           return (
             <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-              {cell} Inclusion{cell > 1 ? 's' : ''}
+              {cell} Exclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
+        } else if (cell === 'default') {
+          return <CellBoolean cell={true} />
         }
       },
       exportSelector: 'Included Count',
