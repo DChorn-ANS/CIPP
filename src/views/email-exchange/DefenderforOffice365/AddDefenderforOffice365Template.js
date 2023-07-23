@@ -31,6 +31,28 @@ const DefenderForOfficeTemplates = () => {
               <CForm onSubmit={handleSubmit}>
                 <CRow>
                   <CCol>
+                    <RFFCFormInput
+                      type="text"
+                      name="displayName"
+                      label="Display Name"
+                      placeholder="Enter the Display Name"
+                      validate={required}
+                    />
+                  </CCol>
+                </CRow>
+                <CRow>
+                  <CCol>
+                    <RFFCFormInput
+                      type="text"
+                      name="description"
+                      label="Description"
+                      placeholder="Enter the description"
+                      validate={required}
+                    />
+                  </CCol>
+                </CRow>
+                <CRow>
+                  <CCol>
                     <RFFCFormSelect
                       name="PolicyType"
                       label="Policy Type"
