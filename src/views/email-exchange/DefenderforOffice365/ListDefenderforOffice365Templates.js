@@ -133,7 +133,7 @@ const PhishingTemplates = () => {
     {
       name: 'Actions',
       cell: Offcanvas,
-      maxWidth: '80px',
+      maxWidth: '125Px',
     },
   ]
 
@@ -250,7 +250,7 @@ const AntispamInboundTemplates = () => {
     {
       name: 'Actions',
       cell: Offcanvas,
-      maxWidth: '80px',
+      maxWidth: '125Px',
     },
   ]
 
@@ -374,7 +374,7 @@ const AntispamOutboundTemplates = () => {
     {
       name: 'Actions',
       cell: Offcanvas,
-      maxWidth: '80px',
+      maxWidth: '125Px',
     },
   ]
 
@@ -488,7 +488,7 @@ const AntimalwareTemplates = () => {
     {
       name: 'Actions',
       cell: Offcanvas,
-      maxWidth: '80px',
+      maxWidth: '125px',
     },
   ]
 
@@ -588,7 +588,7 @@ const SafeAttachmentsTemplates = () => {
     {
       name: 'Actions',
       cell: Offcanvas,
-      maxWidth: '80px',
+      maxWidth: '125Px',
     },
   ]
 
@@ -703,7 +703,7 @@ const SafeLinksTemplates = () => {
     {
       name: 'Actions',
       cell: Offcanvas,
-      maxWidth: '80px',
+      maxWidth: '125Px',
     },
   ]
 
