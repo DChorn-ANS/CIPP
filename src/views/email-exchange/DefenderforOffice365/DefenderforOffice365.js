@@ -723,7 +723,7 @@ const AntispamOutboundSettings = () => {
     },
     {
       name: 'Included',
-      selector: (row) => row['ruleInclAllCount'],
+      selector: (row) => row['ruleOutboundInclAllCount'],
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
@@ -743,7 +743,7 @@ const AntispamOutboundSettings = () => {
     },
     {
       name: 'Excluded',
-      selector: (row) => row['ruleExclAllCount'],
+      selector: (row) => row['ruleOutboundExclAllCount'],
       sortable: true,
       cell: (row, index, column) => {
         const cell = column.selector(row)
