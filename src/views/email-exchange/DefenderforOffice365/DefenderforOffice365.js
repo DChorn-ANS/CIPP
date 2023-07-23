@@ -174,6 +174,12 @@ const PhishingSettings = () => {
 
   const columns = [
     {
+      name: 'Priority',
+      selector: (row) => row['rulePrio'],
+      sortable: true,
+      exportSelector: 'rulePrio',
+    },
+    {
       name: 'Name',
       selector: (row) => row['Name'],
       sortable: true,
@@ -186,12 +192,6 @@ const PhishingSettings = () => {
       selector: (row) => row['ruleState'],
       sortable: true,
       exportSelector: 'ruleState',
-    },
-    {
-      name: 'Priority',
-      selector: (row) => row['rulePrio'],
-      sortable: true,
-      exportSelector: 'rulePrio',
     },
     {
       name: 'Included',
@@ -463,6 +463,12 @@ const AntispamInboundSettings = () => {
 
   const columns = [
     {
+      name: 'Priority',
+      selector: (row) => row['rulePrio'],
+      sortable: true,
+      exportSelector: 'rulePrio',
+    },
+    {
       name: 'Name',
       selector: (row) => row['Name'],
       sortable: true,
@@ -476,12 +482,7 @@ const AntispamInboundSettings = () => {
       sortable: true,
       exportSelector: 'ruleState',
     },
-    {
-      name: 'Priority',
-      selector: (row) => row['rulePrio'],
-      sortable: true,
-      exportSelector: 'rulePrio',
-    },
+
     {
       name: 'Included',
       selector: (row) => row['ruleInclAllCount'],
@@ -702,6 +703,12 @@ const AntispamOutboundSettings = () => {
 
   const columns = [
     {
+      name: 'Priority',
+      selector: (row) => row['rulePrio'],
+      sortable: true,
+      exportSelector: 'rulePrio',
+    },
+    {
       name: 'Name',
       selector: (row) => row['Name'],
       sortable: true,
@@ -714,12 +721,6 @@ const AntispamOutboundSettings = () => {
       selector: (row) => row['ruleState'],
       sortable: true,
       exportSelector: 'ruleState',
-    },
-    {
-      name: 'Priority',
-      selector: (row) => row['rulePrio'],
-      sortable: true,
-      exportSelector: 'rulePrio',
     },
     {
       name: 'Included',
@@ -915,6 +916,12 @@ const AntimalwareSettings = () => {
 
   const columns = [
     {
+      name: 'Priority',
+      selector: (row) => row['rulePrio'],
+      sortable: true,
+      exportSelector: 'rulePrio',
+    },
+    {
       name: 'Name',
       selector: (row) => row['Name'],
       sortable: true,
@@ -927,12 +934,6 @@ const AntimalwareSettings = () => {
       selector: (row) => row['ruleState'],
       sortable: true,
       exportSelector: 'ruleState',
-    },
-    {
-      name: 'Priority',
-      selector: (row) => row['rulePrio'],
-      sortable: true,
-      exportSelector: 'rulePrio',
     },
     {
       name: 'Included',
@@ -1114,6 +1115,12 @@ const SafeAttachmentsSettings = () => {
 
   const columns = [
     {
+      name: 'Priority',
+      selector: (row) => row['rulePrio'],
+      sortable: true,
+      exportSelector: 'rulePrio',
+    },
+    {
       name: 'Name',
       selector: (row) => row['Name'],
       sortable: true,
@@ -1126,12 +1133,6 @@ const SafeAttachmentsSettings = () => {
       selector: (row) => row['ruleState'],
       sortable: true,
       exportSelector: 'ruleState',
-    },
-    {
-      name: 'Priority',
-      selector: (row) => row['rulePrio'],
-      sortable: true,
-      exportSelector: 'rulePrio',
     },
     {
       name: 'Included',
@@ -1317,6 +1318,12 @@ const SafeLinksSettings = () => {
 
   const columns = [
     {
+      name: 'Priority',
+      selector: (row) => row['rulePrio'],
+      sortable: true,
+      exportSelector: 'rulePrio',
+    },
+    {
       name: 'Name',
       selector: (row) => row['Name'],
       sortable: true,
@@ -1329,12 +1336,6 @@ const SafeLinksSettings = () => {
       selector: (row) => row['ruleState'],
       sortable: true,
       exportSelector: 'ruleState',
-    },
-    {
-      name: 'Priority',
-      selector: (row) => row['rulePrio'],
-      sortable: true,
-      exportSelector: 'rulePrio',
     },
     {
       name: 'Included',
