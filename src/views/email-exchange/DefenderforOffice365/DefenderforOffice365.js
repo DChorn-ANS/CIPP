@@ -244,7 +244,7 @@ const PhishingSettings = () => {
       exportSelector: 'TargetedDomainProtectionAction',
     },
     {
-      name: 'Exclusions',
+      name: 'Trusted',
       selector: (row) => row['AllPhishExcludedCount'],
       sortable: true,
       cell: (row, index, column) => {
@@ -256,14 +256,14 @@ const PhishingSettings = () => {
               size="sm"
               onClick={() => handlePhishExcludedList({ row })}
             >
-              {cell} Exclusion{cell > 1 ? 's' : ''}
+              {cell} Trust{cell > 1 ? 's' : ''}
             </CButton>
           )
         } else if (cell === 0) {
           return <CellBoolean cell={true} />
         }
       },
-      exportSelector: 'Exclusions Count',
+      exportSelector: 'Trusted Count',
     },
     {
       name: 'Mailbox Intelligence Action',
@@ -1345,7 +1345,7 @@ const SafeLinksSettings = () => {
         if (cell > 0) {
           return (
             <CButton className="btn-primary" size="sm" onClick={() => handleIncludedList({ row })}>
-              {cell} Exclusion{cell > 1 ? 's' : ''}
+              {cell} Inclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
         } else if (cell === 0) {
