@@ -61,6 +61,19 @@ const PhishingSettings = () => {
               value: `${row.DmarcRejectAction}`,
             },
             {
+              label: 'Phish Threshold Level',
+              value:
+                row.PhishThresholdLevel === 1
+                  ? 'Standard'
+                  : row.PhishThresholdLevel === 2
+                  ? 'Aggressive'
+                  : row.PhishThresholdLevel === 3
+                  ? 'More Aggressive'
+                  : row.PhishThresholdLevel === 4
+                  ? 'Most Aggressive'
+                  : row.PhishThresholdLevel,
+            },
+            {
               label: 'Enable first contact safety tip',
               value: `${row.EnableFirstContactSafetyTips}`,
             },
