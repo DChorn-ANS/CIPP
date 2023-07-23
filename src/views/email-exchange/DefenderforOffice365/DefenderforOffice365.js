@@ -207,7 +207,7 @@ const PhishingSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
-        } else if (cell === 'default') {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -225,7 +225,7 @@ const PhishingSettings = () => {
               {cell} Exclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
-        } else if (cell === 0) {
+        } else {
           return <CellBoolean cell={true} />
         }
       },
@@ -259,7 +259,7 @@ const PhishingSettings = () => {
               {cell} Trust{cell > 1 ? 's' : ''}
             </CButton>
           )
-        } else if (cell === 0) {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -497,7 +497,7 @@ const AntispamInboundSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
-        } else if (cell === 'default') {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -515,7 +515,7 @@ const AntispamInboundSettings = () => {
               {cell} Exclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
-        } else if (cell === 0) {
+        } else {
           return <CellBoolean cell={true} />
         }
       },
@@ -533,7 +533,7 @@ const AntispamInboundSettings = () => {
               {cell} Allow{cell > 1 ? 's' : ''}
             </CButton>
           )
-        } else if (cell === 0) {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -551,7 +551,7 @@ const AntispamInboundSettings = () => {
               {cell} Block{cell > 1 ? 's' : ''}
             </CButton>
           )
-        } else if (cell === 0) {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -736,7 +736,7 @@ const AntispamOutboundSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
-        } else if (cell === 'default') {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -754,7 +754,7 @@ const AntispamOutboundSettings = () => {
               {cell} Exclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
-        } else if (cell === 0) {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -949,7 +949,7 @@ const AntimalwareSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
-        } else if (cell === 'default') {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -967,7 +967,7 @@ const AntimalwareSettings = () => {
               {cell} Exclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
-        } else if (cell === 0) {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -1148,7 +1148,7 @@ const SafeAttachmentsSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
-        } else if (cell === 'default') {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -1166,7 +1166,7 @@ const SafeAttachmentsSettings = () => {
               {cell} Exclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
-        } else if (cell === 0) {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -1351,7 +1351,7 @@ const SafeLinksSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
-        } else if (cell === 'default') {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
@@ -1369,7 +1369,7 @@ const SafeLinksSettings = () => {
               {cell} Exclusion{cell > 1 ? 's' : ''}
             </CButton>
           )
-        } else if (cell === 0) {
+        } else {
           return <CellBoolean cell={true} colourless />
         }
       },
