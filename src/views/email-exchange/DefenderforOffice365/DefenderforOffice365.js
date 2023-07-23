@@ -163,6 +163,14 @@ const PhishingSettings = () => {
       title: `Excluded`,
     })
   }
+  const handlePhishExcludedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.AllPhishExcluded.split('<br />'),
+      title: `Exclusions`,
+    })
+  }
 
   const columns = [
     {
@@ -234,6 +242,28 @@ const PhishingSettings = () => {
       selector: (row) => row['TargetedDomainProtectionAction'],
       sortable: true,
       exportSelector: 'TargetedDomainProtectionAction',
+    },
+    {
+      name: 'Exclusions',
+      selector: (row) => row['AllPhishExcludedCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell > 0) {
+          return (
+            <CButton
+              className="btn-primary"
+              size="sm"
+              onClick={() => handlePhishExcludedList({ row })}
+            >
+              {cell} Exclusion{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} />
+        }
+      },
+      exportSelector: 'Exclusions Count',
     },
     {
       name: 'Mailbox Intelligence Action',
@@ -414,6 +444,22 @@ const AntispamInboundSettings = () => {
       title: `Excluded`,
     })
   }
+  const handleAllowedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.AllAllowed.split('<br />'),
+      title: `Included`,
+    })
+  }
+  const handleBlockedList = ({ row }) => {
+    ModalService.open({
+      visible: true,
+      componentType: 'list',
+      data: row.AllBlocked.split('<br />'),
+      title: `Excluded`,
+    })
+  }
 
   const columns = [
     {
@@ -470,6 +516,42 @@ const AntispamInboundSettings = () => {
           )
         } else if (cell === 0) {
           return <CellBoolean cell={true} />
+        }
+      },
+      exportSelector: 'Excluded Count',
+    },
+    {
+      name: 'Allowed',
+      selector: (row) => row['AllAllowedCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleAllowedList({ row })}>
+              {cell} Allow{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} colourless />
+        }
+      },
+      exportSelector: 'Allowed Count',
+    },
+    {
+      name: 'Blocked',
+      selector: (row) => row['AllBlockedCount'],
+      sortable: true,
+      cell: (row, index, column) => {
+        const cell = column.selector(row)
+        if (cell > 0) {
+          return (
+            <CButton className="btn-primary" size="sm" onClick={() => handleBlockedList({ row })}>
+              {cell} Block{cell > 1 ? 's' : ''}
+            </CButton>
+          )
+        } else if (cell === 0) {
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Excluded Count',
@@ -605,7 +687,7 @@ const AntispamOutboundSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleInclAll.split('<br />'),
+      data: row.ruleOutboundInclAll.split('<br />'),
       title: `Included`,
     })
   }
@@ -613,7 +695,7 @@ const AntispamOutboundSettings = () => {
     ModalService.open({
       visible: true,
       componentType: 'list',
-      data: row.ruleExclAll.split('<br />'),
+      data: row.ruleOutboundExclAll.split('<br />'),
       title: `Excluded`,
     })
   }
