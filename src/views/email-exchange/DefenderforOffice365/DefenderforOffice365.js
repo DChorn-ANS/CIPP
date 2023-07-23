@@ -208,7 +208,7 @@ const PhishingSettings = () => {
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
         } else if (cell === 'default') {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Included Count',
@@ -260,7 +260,7 @@ const PhishingSettings = () => {
             </CButton>
           )
         } else if (cell === 0) {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Trusted Count',
@@ -497,7 +497,7 @@ const AntispamInboundSettings = () => {
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
         } else if (cell === 'default') {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Included Count',
@@ -736,7 +736,7 @@ const AntispamOutboundSettings = () => {
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
         } else if (cell === 'default') {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Included Count',
@@ -754,7 +754,7 @@ const AntispamOutboundSettings = () => {
             </CButton>
           )
         } else if (cell === 0) {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Excluded Count',
@@ -949,7 +949,7 @@ const AntimalwareSettings = () => {
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
         } else if (cell === 'default') {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Included Count',
@@ -967,7 +967,7 @@ const AntimalwareSettings = () => {
             </CButton>
           )
         } else if (cell === 0) {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Excluded Count',
@@ -1148,7 +1148,7 @@ const SafeAttachmentsSettings = () => {
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
         } else if (cell === 'default') {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Included Count',
@@ -1166,7 +1166,7 @@ const SafeAttachmentsSettings = () => {
             </CButton>
           )
         } else if (cell === 0) {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Excluded Count',
@@ -1351,7 +1351,7 @@ const SafeLinksSettings = () => {
         } else if (cell === 0) {
           return <CellBoolean cell={false} />
         } else if (cell === 'default') {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Included Count',
@@ -1369,7 +1369,7 @@ const SafeLinksSettings = () => {
             </CButton>
           )
         } else if (cell === 0) {
-          return <CellBoolean cell={true} />
+          return <CellBoolean cell={true} colourless />
         }
       },
       exportSelector: 'Excluded Count',
