@@ -155,7 +155,7 @@ const PhishingTemplates = () => {
         }
         datatable={{
           reportName: `${tenant?.defaultDomainName}-SpamfilterTemplates`,
-          path: '/api/ListDefenderForOfficeTemplates?View=&?Function=AntiPhish',
+          path: '/api/ListDefenderForOfficeTemplates?View=&Function=AntiPhish',
           params: { TenantFilter: tenant?.defaultDomainName },
           columns,
         }}
@@ -270,7 +270,7 @@ const AntispamInboundTemplates = () => {
         titleButton={<TitleButton href="/email/transport/add-template" title="Add Template" />}
         datatable={{
           reportName: `${tenant?.defaultDomainName}-SpamfilterTemplates`,
-          path: '/api/ListDefenderForOfficeTemplates?View=&?Function=HostedContentFilter',
+          path: '/api/ListDefenderForOfficeTemplates?View=&Function=HostedContentFilter',
           params: { TenantFilter: tenant?.defaultDomainName },
           columns,
         }}
@@ -508,7 +508,7 @@ const AntimalwareTemplates = () => {
         titleButton={<TitleButton href="/email/transport/add-template" title="Add Template" />}
         datatable={{
           reportName: `${tenant?.defaultDomainName}-SpamfilterTemplates`,
-          path: '/api/ListDefenderForOfficeTemplates?View=&?Function=MalwareFilter',
+          path: '/api/ListDefenderForOfficeTemplates?View=&Function=MalwareFilter',
           params: { TenantFilter: tenant?.defaultDomainName },
           columns,
         }}
@@ -608,7 +608,7 @@ const SafeAttachmentsTemplates = () => {
         titleButton={<TitleButton href="/email/transport/add-template" title="Add Template" />}
         datatable={{
           reportName: `${tenant?.defaultDomainName}-SpamfilterTemplates`,
-          path: '/api/ListDefenderForOfficeTemplates?View=&?Function=SafeAttachment',
+          path: '/api/ListDefenderForOfficeTemplates?View=&Function=SafeAttachment',
           params: { TenantFilter: tenant?.defaultDomainName },
           columns,
         }}
@@ -723,7 +723,7 @@ const SafeLinksTemplates = () => {
         titleButton={<TitleButton href="/email/transport/add-template" title="Add Template" />}
         datatable={{
           reportName: `${tenant?.defaultDomainName}-SpamfilterTemplates`,
-          path: '/api/ListDefenderForOfficeTemplates?View=&?Function=SafeLinks',
+          path: '/api/ListDefenderForOfficeTemplates?View=&Function=SafeLinks',
           params: { TenantFilter: tenant?.defaultDomainName },
           columns,
         }}
