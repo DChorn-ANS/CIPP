@@ -3,7 +3,7 @@ import { CButton, CCallout, CCol, CForm, CRow, CSpinner } from '@coreui/react'
 import { Form } from 'react-final-form'
 import { CippContentCard, CippPage } from 'src/components/layout'
 import { RFFCFormTextarea, RFFCFormSelect, RFFCFormInput } from 'src/components/forms'
-import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
+import { useLazyGenericPostRequestQuery, useGenericGetRequestQuery } from 'src/store/api/app'
 
 const DefenderForOfficeTemplates = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
