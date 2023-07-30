@@ -86,9 +86,9 @@ const columns = [
 const IntuneList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
 
-  // eslint-disable-next-line react/prop-types
+  /// eslint-disable-next-line react/prop-types
   const ExpandedComponent = ({ data }) => (
-    // eslint-disable-next-line react/prop-types
+    /// eslint-disable-next-line react/prop-types
     <pre>{JSON.stringify(data, null, 2)}</pre>
   )
 
