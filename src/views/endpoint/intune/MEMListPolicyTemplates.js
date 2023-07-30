@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useLazyGenericGetRequestQuery } from 'src/store/api/app'
 import { CippPage } from 'src/components/layout'
 import { ModalService } from 'src/components/utilities'
-import CippCodeOffCanvas from 'src/components/utilities/CippCodeOffcanvas'
+import { TitleButton } from 'src/components/buttons'
 
 //todo: expandable with RAWJson property.
 
@@ -53,12 +53,15 @@ const AutopilotListTemplates = () => {
         >
           <FontAwesomeIcon icon={faTrash} href="" />
         </CButton>
-        <CippCodeOffCanvas
-          row={row}
-          state={ocVisible}
-          type="IntuneTemplate"
+        <CippOffcanvas
+          title="Template JSON"
+          placement="end"
+          visible={ocVisible}
+          id={row.id}
           hideFunction={() => setOCVisible(false)}
-        />
+        >
+          <CippCodeBlock language="json" code={JSON.stringify(row, null, 2)} />
+        </CippOffcanvas>
       </>
     )
   }
