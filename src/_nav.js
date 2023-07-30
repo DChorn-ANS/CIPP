@@ -633,24 +633,24 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Defender for Office 365',
-    section: 'Defender for Office 365',
+    name: 'Threat Policies',
+    section: 'Threat Policies',
     to: '/tenant/administration',
     icon: <FontAwesomeIcon icon={faShieldAlt} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'Defender for Office 365',
+        name: 'Threat Policies',
         to: '/email/ThreatPolicy/list-policies',
       },
       {
         component: CNavItem,
-        name: 'Apply Defender for Office 365 Template',
+        name: 'Apply Threat Policy Template',
         to: '/email/ThreatPolicy/deploy',
       },
       {
         component: CNavItem,
-        name: 'Defender for Office 365 Templates',
+        name: 'Threat Policy Templates',
         to: '/email/ThreatPolicy/list-templates',
       },
     ],
