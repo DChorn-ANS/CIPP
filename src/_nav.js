@@ -641,17 +641,17 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Defender for Office 365',
-        to: '/email/DefenderForOffice365/list-policies',
+        to: '/email/ThreatPolicy/list-policies',
       },
       {
         component: CNavItem,
         name: 'Apply Defender for Office 365 Template',
-        to: '/email/DefenderForOffice365/deploy',
+        to: '/email/ThreatPolicy/deploy',
       },
       {
         component: CNavItem,
         name: 'Defender for Office 365 Templates',
-        to: '/email/DefenderforOffice365/list-templates',
+        to: '/email/ThreatPolicy/list-templates',
       },
     ],
   },

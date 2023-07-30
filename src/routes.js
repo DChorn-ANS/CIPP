@@ -197,17 +197,17 @@ const AddTransportTemplate = React.lazy(() =>
 const TransportDeploy = React.lazy(() =>
   import('src/views/email-exchange/transport/DeployTransport'),
 )
-const DefenderforOffice365List = React.lazy(() =>
-  import('src/views/email-exchange/DefenderforOffice365/DefenderforOffice365'),
+const ThreatPolicyList = React.lazy(() =>
+  import('src/views/email-exchange/ThreatPolicies/ThreatPolicy'),
 )
-const DefenderforOffice365Template = React.lazy(() =>
-  import('src/views/email-exchange/DefenderforOffice365/ListDefenderforOffice365Templates'),
+const ThreatPolicyTemplate = React.lazy(() =>
+  import('src/views/email-exchange/ThreatPolicies/ListThreatPolicyTemplates'),
 )
-const AddDefenderforOffice365Template = React.lazy(() =>
-  import('src/views/email-exchange/DefenderforOffice365/AddDefenderforOffice365Template'),
+const AddThreatPolicyTemplate = React.lazy(() =>
+  import('src/views/email-exchange/ThreatPolicies/AddThreatPolicyTemplate'),
 )
-const DefenderforOffice365Deploy = React.lazy(() =>
-  import('src/views/email-exchange/DefenderforOffice365/DeployDefenderforOffice365'),
+const ThreatPolicyDeploy = React.lazy(() =>
+  import('src/views/email-exchange/ThreatPolicies/DeployThreatPolicy'),
 )
 const ConnectorList = React.lazy(() => import('src/views/email-exchange/connectors/ConnectorList'))
 const ConnectorListTemplates = React.lazy(() =>
@@ -561,24 +561,24 @@ const routes = [
     component: AddTransportTemplate,
   },
   {
-    path: '/email/DefenderforOffice365/list-policies',
+    path: '/email/ThreatPolicy/list-policies',
     name: 'List Defender For Office 365',
-    component: DefenderforOffice365List,
+    component: ThreatPolicyList,
   },
   {
-    path: '/email/DefenderforOffice365/deploy',
+    path: '/email/ThreatPolicy/deploy',
     name: 'Deploy Defender for Office 365',
-    component: DefenderforOffice365Deploy,
+    component: ThreatPolicyDeploy,
   },
   {
-    path: '/email/DefenderforOffice365/list-templates',
+    path: '/email/ThreatPolicy/list-templates',
     name: 'Defender for Office 365 Templates',
-    component: DefenderforOffice365Template,
+    component: ThreatPolicyTemplate,
   },
   {
-    path: '/email/DefenderforOffice365/add-template',
+    path: '/email/ThreatPolicy/add-template',
     name: 'Defender for Office 365 Template',
-    component: AddDefenderforOffice365Template,
+    component: AddThreatPolicyTemplate,
   },
   {
     name: 'Edit Mailbox Permissions',
