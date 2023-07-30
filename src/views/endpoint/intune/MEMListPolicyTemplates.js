@@ -16,7 +16,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useLazyGenericGetRequestQuery } from 'src/store/api/app'
 import { CippPage } from 'src/components/layout'
 import { ModalService } from 'src/components/utilities'
-import { TitleButton } from 'src/components/buttons'
 
 //todo: expandable with RAWJson property.
 
@@ -124,9 +123,6 @@ const AutopilotListTemplates = () => {
 
           <CippDatatable
             keyField="id"
-            titleButton={
-              <TitleButton href="/endpoint/MEM/add-policy-template" title="Add Template" />
-            }
             reportName={`${tenant?.defaultDomainName}-MEMPolicyTemplates-List`}
             path="/api/ListIntuneTemplates?View=true"
             columns={columns}

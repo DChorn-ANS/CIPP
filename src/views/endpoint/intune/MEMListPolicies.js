@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CippPageList } from 'src/components/layout'
 import { Link } from 'react-router-dom'
 import { CippActionsOffcanvas } from 'src/components/utilities'
+import { TitleButton } from 'src/components/buttons'
 
 const Actions = (row, rowIndex, formatExtraData) => {
   const [ocVisible, setOCVisible] = useState(false)
@@ -95,6 +96,11 @@ const IntuneList = () => {
   return (
     <CippPageList
       title="MEM Policies"
+      titleButton={
+        <>
+          <TitleButton href="/endpoint/MEM/add-policy" title="Deploy Policy" />
+        </>
+      }
       tenantSelector={true}
       datatable={{
         path: '/api/ListIntunePolicy?type=ESP',

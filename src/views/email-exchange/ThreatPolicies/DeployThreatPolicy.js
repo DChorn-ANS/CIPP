@@ -32,7 +32,7 @@ Error.propTypes = {
 const requiredArray = (value) => (value && value.length !== 0 ? undefined : 'Required')
 
 const AddPolicy = () => {
-  const [ThreatPolicyGetRequest, ThreatPolicyTemplates] = useLazyGenericGetRequestQuery()
+  const [DefenderForOfficeGetRequest, DefenderForOfficeTemplates] = useLazyGenericGetRequestQuery()
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const handleSubmit = async (values) => {
@@ -41,7 +41,7 @@ const AddPolicy = () => {
     )
     values.TemplateType = values.Type
     genericPostRequest({
-      path: '/api/AddThreatPolicy?Function=SafeLinks',
+      path: '/api/AddDefenderForOffice?Function=SafeLinks',
       values: values,
     })
   }
@@ -55,7 +55,7 @@ const AddPolicy = () => {
           {({ form }) => (
             <OnChange name={field}>
               {(value) => {
-                let template = ThreatPolicyTemplates.data.filter(function (obj) {
+                let template = DefenderForOfficeTemplates.data.filter(function (obj) {
                   return obj.GUID === value
                 })
                 // console.log(template[0][set])
@@ -125,14 +125,14 @@ const AddPolicy = () => {
         <hr className="my-4" />
         <CRow>
           <CCol md={12}>
-            {ThreatPolicyTemplates.isUninitialized &&
-              ThreatPolicyGetRequest({
-                path: 'api/ListThreatPolicyTemplates',
+            {DefenderForOfficeTemplates.isUninitialized &&
+              DefenderForOfficeGetRequest({
+                path: 'api/ListDefenderForOfficeTemplates',
               })}
-            {ThreatPolicyTemplates.isSuccess && (
+            {DefenderForOfficeTemplates.isSuccess && (
               <RFFCFormSelect
                 name="TemplateList"
-                values={ThreatPolicyTemplates.data?.map((template) => ({
+                values={DefenderForOfficeTemplates.data?.map((template) => ({
                   value: template.GUID,
                   label: template.Type + ' - ' + template.name,
                 }))}
