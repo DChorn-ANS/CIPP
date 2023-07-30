@@ -5,12 +5,12 @@ import { CippContentCard, CippPage } from 'src/components/layout'
 import { RFFCFormTextarea, RFFCFormSelect } from 'src/components/forms'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 
-const DefenderForOfficeTemplates = () => {
+const ThreatPolicyTemplates = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const handleSubmit = async (values) => {
     genericPostRequest({
-      path: '/api/AddDefenderForOfficeTemplate?Function=' + values.PolicyType,
+      path: '/api/AddThreatPolicyTemplate?Function=' + values.PolicyType,
       values,
     })
   }
@@ -33,7 +33,7 @@ const DefenderForOfficeTemplates = () => {
                   <CCol>
                     <RFFCFormInput
                       type="text"
-                      name="displayName"
+                      name="name"
                       label="Display Name"
                       placeholder="Enter the Display Name"
                       validate={required}
@@ -92,4 +92,4 @@ const DefenderForOfficeTemplates = () => {
     </CippPage>
   )
 }
-export default DefenderForOfficeTemplates
+export default ThreatPolicyTemplates
