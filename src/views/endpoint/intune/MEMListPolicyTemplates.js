@@ -121,6 +121,9 @@ const AutopilotListTemplates = () => {
 
           <CippDatatable
             keyField="id"
+            titleButton={
+              <TitleButton href="/endpoint/MEM/add-policy-template" title="Add Template" />
+            }
             reportName={`${tenant?.defaultDomainName}-MEMPolicyTemplates-List`}
             path="/api/ListIntuneTemplates?View=true"
             columns={columns}
