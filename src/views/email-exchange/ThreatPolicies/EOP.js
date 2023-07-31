@@ -26,9 +26,9 @@ const DefenderForOfficeSettings = () => {
       <CCol>
         <CRow className="mb-3">
           <div className="d-flex justify-content-end">
-            <CButton className="ms-auto" color="primary" href="/email/DefenderForOffice/deploy">
+            <CButton className="ms-auto" color="primary" href="/email/threatpolicies/deploy">
               <FontAwesomeIcon icon={faPlus} className="pe-1" />
-              Add Template
+              Apply Template
             </CButton>
           </div>
         </CRow>
@@ -333,7 +333,7 @@ const PhishingSettings = () => {
       title="Anti Phishing"
       tenantSelector={true}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
+        reportName: `${tenant?.defaultDomainName}-threatpolicies-list`,
         path: '/api/ListDefenderForOffice?Function=AntiPhish',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
@@ -637,7 +637,7 @@ const AntispamInboundSettings = () => {
       title="Inbound Anti Spam"
       tenantSelector={true}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
+        reportName: `${tenant?.defaultDomainName}-threatpolicies-list`,
         path: '/api/ListDefenderForOffice?Function=HostedContentFilter',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
@@ -846,7 +846,7 @@ const AntispamOutboundSettings = () => {
       title="Outbound Anti Spam"
       tenantSelector={true}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
+        reportName: `${tenant?.defaultDomainName}-threatpolicies-list`,
         path: '/api/ListDefenderForOffice?Function=HostedOutboundSpamFilter',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
@@ -1049,7 +1049,7 @@ const AntimalwareSettings = () => {
       title="Anti Malware"
       tenantSelector={true}
       datatable={{
-        reportName: `${tenant?.defaultDomainName}-DefenderForOffice-list`,
+        reportName: `${tenant?.defaultDomainName}-threatpolicies-list`,
         path: '/api/ListDefenderForOffice?Function=MalwareFilter',
         params: { TenantFilter: tenant?.defaultDomainName },
         columns,
