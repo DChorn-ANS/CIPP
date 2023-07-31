@@ -110,13 +110,13 @@ const customSort = (rows, selector, direction) => {
     if (
       aField
         .toString()
-        .localeCompare(bField.toString(), 'en', { numeric: true, sensitivity: 'base' }) > 0
+        .localeCompare(bField.toString(), 'en', { numeric: true}) > 0
     ) {
       comparison = 1
     } else if (
       aField
         .toString()
-        .localeCompare(bField.toString(), 'en', { numeric: true, sensitivity: 'base' }) < 0
+        .localeCompare(bField.toString(), 'en', { numeric: true}) < 0
     ) {
       comparison = -1
     }
