@@ -197,18 +197,18 @@ const AddTransportTemplate = React.lazy(() =>
 const TransportDeploy = React.lazy(() =>
   import('src/views/email-exchange/transport/DeployTransport'),
 )
-const EOPList = React.lazy(() => import('src/views/email-exchange/threatpolicies/EOP'))
+const EOPList = React.lazy(() => import('src/views/email-exchange/ThreatPolicies/EOP'))
 const DefenderForOfficeList = React.lazy(() =>
-  import('src/views/email-exchange/threatpolicies/DefenderForOffice'),
+  import('src/views/email-exchange/ThreatPolicies/DefenderForOffice'),
 )
 const ThreatPolicyTemplate = React.lazy(() =>
-  import('src/views/email-exchange/threatpolicies/ListThreatPolicyTemplates'),
+  import('src/views/email-exchange/ThreatPolicies/ListThreatPolicyTemplates'),
 )
 const AddThreatPolicyTemplate = React.lazy(() =>
-  import('src/views/email-exchange/threatpolicies/AddThreatPolicyTemplate'),
+  import('src/views/email-exchange/ThreatPolicies/AddThreatPolicyTemplate'),
 )
 const ThreatPolicyDeploy = React.lazy(() =>
-  import('src/views/email-exchange/threatpolicies/DeployThreatPolicy'),
+  import('src/views/email-exchange/ThreatPolicies/DeployThreatPolicy'),
 )
 const ConnectorList = React.lazy(() => import('src/views/email-exchange/connectors/ConnectorList'))
 const ConnectorListTemplates = React.lazy(() =>
