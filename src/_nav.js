@@ -641,22 +641,22 @@ const _nav = [
       {
         component: CNavItem,
         name: 'EOP Policies',
-        to: '/email/ThreatPolicy/list-eop-policies',
+        to: '/email/threatpolicies/list-eop-policies',
       },
       {
         component: CNavItem,
         name: 'Defender for Office Policies',
-        to: '/email/ThreatPolicy/list-dfo-policies',
+        to: '/email/threatpolicies/list-dfo-policies',
       },
       {
         component: CNavItem,
         name: 'Apply Threat Policy Template',
-        to: '/email/ThreatPolicy/deploy',
+        to: '/email/threatpolicies/deploy',
       },
       {
         component: CNavItem,
         name: 'Threat Policy Templates',
-        to: '/email/ThreatPolicy/list-templates',
+        to: '/email/threatpolicies/list-templates',
       },
     ],
   },
