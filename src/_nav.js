@@ -640,8 +640,13 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Threat Policies',
-        to: '/email/ThreatPolicy/list-policies',
+        name: 'EOP Policies',
+        to: '/email/ThreatPolicy/list-eop-policies',
+      },
+      {
+        component: CNavItem,
+        name: 'Defender for Office Policies',
+        to: '/email/ThreatPolicy/list-dfo-policies',
       },
       {
         component: CNavItem,

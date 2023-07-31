@@ -197,8 +197,9 @@ const AddTransportTemplate = React.lazy(() =>
 const TransportDeploy = React.lazy(() =>
   import('src/views/email-exchange/transport/DeployTransport'),
 )
-const ThreatPolicyList = React.lazy(() =>
-  import('src/views/email-exchange/ThreatPolicies/ThreatPolicy'),
+const EOPList = React.lazy(() => import('src/views/email-exchange/ThreatPolicies/EOP'))
+const DefenderForOfficeList = React.lazy(() =>
+  import('src/views/email-exchange/ThreatPolicies/DefenderForOffice'),
 )
 const ThreatPolicyTemplate = React.lazy(() =>
   import('src/views/email-exchange/ThreatPolicies/ListThreatPolicyTemplates'),
@@ -561,22 +562,27 @@ const routes = [
     component: AddTransportTemplate,
   },
   {
-    path: '/email/ThreatPolicy/list-policies',
-    name: 'List Defender For Office 365',
-    component: ThreatPolicyList,
+    path: '/email/threatpolicies/list-eop-policies',
+    name: 'List Exchange Online Protections',
+    component: EOPList,
   },
   {
-    path: '/email/ThreatPolicy/deploy',
+    path: '/email/threatpolicies/list-dfo-policies',
+    name: 'List Defender For Office 365',
+    component: DefenderForOfficeList,
+  },
+  {
+    path: '/email/threatpolicies/deploy',
     name: 'Deploy Defender for Office 365',
     component: ThreatPolicyDeploy,
   },
   {
-    path: '/email/ThreatPolicy/list-templates',
+    path: '/email/threatpolicies/list-templates',
     name: 'Defender for Office 365 Templates',
     component: ThreatPolicyTemplate,
   },
   {
-    path: '/email/ThreatPolicy/add-template',
+    path: '/email/threatpolicies/add-template',
     name: 'Defender for Office 365 Template',
     component: AddThreatPolicyTemplate,
   },

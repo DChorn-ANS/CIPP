@@ -41,7 +41,7 @@ const AddPolicy = () => {
     )
     values.TemplateType = values.Type
     genericPostRequest({
-      path: '/api/AddDefenderForOffice?Function=' + values.Type,
+      path: '/api/AddDefenderForOffice',
       values: values,
     })
   }
