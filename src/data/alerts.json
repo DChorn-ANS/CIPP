@@ -66,14 +66,14 @@
     "recommendedRunInterval": "1d"
   },
   {
-    "name": "RedundantLicenses",
-    "label": "Alert on redundant licenses",
-    "recommendedRunInterval": "1d"
-  },
-  {
     "name": "OverusedLicenses",
     "label": "Alert on overused licenses",
     "recommendedRunInterval": "7d"
+  },
+  {
+    "name": "RedundantLicenses",
+    "label": "Alert on redundant licenses",
+    "recommendedRunInterval": "1d"
   },
   {
     "name": "AppSecretExpiry",
